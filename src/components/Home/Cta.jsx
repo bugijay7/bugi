@@ -15,7 +15,7 @@ function Cta() {
   href="mailto:yohanlabske@gmail.com"
   className="text-[2rem] sm:text-[2rem] md:text-[4rem] font-extrabold uppercase break-words text-[#090909] leading-tight hover:text-[#de5f5e] transition-colors duration-300"
 >
-  yohanlabske@gmail.com
+  yohanlabske<br></br>@gmail.com
 </a>
 
 
