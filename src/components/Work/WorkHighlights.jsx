@@ -1,7 +1,7 @@
 import React from 'react';
 import earth from '../../assets/earth.png';
 import turs from '../../assets/turs.png';
-import muscleDistrict from '../../assets/muscleDistrict.png';
+import muscleDistrict from '../../assets/muscledistrict.png';
 import kashio from '../../assets/kashio.png';
 
 function WorkHighlights() {
