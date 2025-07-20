@@ -30,7 +30,7 @@ function Contacts() {
               href="tel:+254702443418"
               className="block text-white no-underline uppercase text-[3rem] sm:text-[4.5rem] md:text-[6rem] lg:text-[9rem] font-extrabold"
             >
-              +254 702<br />443418
+              +254 702443418
             </a>
           </p>
         </section>
