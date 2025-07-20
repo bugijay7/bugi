@@ -4,6 +4,7 @@ function Contacts() {
   return (
     <div className="bg-black flex justify-center items-center min-h-screen px-4">
       <div className="w-full max-w-6xl mt-10">
+
         {/* Email Section */}
         <section className="mt-24">
           <p className="text-white text-left text-xl md:text-2xl font-semibold mb-6">
@@ -15,6 +16,21 @@ function Contacts() {
               className="block text-white no-underline uppercase text-[3rem] sm:text-[4.5rem] md:text-[6rem] lg:text-[9rem] font-extrabold"
             >
               yohanlabske@<br />gmail.com
+            </a>
+          </p>
+        </section>
+
+        {/* Phone Section */}
+        <section className="mt-24">
+          <p className="text-white text-left text-xl md:text-2xl font-semibold mb-6">
+            OR CALL ME
+          </p>
+          <p className="leading-none">
+            <a
+              href="tel:+254702443418"
+              className="block text-white no-underline uppercase text-[3rem] sm:text-[4.5rem] md:text-[6rem] lg:text-[9rem] font-extrabold"
+            >
+              +254 702<br />443418
             </a>
           </p>
         </section>
@@ -42,6 +58,7 @@ function Contacts() {
             </p>
           ))}
         </section>
+
       </div>
     </div>
   );
