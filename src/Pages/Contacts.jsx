@@ -14,7 +14,7 @@ function Contacts() {
               href="mailto:yohanlabs@gmail.com"
               className="block text-white no-underline uppercase text-[3rem] sm:text-[4.5rem] md:text-[6rem] lg:text-[9rem] font-extrabold"
             >
-              yohanlabs@<br />gmail.com
+              yohanlabske@<br />gmail.com
             </a>
           </p>
         </section>
