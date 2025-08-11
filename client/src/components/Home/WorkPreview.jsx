@@ -1,6 +1,6 @@
 import React from 'react';
 import earth from '../../assets/earth.jpeg';
-import portfolio from '../../assets/portfolio.JPG';
+import portfolio from '../../assets/portfolio.jpg';
 
 function WorkPreview() {
   return (
