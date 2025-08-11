@@ -22,7 +22,7 @@ function Navbar() {
       : 'bg-[#090909] text-white'
       }`}
     >
-      <nav className=" mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+      <nav  className="w-full max-w-full overflow-x-hidden mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="no-underline hover:opacity-80">
          <h1
