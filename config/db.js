@@ -1,9 +1,10 @@
-// config/db.js
-import postgres from 'postgres';
-import dotenv from 'dotenv';
+import { neon } from "@neondatabase/serverless";
+import dotenv from "dotenv";
+dotenv.config();
 
-dotenv.config(); // Load .env variables
+const { PGHOST, PGUSER, PGPASSWORD, PGDATABASE, PGPORT } = process.env;
 
-export const sql = postgres(process.env.DATABASE_URL, {
-  ssl: 'require',
-});
+export const sql = neon(
+    `postgres://${PGUSER}:${PGPASSWORD}@${PGHOST}:${PGPORT}/${PGDATABASE}?sslmode=require`,
+);
+

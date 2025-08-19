@@ -4,12 +4,16 @@ import Highlights from '../components/Home/Highlights'
 import WorkPreview from '../components/Home/WorkPreview'
 import Cta from '../components/Home/Cta'
 import Solution from '../components/Home/Solution'
+import Benefits from '../components/Home/Benefits'
+import ServicesPreview from '../components/Home/ServicesPreview'
 
 function Home() {
   return (
-    <div className='bg-gray-200'>
+    <div>
         <Hero />
-        <Solution />
+          <Solution />
+        <ServicesPreview />
+        <Benefits />
         <Highlights />
         <WorkPreview />
         <Cta />

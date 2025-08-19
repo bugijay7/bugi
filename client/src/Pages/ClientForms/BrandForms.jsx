@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { motion } from 'framer-motion';
 
 function BrandForms() {
   const [formData, setFormData] = useState({
@@ -36,11 +37,9 @@ function BrandForms() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const token = localStorage.getItem('token'); // if using JWT
+      const token = localStorage.getItem('token');
       await axios.post('http://localhost:3000/api/brands', formData, {
-        headers: {
-          Authorization: `Bearer ${token}`, // optional
-        },
+        headers: { Authorization: `Bearer ${token}` },
       });
       alert('Form submitted successfully!');
       setFormData({
@@ -65,50 +64,102 @@ function BrandForms() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-200 py-30 px-6 sm:px-12 lg:px-20 text-gray-800 font-sans">
-      <div className="max-w-4xl mx-auto bg-white shadow-md rounded-xl p-8">
-        <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-center text-red-500 uppercase">
-          Brand Website Questionnaire
-        </h1>
-        <p className="text-center text-gray-600 mb-10">
-          Tell us more about your brand, audience, and goals — so we can create a high-impact online presence that works for you.
-        </p>
+    <div className="min-h-screen pt-30 bg-[#090909] py-20 px-6 sm:px-12 lg:px-20 text-gray-800 font-sans">
+      <motion.div 
+        className="max-w-4xl mx-auto bg-white/90 backdrop-blur-md shadow-xl rounded-2xl p-10 border border-gray-100"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
+        {/* Header */}
+        <div className="mb-10 text-center">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Brand Website Questionnaire</h1>
+          <p className="text-lg text-gray-600">
+            Let’s create a website that <span className="text-red-500 font-semibold">captures your brand</span> 
+            and drives real results 🚀
+          </p>
+        </div>
 
-        <form className="space-y-6" onSubmit={handleSubmit}>
-          <div>
-            <label className="block text-sm font-medium">Full Name</label>
-            <input type="text" name="fullName" value={formData.fullName} onChange={handleChange} className="w-full border p-3 rounded mt-1" placeholder="Jane Doe" />
-          </div>
+        {/* Intro */}
+        <div className="mb-10 text-gray-700 leading-relaxed bg-gray-50 p-6 rounded-xl border">
+          <p className="mb-4 text-base">
+            A <strong>brand website</strong> is your 24/7 storefront, credibility booster, and lead generator. 
+            Whether you’re a coach, agency, or small business, the right website helps you:
+          </p>
+          <ul className="list-disc pl-6 space-y-2 text-gray-700">
+            <li><strong>Build trust:</strong> Professional design signals credibility.</li>
+            <li><strong>Showcase your value:</strong> Services, testimonials & stories.</li>
+            <li><strong>Generate leads:</strong> Turn visitors into clients.</li>
+            <li><strong>Stay competitive:</strong> Strong online presence matters.</li>
+            <li><strong>Grow visibility:</strong> Go beyond referrals & word-of-mouth.</li>
+          </ul>
+        </div>
 
-          <div>
-            <label className="block text-sm font-medium">Business / Brand Name</label>
-            <input type="text" name="brandName" value={formData.brandName} onChange={handleChange} className="w-full border p-3 rounded mt-1" placeholder="e.g., Thrive Coaching Studio" />
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div>
-              <label className="block text-sm font-medium">Email</label>
-              <input type="email" name="email" value={formData.email} onChange={handleChange} className="w-full border p-3 rounded mt-1" />
+        {/* Form */}
+        <form className="space-y-8" onSubmit={handleSubmit}>
+          {/* Input Group */}
+          {[
+            { label: 'Full Name', name: 'fullName', type: 'text', placeholder: 'Jane Doe' },
+            { label: 'Business / Brand Name', name: 'brandName', type: 'text', placeholder: 'Thrive Coaching Studio' },
+          ].map((field) => (
+            <div key={field.name}>
+              <label className="block text-sm font-semibold text-gray-800">{field.label}</label>
+              <input 
+                type={field.type} 
+                name={field.name} 
+                value={formData[field.name]} 
+                onChange={handleChange} 
+                placeholder={field.placeholder}
+                className="w-full border p-3 rounded-lg mt-2 focus:ring-2 focus:ring-red-400 focus:border-red-400 transition"
+              />
             </div>
-            <div>
-              <label className="block text-sm font-medium">Phone / WhatsApp</label>
-              <input type="tel" name="phone" value={formData.phone} onChange={handleChange} className="w-full border p-3 rounded mt-1" />
+          ))}
+
+          {/* Email + Phone */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {[
+              { label: 'Email', name: 'email', type: 'email' },
+              { label: 'Phone / WhatsApp', name: 'phone', type: 'tel' },
+            ].map((field) => (
+              <div key={field.name}>
+                <label className="block text-sm font-semibold">{field.label}</label>
+                <input 
+                  type={field.type} 
+                  name={field.name} 
+                  value={formData[field.name]} 
+                  onChange={handleChange} 
+                  className="w-full border p-3 rounded-lg mt-2 focus:ring-2 focus:ring-red-400 focus:border-red-400 transition"
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Larger Text Areas */}
+          {[
+            { label: 'Briefly describe what your brand does', name: 'brandDescription', rows: 3 },
+            { label: 'Who is your target audience?', name: 'targetAudience', rows: 2 },
+          ].map((field) => (
+            <div key={field.name}>
+              <label className="block text-sm font-semibold">{field.label}</label>
+              <textarea 
+                name={field.name} 
+                value={formData[field.name]} 
+                onChange={handleChange} 
+                rows={field.rows}
+                className="w-full border p-3 rounded-lg mt-2 focus:ring-2 focus:ring-red-400 focus:border-red-400 transition"
+              />
             </div>
-          </div>
+          ))}
 
+          {/* Dropdown */}
           <div>
-            <label className="block text-sm font-medium">Briefly describe what your brand does</label>
-            <textarea name="brandDescription" value={formData.brandDescription} onChange={handleChange} className="w-full border p-3 rounded mt-1" rows="3" />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium">Who is your target audience?</label>
-            <textarea name="targetAudience" value={formData.targetAudience} onChange={handleChange} className="w-full border p-3 rounded mt-1" rows="2" />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium">What’s the main goal of your website?</label>
-            <select name="websiteGoal" value={formData.websiteGoal} onChange={handleChange} className="w-full border p-3 rounded mt-1">
+            <label className="block text-sm font-semibold">What’s the main goal of your website?</label>
+            <select 
+              name="websiteGoal" 
+              value={formData.websiteGoal} 
+              onChange={handleChange} 
+              className="w-full border p-3 rounded-lg mt-2 focus:ring-2 focus:ring-red-400 transition"
+            >
               <option value="">-- Select --</option>
               <option>Get more leads / inquiries</option>
               <option>Showcase services or products</option>
@@ -117,29 +168,10 @@ function BrandForms() {
             </select>
           </div>
 
+          {/* Checkboxes */}
           <div>
-            <label className="block text-sm font-medium">What sections should the site include?</label>
-            <textarea name="siteSections" value={formData.siteSections} onChange={handleChange} className="w-full border p-3 rounded mt-1" rows="2" placeholder="About, Services, Blog, Testimonials, Contact, etc." />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium">Do you already have a logo & brand assets?</label>
-            <select name="brandAssets" value={formData.brandAssets} onChange={handleChange} className="w-full border p-3 rounded mt-1">
-              <option value="">-- Select --</option>
-              <option>Yes, I have a full brand kit</option>
-              <option>Just a logo</option>
-              <option>I need help with branding</option>
-            </select>
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium">Share any websites you like (for style inspiration)</label>
-            <input type="text" name="styleInspiration" value={formData.styleInspiration} onChange={handleChange} placeholder="e.g., www.brandx.com" className="w-full border p-3 rounded mt-1" />
-          </div>
-
-          <div>
-            <label className="block text-sm font-medium">Will your site need any of the following?</label>
-            <div className="grid grid-cols-2 gap-3 mt-2 text-sm">
+            <label className="block text-sm font-semibold">Will your site need any of the following?</label>
+            <div className="grid grid-cols-2 gap-3 mt-4 text-sm">
               {[
                 "Newsletter signup",
                 "Lead capture forms",
@@ -148,36 +180,61 @@ function BrandForms() {
                 "Portfolio / Case studies",
                 "Video embedding"
               ].map((feature) => (
-                <label key={feature}>
+                <label key={feature} className="flex items-center space-x-2 bg-gray-50 p-3 rounded-lg hover:bg-gray-100 cursor-pointer">
                   <input
                     type="checkbox"
                     name="features"
                     value={feature}
                     checked={formData.features.includes(feature)}
                     onChange={handleChange}
-                    className="mr-2"
+                    className="accent-red-500"
                   />
-                  {feature}
+                  <span>{feature}</span>
                 </label>
               ))}
             </div>
           </div>
 
-          <div>
-            <label className="block text-sm font-medium">When would you like your site ready?</label>
-            <input type="text" name="timeline" value={formData.timeline} onChange={handleChange} placeholder="E.g., 3 weeks, ASAP..." className="w-full border p-3 rounded mt-1" />
-          </div>
+          {/* Timeline + Notes */}
+          {[
+            { label: 'When would you like your site ready?', name: 'timeline', type: 'text', placeholder: 'E.g., 3 weeks, ASAP...' },
+            { label: 'Any other notes or special features you want?', name: 'notes', type: 'textarea', placeholder: 'Booking calendar, live chat, etc.', rows: 3 },
+          ].map((field) => (
+            <div key={field.name}>
+              <label className="block text-sm font-semibold">{field.label}</label>
+              {field.type === 'textarea' ? (
+                <textarea 
+                  name={field.name} 
+                  value={formData[field.name]} 
+                  onChange={handleChange} 
+                  rows={field.rows}
+                  placeholder={field.placeholder}
+                  className="w-full border p-3 rounded-lg mt-2 focus:ring-2 focus:ring-red-400 focus:border-red-400 transition"
+                />
+              ) : (
+                <input 
+                  type={field.type} 
+                  name={field.name} 
+                  value={formData[field.name]} 
+                  onChange={handleChange} 
+                  placeholder={field.placeholder}
+                  className="w-full border p-3 rounded-lg mt-2 focus:ring-2 focus:ring-red-400 focus:border-red-400 transition"
+                />
+              )}
+            </div>
+          ))}
 
-          <div>
-            <label className="block text-sm font-medium">Any other notes or special features you want?</label>
-            <textarea name="notes" value={formData.notes} onChange={handleChange} placeholder="Booking calendar, live chat, etc." className="w-full border p-3 rounded mt-1" rows="3" />
-          </div>
-
-          <button type="submit" className="w-full mt-6 bg-red-500 hover:bg-red-600 text-white py-3 rounded font-semibold text-lg">
-            Submit Brand Form
-          </button>
+          {/* Submit */}
+          <motion.button 
+            whileHover={{ scale: 1.03 }} 
+            whileTap={{ scale: 0.97 }}
+            type="submit" 
+            className="w-full mt-8 bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white py-4 rounded-xl font-semibold text-lg shadow-md transition"
+          >
+            🚀 Submit Brand Form
+          </motion.button>
         </form>
-      </div>
+      </motion.div>
     </div>
   );
 }

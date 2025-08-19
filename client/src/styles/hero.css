@@ -1,0 +1,219 @@
+.hero-container {
+  padding-top: 120px;
+  padding-bottom: 80px;
+  max-width: 1400px;
+  margin: auto;
+  color: #090909;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+/* Flex container for left text & right image */
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 100px;
+}
+
+/* Left: Text section */
+.hero-text {
+  flex: 1;
+  max-width: 800px;
+}
+
+.hero-title {
+  font-size: 5rem;
+  font-weight: 900;
+  line-height: 1.1;
+  text-transform: uppercase;
+  animation: fadeInUp 0.8s ease forwards;
+  margin-bottom: 32px;
+  text-align: left;
+}
+
+.title-text {
+  font-style: italic;
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-align: left;
+  font-size: 1rem;
+}
+
+.highlight-word {
+  color: teal;
+}
+
+/* Description under the title */
+.hero-description {
+  font-size: 0.8rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.highlight-link {
+  color: #e63946;
+  text-decoration: underline;
+  font-weight: 800;
+}
+
+/* Buttons under text */
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.hero-btn {
+  padding: 10px 20px;
+  background-color: teal;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-top: 30px;
+}
+
+.hero-btn:hover {
+  background-color: #c92c3a;
+}
+
+.hero-btn.secondary {
+  background-color: #1f2937;
+}
+
+.hero-btn.secondary:hover {
+  background-color: #111827;
+}
+
+/* Right: Image section */
+.hero-image-wrapper {
+  flex: 1;
+  max-width: 500px;
+  height: 600px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.hero-image:hover {
+  transform: scale(1.05);
+}
+
+/* Animation for fade-in effect */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive stacking for mobile */
+@media (max-width: 768px) {
+  .hero-container {
+  padding-top: 80px;
+  margin: auto;
+  color: #090909;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column-reverse;
+  gap: 15px;
+}
+
+/* Left: Text section */
+
+
+.hero-title {
+  font-size: 2rem;
+  font-weight: 900;
+  line-height: 1.1;
+  text-transform: uppercase;
+  animation: fadeInUp 0.8s ease forwards;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.title-text {
+  font-style: italic;
+  font-weight: 600;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.highlight-word {
+  color: teal;
+}
+
+/* Description under the title */
+.hero-description {
+  font-size: 0.6rem;
+  margin-bottom: 10px;
+}
+
+.highlight-link {
+  color: #e63946;
+  text-decoration: underline;
+  font-weight: 800;
+}
+
+/* Buttons under text */
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  padding-left: 60px;
+}
+
+.hero-btn {
+  padding: 5px 10px;
+  background-color: teal;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-top: 10px;
+}
+
+
+
+
+.hero-image-wrapper {
+  max-width: 300px;
+  height: 350px;
+  overflow: hidden;
+ 
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+   border-radius: 10px;
+  transition: transform 0.6s ease;
+}
+
+.hero-image:hover {
+  transform: scale(1.05);
+}
+
+}

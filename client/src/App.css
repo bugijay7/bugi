@@ -11,6 +11,9 @@
   body {
     @apply bg-gray-200 text-black;
   }
+   * {
+    @apply m-0 p-0;
+  }
 }
 
 

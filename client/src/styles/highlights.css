@@ -1,0 +1,237 @@
+
+.highlights-section {
+  background-color: #e5e7eb; /* bg-gray-200 */
+  color: black;
+  margin-top: 5rem; /* mt-20 */
+}
+
+.highlights-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 9rem 1.5rem; /* py-36 px-6 */
+}
+
+.highlights-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem; /* gap-12 */
+  align-items: flex-start;
+}
+
+.highlights-aside {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.highlights-img {
+  width: 100%;
+  height: 700px;
+  object-fit: cover;
+  border-radius: 0.75rem; /* rounded-xl */
+  box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+}
+
+.highlights-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.highlights-title {
+  font-size: 2.25rem; /* text-4xl */
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.highlights-intro {
+  font-size: 1rem;
+}
+
+.highlights-grid {
+  display: grid;
+  gap: 1.5rem; /* gap-6 */
+  margin-top: 1.5rem;
+}
+
+.highlights-card {
+  background-color: #f3f4f6; /* bg-gray-100 */
+  border-radius: 0.5rem; /* rounded-lg */
+  padding: 1.25rem; /* p-5 */
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  transition: box-shadow 0.2s ease;
+}
+
+.highlights-card:hover {
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+}
+
+.highlights-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* gap-3 */
+  margin-bottom: 0.75rem;
+}
+
+.highlights-card-title {
+  font-size: 1.125rem; /* text-lg */
+  font-weight: 600;
+}
+
+.highlights-card-text {
+  font-size: 0.875rem; /* text-sm */
+  color: #374151; /* text-gray-700 */
+}
+
+.solution-label {
+  color: #0d9488; /* text-teal-700 */
+}
+
+.highlights-cta {
+  margin-top: 1rem;
+}
+
+.highlights-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4338ca; /* text-indigo-700 */
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.highlights-link:hover {
+  color: black;
+}
+
+.arrow-icon {
+  margin-top: 2px;
+}
+
+.icon-indigo { color: #4f46e5; }
+.icon-green { color: #16a34a; }
+.icon-yellow { color: #eab308; }
+.icon-pink { color: #ec4899; }
+.icon-blue { color: #3b82f6; }
+.icon-red { color: #ef4444; }
+
+
+@media screen and (max-width: 768px)   {
+
+.highlights-section {
+  background-color: #e5e7eb; 
+  color: black;
+  margin-top: -3rem; 
+  margin-bottom: -9rem;
+}
+
+.highlights-flex {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; 
+  align-items: flex-start;
+}
+
+.highlights-aside {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.highlights-img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 0.75rem; 
+}
+
+.highlights-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.highlights-title {
+  font-size: 0.75rem; 
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.highlights-intro {
+  font-size: 0.5rem;
+  max-width: 200px;
+  margin: auto;
+  text-align: center;
+}
+
+.highlights-grid {
+  display: grid;
+  gap: 0.5rem; 
+  margin-top: 1rem;
+}
+
+.highlights-card {
+  background-color: #f3f4f6; 
+  border-radius: 0.5rem; 
+}
+
+
+.highlights-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.highlights-card-title {
+  font-size: 0.75rem; 
+  font-weight: 600;
+}
+
+.highlights-card-text {
+  font-size: 0.5rem; /* text-sm */
+  color: #374151; /* text-gray-700 */
+}
+
+.solution-label {
+  color: #0d9488; /* text-teal-700 */
+}
+
+.highlights-cta {
+  margin-top: 1rem;
+}
+
+.highlights-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #4338ca; /* text-indigo-700 */
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.highlights-link:hover {
+  color: black;
+}
+
+.arrow-icon {
+  margin-top: 2px;
+}
+
+.icon-indigo { color: #4f46e5; }
+.icon-green { color: #16a34a; }
+.icon-yellow { color: #eab308; }
+.icon-pink { color: #ec4899; }
+.icon-blue { color: #3b82f6; }
+.icon-red { color: #ef4444; }
+
+
+
+}

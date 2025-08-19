@@ -22,6 +22,13 @@ import BrandForms from './Pages/ClientForms/BrandForms'
 import StoreForms from './Pages/ClientForms/StoreForms'
 import CauseForms from './Pages/ClientForms/CauseForms'
 
+import AdminHome from '../src/Pages/AdminHome';
+import GetConsultation from '../src/Pages/Admin/Consultations';
+import GetBrands from '../src/Pages/Admin/Brands';
+import GetCauses from '../src/Pages/Admin/Causes';
+import GetPortfolio from '../src/Pages/Admin/Portfolio';
+import GetStores from '../src/Pages/Admin/Stores';
+
 function App() {
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -63,6 +70,12 @@ function App() {
          <Route path="/ClientForms/BrandForms" element={<BrandForms />} />
          <Route path="/ClientForms/StoreForms" element={<StoreForms />} />
          <Route path="/ClientForms/CauseForms" element={<CauseForms />} />
+         <Route path="/20250816" element={<AdminHome />} />
+        <Route path="/admin/consultations" element={<GetConsultation />} />
+        <Route path="/admin/brands" element={<GetBrands />} />
+        <Route path="/admin/causes" element={<GetCauses />} />
+        <Route path="/admin/portfolio" element={<GetPortfolio />} />
+        <Route path="/admin/stores" element={<GetStores />} />
       </Routes>
       <WhatsappFloat />
       <Footer />

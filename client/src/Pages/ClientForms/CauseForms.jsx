@@ -61,14 +61,33 @@ function CauseForms() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-200 py-30 px-6 sm:px-12 lg:px-20 text-gray-800 font-sans">
+    <div className="min-h-screen bg-[#090909]  py-30 px-6 sm:px-12 lg:px-20 text-gray-800 font-sans">
       <div className="max-w-4xl mx-auto bg-white shadow-md rounded-xl p-8">
-        <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-center text-red-500 uppercase">
-          Cause Website Form
-        </h1>
-        <p className="text-center text-gray-600 mb-10">
-          Help us understand your mission so we can design a site that empowers your vision and engages your community.
-        </p>
+        
+         <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-center text-black uppercase">
+    Cause Website stater Pack
+  </h1>
+
+  {/* Intro Section */}
+  <div className="mb-10 text-gray-700 leading-relaxed">
+    <p className="mb-4 text-lg">
+      A <strong>cause website</strong> gives your organization a digital home—a place where you can share your
+      mission, inspire action, and connect with supporters. Whether you’re a church, charity, NGO, or community group,
+      your website becomes a hub for spreading awareness and mobilizing resources.
+    </p>
+    <p className="mb-2 font-semibold">Why a cause website matters:</p>
+    <ul className="list-disc pl-6 space-y-2">
+      <li><strong>Increase Awareness:</strong> Share your mission with a wider audience and tell your story effectively.</li>
+      <li><strong>Mobilize Support:</strong> Inspire donations, recruit volunteers, and strengthen partnerships.</li>
+      <li><strong>Build Trust:</strong> Showcase transparency through updates, impact reports, and testimonials.</li>
+      <li><strong>Engage Community:</strong> Keep people connected with events, news, and programs.</li>
+      <li><strong>Expand Reach:</strong> Go beyond your local area and connect with supporters worldwide.</li>
+    </ul>
+  </div>
+
+  <p className="text-center text-gray-600 mb-10">
+    Fill out this form so we can design a website that reflects your mission and empowers your cause.
+  </p>
 
         <form className="space-y-6" onSubmit={handleSubmit}>
           <div>

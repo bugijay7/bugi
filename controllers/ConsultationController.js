@@ -1,9 +1,17 @@
 import { sql } from '../config/db.js';
 
+
 // Get all consultation submissions
 export const getConsultations = async (req, res) => {
   try {
-    const consultations = await sql`SELECT * FROM consultations`;
+const limit = req.query.limit || 10;
+    const offset = req.query.offset || 0;
+    const consultations = await sql`
+    
+      SELECT * FROM consultations
+      ORDER BY created_at DESC
+      LIMIT ${limit} OFFSET ${offset}`;
+
     res.status(200).json(consultations);
   } catch (error) {
     console.error('Error fetching consultations:', error);

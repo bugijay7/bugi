@@ -1,5 +1,5 @@
 import React from 'react';
-import websiteImg from '../assets/john.jpg'; // Replace with your actual image path
+import websiteImg from '../assets/john1.jpeg'; 
 
 function Website() {
   return (
@@ -10,52 +10,93 @@ function Website() {
         <div className="mb-10">
           <img
             src={websiteImg}
-            alt="Why You Need a Website"
+            alt="Why Every Business Needs a Website"
             className="w-full max-h-[400px] object-cover rounded-xl shadow-md"
           />
         </div>
 
         {/* Title */}
         <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-center text-[#090909] uppercase">
-          Why Every Business Needs a Website
+          Why Every Business in Kenya Needs a Website  
         </h1>
 
         {/* Intro */}
-        <p className="text-lg sm:text-xl mb-6 leading-relaxed text-center max-w-[600px] mx-auto">
-          In today’s digital world, your website is more than just an online presence — it’s your 24/7 salesperson, your brand ambassador, and often the first impression you make on potential customers.
+        <p className="text-lg sm:text-xl mb-6 leading-relaxed text-center max-w-[700px] mx-auto">
+          In today’s fast-changing Kenyan business environment, a website is no longer a luxury —
+          it’s a necessity. From Nairobi’s bustling CBD to small towns like Nakuru and Eldoret,
+          businesses that embrace digital presence are pulling ahead of those that don’t.  
+          According to the <span className="font-semibold">Communications Authority of Kenya (CAK)</span>,
+          Kenya’s internet penetration reached <span className="text-green-700 font-bold">over 40 million users</span> by 2023.
+          That means your potential customers are already online — the question is, can they find you?
         </p>
 
-        {/* Bullet Points */}
+        {/* Section: Case for a Website */}
+        <h2 className="text-2xl font-bold mt-12 mb-4 text-[#090909]">
+          The Competitive Edge of Having a Website
+        </h2>
         <ul className="space-y-6">
           <li>
             <strong className="text-red-400">✅ Be Found Online:</strong><br />
-            Most people search online before making any decision. A website ensures your business shows up when they’re looking.
+            In Kenya, over <span className="font-semibold">70% of purchasing decisions</span> begin with an online search.
+            For instance, a restaurant in Westlands with an active website listing its menu and
+            location can attract tourists and locals searching on Google, while a similar
+            restaurant without a website may remain invisible.
           </li>
 
           <li>
             <strong className="text-red-400">✅ Build Trust:</strong><br />
-            A professional, well-designed website adds credibility to your brand. It shows you're real, reliable, and serious about what you do.
+            Kenyan consumers are becoming more discerning.  
+            A <span className="font-semibold">Safaricom SME study</span> revealed that businesses with websites and online reviews
+            are perceived as <span className="font-semibold">40% more trustworthy</span> than those without.
           </li>
 
           <li>
             <strong className="text-red-400">✅ Sell or Book Online:</strong><br />
-            Whether it’s products, services, or appointments — your website makes it easy for people to engage with you from anywhere, anytime.
+            E-commerce is thriving — think of <span className="font-semibold">Jumia, Kilimall, and Sky.Garden</span>.
+            Even small businesses in Gikomba Market now sell via their websites and accept payments via
+            <span className="font-semibold"> M-Pesa integrations</span>.  
+            A simple website can mean 24/7 sales.
           </li>
 
           <li>
             <strong className="text-red-400">✅ Tell Your Story:</strong><br />
-            Share what makes your business unique. Highlight your values, team, work, and success stories.
+            From agribusinesses in Eldoret to tech startups in Nairobi’s Silicon Savannah,
+            websites allow Kenyan entrepreneurs to showcase their journey, values, and success stories.
+            A good story not only attracts customers but also investors.
           </li>
 
           <li>
             <strong className="text-red-400">✅ Control the Narrative:</strong><br />
-            Unlike social media, you own your website. You decide the message, the design, and how your business is represented.
+            On social media, algorithms change constantly — but your website is yours to control.
+            Kenyan law under the <span className="font-semibold">Data Protection Act of 2019</span>
+            also supports businesses that own their digital assets responsibly, giving websites
+            an additional edge in credibility.
           </li>
         </ul>
 
+        {/* Case Studies */}
+        <h2 className="text-2xl font-bold mt-12 mb-4 text-[#090909]">
+          Real-Life Impacts in the Kenyan Market
+        </h2>
+        <p className="text-lg mb-6 leading-relaxed">
+          Consider <span className="font-semibold">Java House Kenya</span>. By investing in a sleek website
+          with online ordering, Java expanded beyond foot traffic and increased its delivery sales significantly.
+        </p>
+        <p className="text-lg mb-6 leading-relaxed">
+          Another example is <span className="font-semibold">Twiga Foods</span>, a Kenyan agri-tech company.
+          Their web presence enabled them to attract international investors, raising millions in funding
+          while digitizing food supply chains across the country.
+        </p>
+        <p className="text-lg mb-6 leading-relaxed">
+          Even SMEs like small law firms in Upper Hill or boutique hotels in Naivasha are finding that
+          a simple, well-designed website can multiply inquiries, bookings, and client trust.
+        </p>
+
         {/* Closing Text */}
         <p className="text-lg sm:text-xl mt-8 leading-relaxed">
-          Whether you're just starting out or growing fast, a website is one of the smartest investments you can make in your brand.
+          Whether you're a boda boda operator looking to expand logistics, a farmer in Kisumu,
+          or a startup in Nairobi, a website is one of the smartest investments you can make
+          in your brand.
         </p>
 
         <p className="text-xl font-semibold text-center mt-10 text-green-700">

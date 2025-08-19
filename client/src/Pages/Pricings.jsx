@@ -6,8 +6,8 @@ function Pricings() {
   const packages = [
         {
       title: 'Personal Portfolios',
-      price: 'KES 5,000–15,000',
-      bg: 'bg-white',
+     
+      bg: 'bg-blue-300',
       accent: 'text-cyan-600',
       features: [
         '🎨 Custom layout & styling',
@@ -22,8 +22,8 @@ function Pricings() {
     },
     {
       title: 'Online Stores',
-      price: 'KES 50,000–90,000',
-      bg: 'bg-white',
+    
+      bg: 'bg-red-300',
       accent: 'text-red-500',
       features: [
         '🛒 Product catalog & filters',
@@ -38,8 +38,8 @@ function Pricings() {
     },
     {
       title: 'Brand Portals',
-      price: 'KES 30,000–55,000',
-      bg: 'bg-white',
+    
+      bg: 'bg-green-300',
       accent: 'text-teal-600',
       features: [
         '🌐 Branded landing pages',
@@ -55,8 +55,8 @@ function Pricings() {
 
     {
       title: 'Cause Platforms',
-      price: 'Price depends on scope',
-      bg: 'bg-white',
+   
+      bg: 'bg-purple-300',
       accent: 'text-fuchsia-600',
       features: [
         '🤝 Donation & fundraising tools',
@@ -78,7 +78,7 @@ function Pricings() {
           Website Pricing Packages
         </h2>
 
-        <p className="text-lg text-center mb-16 text-gray-600 max-w-2xl mx-auto">
+        <p className="text-lg text-center mb-16 text-black max-w-2xl mx-auto">
           Pick the right solution for your project. All plans include responsive design, basic SEO, fast loading, and optimized performance.
           <br /><br />
           <strong className="text-red-500">Custom add-ons available.</strong>
@@ -89,12 +89,12 @@ function Pricings() {
             <div key={idx} className={`rounded-xl shadow-md border ${pkg.bg} p-6`}>
               <div className="flex justify-between items-center mb-4">
                 <h3 className={`text-2xl font-bold ${pkg.accent}`}>{pkg.title}</h3>
-                <span className="text-md font-semibold text-gray-700">{pkg.price}</span>
+               
               </div>
 
               {/* Audience */}
               <div className="text-sm mb-6">
-                <p className="font-semibold text-gray-800 mb-2">Ideal for:</p>
+                <p className="font-bold text-gray-800 mb-2">Ideal for:</p>
                 <div className="grid grid-cols-2 gap-2 text-black text-sm">
                   {pkg.audience.map((aud, i) => (
                     <div key={i}>• {aud}</div>

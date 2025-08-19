@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/', getConsultations);
 router.get('/:id', getConsultationById);
-router.post('/', authenticateToken, createConsultation);
+router.post('/', createConsultation);
 router.put('/:id', authenticateToken, updateConsultation);
 router.delete('/:id', authenticateToken, deleteConsultation);
 

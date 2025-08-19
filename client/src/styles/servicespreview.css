@@ -1,0 +1,150 @@
+.service-preview-container {
+ 
+  padding: 20px 40px;
+ 
+}
+
+.service-preview-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.preview-box-left {
+   flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.preview-box-left h2 {
+    padding-top: 60px;
+  font-size: 3rem;
+  margin-bottom: 15px;
+  color: teal;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.preview-box-left p {
+  margin-bottom: 20px;
+  font-size: 1rem;
+  color: #111;
+}
+
+.preview-box-left button {
+  padding: 10px 20px;
+  background-color: teal; /* blue-600 */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.preview-box-left button:hover {
+  background-color: #1e4ed8;
+}
+
+.preview-box-right {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* two per row */
+  grid-gap: 20px;
+}
+
+.service-preview-card {
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.preview-card-title {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: teal;
+}
+
+.preview-card-text {
+  font-size: 0.95rem;
+  color: #111;
+  font-weight: 600;
+}
+
+
+@media (max-width: 768px) { 
+
+.service-preview-container {
+  padding: 5px 10px;
+}
+
+.service-preview-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: column-reverse;
+  gap: 10px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.preview-box-left {
+   flex: 1;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.preview-box-left h2 {
+  padding-top: 30px;
+  font-size: 0.7rem;
+  margin-bottom: 5px;
+  color: teal;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.preview-box-left p {
+  margin-bottom: 5px;
+  font-size: 0.5rem;
+  color: #111;
+}
+
+.preview-box-left button {
+  padding: 4px 8px;
+  background-color: teal; 
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.6rem;
+}
+
+
+
+.preview-box-right {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* two per row */
+  grid-gap: 10px;
+}
+
+.service-preview-card {
+  padding: 5px;
+  border-radius: 10px;
+}
+
+.preview-card-title {
+  font-size: 0.6rem;
+  margin-bottom: 10px;
+  color: teal;
+}
+
+.preview-card-text {
+  font-size: 0.45rem;
+  color: #111;
+  font-weight: 600;
+}
+
+
+}

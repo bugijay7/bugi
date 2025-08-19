@@ -39,6 +39,10 @@ export const createCause = async (req, res) => {
       extras
     } = req.body;
 
+     const formattedSections = Array.isArray(sections)
+      ? sections
+      : sections.split(',').map(s => s.trim());
+
     const newCause = await sql`
       INSERT INTO causes (
         org_name,
@@ -59,7 +63,7 @@ export const createCause = async (req, res) => {
         ${phone},
         ${mission},
         ${targetAudience},
-        ${sections.join(', ')}, -- convert array to comma-separated string
+        ${formattedSections},
         ${branding},
         ${inspiration},
         ${timeline},

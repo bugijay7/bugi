@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.get('/', getBrands);
 router.get('/:id', getBrandsById);  
-router.post('/', authenticateToken, createBrand);
+router.post('/', createBrand);
 router.put('/:id', authenticateToken, updateBrand);
 router.delete('/:id', authenticateToken, deleteBrand);
 

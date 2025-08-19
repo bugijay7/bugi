@@ -50,14 +50,32 @@ function StoreForms() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-200 py-30 px-6 sm:px-12 lg:px-20 text-gray-800 font-sans">
-      <div className="max-w-4xl mx-auto bg-white shadow-md rounded-xl p-8">
-        <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-center text-red-500 uppercase">
-          E-commerce Website Questionnaire
-        </h1>
-        <p className="text-center text-gray-600 mb-10">
-          Help us understand your needs so we can build a powerful online store tailored to your business.
-        </p>
+    <div className="min-h-screen bg-[#090909] py-30 px-6 sm:px-12 lg:px-20 text-black font-sans">
+     <div className="max-w-4xl mx-auto bg-white shadow-md rounded-xl p-8">
+  <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-center text-black uppercase">
+    E-commerce Website Questionnaire
+  </h1>
+
+  {/* Intro Section */}
+  <div className="mb-10 text-black leading-relaxed">
+    <p className="mb-4 text-lg">
+      An <strong>online store</strong> is a digital platform where you can showcase and sell your products or services to
+      customers anytime, anywhere. It’s like having your business open 24/7, without the limitations of a physical shop.
+    </p>
+    <p className="mb-2 font-semibold">Advantages of having an online store:</p>
+    <ul className="list-disc pl-6 space-y-2">
+      <li><strong>Wider Reach:</strong> Sell beyond your local area and reach customers globally.</li>
+      <li><strong>Cost-Effective:</strong> Lower operating costs compared to physical shops.</li>
+      <li><strong>Convenience:</strong> Customers can browse and buy your products 24/7.</li>
+      <li><strong>Brand Growth:</strong> Build a professional digital presence that increases trust.</li>
+      <li><strong>Scalability:</strong> Easily expand your product range and handle more customers.</li>
+    </ul>
+  </div>
+
+  <p className="text-center text-gray-600 mb-10">
+    Help us understand your needs so we can build a powerful online store tailored to your business.
+  </p>
+
 
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Repeat fields with name & value bindings */}

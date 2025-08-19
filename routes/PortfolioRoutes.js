@@ -1,12 +1,12 @@
 import express from 'express';
-import { getPortfolio, getPortfolioById, createPortfolio, updatePortfolio, deletePortfolio } from '../controllers/PortfolioControllers.js';
+import { getPortfolios, getPortfolioById, createPortfolios, updatePortfolios, deletePortfolios } from '../controllers/PortfolioControllers.js';
 import { authenticateToken } from '../middlewares/auth.js';
 const router = express.Router();
 
-router.get('/', getPortfolio);
+router.get('/', getPortfolios);
 router.get('/:id', getPortfolioById);
-router.post('/', authenticateToken, createPortfolio);
-router.put('/:id', authenticateToken, updatePortfolio);
-router.delete('/:id', authenticateToken, deletePortfolio);  
+router.post('/',  createPortfolios);
+router.put('/:id', authenticateToken, updatePortfolios);
+router.delete('/:id', authenticateToken, deletePortfolios);  
 
 export default router;
