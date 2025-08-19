@@ -3,7 +3,7 @@ import earth from '../../assets/earth.jpeg';
 import turs from '../../assets/turs.jpg';
 import muscleDistrict from '../../assets/muscledistrict.jpg';
 import kashio from '../../assets/kashio.jpg';
-import furniq from '../../assets/furniq.jpg';
+import furniq from '../../assets/furniq.JPG';
 
 function WorkHighlights() {
   return (
