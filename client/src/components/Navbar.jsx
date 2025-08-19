@@ -13,14 +13,9 @@ function Navbar() {
   const isWebsite = location.pathname === "/website";
 
   const [isOpen, setIsOpen] = useState(false);
-  const [resourcesOpenMobile, setResourcesOpenMobile] = useState(false);
-  const [clientsOpenMobile, setClientsOpenMobile] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
-  const toggleResourcesMobile = () =>
-    setResourcesOpenMobile(!resourcesOpenMobile);
-  const toggleClientsMobile = () =>
-    setClientsOpenMobile(!clientsOpenMobile);
+  
 
   const mainLinks = [
     ["Home", "/"],
