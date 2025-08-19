@@ -47,7 +47,7 @@ function Navbar() {
 
   return (
     <header
-      className={`w-full fixed top-0 pt-5 left-0 z-50 ${
+      className={`w-full fixed top-0 pt-5 left-0 z-9999 ${
         isAbout || isServices || isCreativeProcess || isPricings || isHome || isWebsite
           ? "bg-gray-200 text-black"
           : "bg-[#090909] text-white"
