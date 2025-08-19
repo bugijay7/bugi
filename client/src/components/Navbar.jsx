@@ -72,7 +72,7 @@ function Navbar() {
               <button className="flex items-center gap-1 hover:text-teal-600">
                 Resources
               </button>
-              <ul className="absolute top-full left-0 mt-2 bg-white text-black shadow-lg rounded-lg flex flex-col p-2 min-w-[200px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300">
+              <ul className="absolute top-full left-0 mt-2 bg-white text-black shadow-lg rounded-lg flex flex-col p-2 min-w-[200px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300 z-50">
                 {resourcesLinks.map(([label, path]) => (
                   <li key={path} className="p-2 hover:bg-gray-100 rounded">
                     <Link to={path}>{label}</Link>
@@ -86,7 +86,7 @@ function Navbar() {
               <button className="flex items-center gap-1 hover:text-teal-600">
                 Clients
               </button>
-              <ul className="absolute top-full left-0 mt-2 bg-white text-black shadow-lg rounded-lg flex flex-col p-2 min-w-[200px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300 ">
+              <ul className="absolute top-full left-0 mt-2 bg-white text-black shadow-lg rounded-lg flex flex-col p-2 min-w-[200px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300 z-50">
                 {clientsLinks.map(([label, path]) => (
                   <li key={path} className="p-2 hover:bg-gray-100 rounded">
                     <Link to={path}>{label}</Link>
