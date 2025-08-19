@@ -47,17 +47,13 @@ function Navbar() {
 
   return (
     <header
-      className={`w-full fixed top-0 pt-5 left-0 z-9999 ${
+      className={`w-full fixed top-0 pt-5 left-0 z-50 ${
         isAbout || isServices || isCreativeProcess || isPricings || isHome || isWebsite
           ? "bg-gray-200 text-black"
           : "bg-[#090909] text-white"
       }`}
     >
 
-<<<<<<< HEAD
-
-=======
->>>>>>> b4f7532e5cfa4abf2fea916a860ba044eded6dde
       <nav  className="w-full max-w-full overflow-x-hidden mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
 
         {/* Logo */}
