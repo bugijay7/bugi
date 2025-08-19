@@ -53,11 +53,10 @@ function Navbar() {
           : "bg-[#090909] text-white"
       }`}
     >
-<<<<<<< HEAD
-      <nav className="flex items-center justify-between px-4 py-3 max-w-7xl mx-auto">
-=======
+
+
       <nav  className="w-full max-w-full overflow-x-hidden mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
->>>>>>> c027ab3a6efd43b75290616b9b2fc9643952fdf0
+
         {/* Logo */}
         <Link to="/" className="text-3xl font-extrabold uppercase leading-none">
           yohan labs
