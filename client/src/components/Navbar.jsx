@@ -47,14 +47,17 @@ function Navbar() {
 
   return (
     <header
-      className={`w-full fixed top-0 pt-5 left-0 z-50 ${
+      className={`w-full fixed top-0 pt-5 left-0 z-9999 ${
         isAbout || isServices || isCreativeProcess || isPricings || isHome || isWebsite
           ? "bg-gray-200 text-black"
           : "bg-[#090909] text-white"
       }`}
     >
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> b4f7532e5cfa4abf2fea916a860ba044eded6dde
       <nav  className="w-full max-w-full overflow-x-hidden mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
 
         {/* Logo */}
@@ -92,7 +95,7 @@ function Navbar() {
               <button className="flex items-center gap-1 hover:text-teal-600">
                 Clients
               </button>
-              <ul className="absolute top-full left-0 mt-2 bg-white text-black shadow-lg rounded-lg flex flex-col p-2 min-w-[200px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300">
+              <ul className="absolute top-full left-0 mt-2 bg-white text-black shadow-lg rounded-lg flex flex-col p-2 min-w-[200px] opacity-0 invisible group-hover:opacity-100 group-hover:visible transition duration-300 ">
                 {clientsLinks.map(([label, path]) => (
                   <li key={path} className="p-2 hover:bg-gray-100 rounded">
                     <Link to={path}>{label}</Link>
