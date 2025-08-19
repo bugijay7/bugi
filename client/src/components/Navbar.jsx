@@ -49,7 +49,7 @@ function Navbar() {
       }`}
     >
 
-      <nav  className="w-full max-w-full overflow-x-hidden mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+      <nav  className="w-full max-w-full overflow-x-hidden mx-auto px-4 sm:px-6 py-4 flex items-center justify-between z-[9999]">
 
         {/* Logo */}
         <Link to="/" className="text-3xl font-extrabold uppercase leading-none">
