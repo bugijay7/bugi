@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import formImg from '../../assets/form-banner.jpeg'; 
 import axios from 'axios';
 
 function StoreForms() {
@@ -26,7 +27,7 @@ function StoreForms() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:3000/api/stores', formData); // Adjust port if needed
+      await axios.post('http://localhost:3000/api/stores', formData); 
       alert('Store form submitted successfully!');
       setFormData({
         fullName: '',
@@ -55,6 +56,15 @@ function StoreForms() {
   <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-center text-black uppercase">
     E-commerce Website Questionnaire
   </h1>
+
+    {/* ✅ Image below title */}
+          <div className="flex justify-center mb-6">
+            <img 
+              src={formImg} 
+              alt="Brand Questionnaire Banner" 
+              className="w-full max-h-[450px] object-cover rounded-xl shadow-md"
+            />
+          </div>
 
   {/* Intro Section */}
   <div className="mb-10 text-black leading-relaxed">

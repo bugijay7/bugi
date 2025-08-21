@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaCheckCircle } from 'react-icons/fa';
-import '../../styles/benefits.css';
+import benefitsImg from '../../assets/benefits.jpeg';
 
 function Benefits() {
   const items = [
@@ -31,31 +31,59 @@ function Benefits() {
   ];
 
   return (
-    <section className="benefits-section">
-      <div className="benefits-container">
-        <header className="benefits-header">
-          <h2 className="benefits-title">Benefits that actually move products</h2>
-          <p className="benefits-subtitle">
-            In Kenya’s busy online marketplace, you have seconds to convince a shopper to trust you and buy. <br></br>
-            These essentials make your e-commerce site work harder for every click.
-          </p>
-        </header>
-
-        <div className="benefits-grid">
-          {items.map((b, i) => (
-            <article className="benefits-card" key={i}>
-              <FaCheckCircle className="benefits-icon" aria-hidden="true" />
-              <h3 className="benefits-card-title">{b.title}</h3>
-              <p className="benefits-card-text">{b.text}</p>
-            </article>
-          ))}
+    <section className="px-6  bg-gray-200 mt-20">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
+        
+        {/* Left Side - Image */}
+        <div className="flex">
+          <img
+            src={benefitsImg}
+            alt="E-commerce benefits illustration"
+            className="w-full h-full object-cover rounded-2xl shadow-lg"
+          />
         </div>
 
-        <div className="benefits-cta">
-          <a href="/ClientForms/StoreForms" className="benefits-button" aria-label="Start your project">
-            Start your online store
-          </a>
-          <p className="benefits-note">Let’s set up a store that earns while you sleep.</p>
+        {/* Right Side - Content */}
+        <div className="flex flex-col justify-between">
+          <div>
+            <header className="mb-10">
+              <h2 className="text-3xl font-extrabold text-gray-900 mb-4">
+                Benefits that actually move products
+              </h2>
+              <p className="text-gray-600 leading-relaxed">
+                In Kenya’s busy online marketplace, you have seconds to convince a shopper to trust you and buy.  
+                These essentials make your e-commerce site work harder for every click.
+              </p>
+            </header>
+
+            {/* Benefits Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {items.map((b, i) => (
+                <article
+                  key={i}
+                  className="bg-white rounded-xl shadow-md p-5 flex flex-col gap-3 hover:shadow-lg transition"
+                >
+                  <FaCheckCircle className="text-green-500 text-2xl" aria-hidden="true" />
+                  <h3 className="text-lg font-semibold text-gray-800">{b.title}</h3>
+                  <p className="text-gray-600 text-sm">{b.text}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="mt-10">
+            <a
+              href="/ClientForms/StoreForms"
+              className="inline-block px-6 py-3 bg-red-500 text-white rounded-lg shadow-md hover:bg-red-600 transition"
+              aria-label="Start your project"
+            >
+              Start your online store
+            </a>
+            <p className="mt-3 text-sm text-gray-500">
+              Let’s set up a store that earns while you sleep.
+            </p>
+          </div>
         </div>
       </div>
     </section>

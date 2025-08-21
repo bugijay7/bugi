@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PortfolioImg from '../../assets/portfolio-banner.jpeg'; 
 import axios from 'axios';
 
 function PortfolioForms() {
@@ -54,11 +55,22 @@ function PortfolioForms() {
 
   return (
     <div className="min-h-screen bg-[#090909]  py-30 px-6 sm:px-12 lg:px-20 text-gray-800 font-sans">
-      <div className="max-w-4xl mx-auto bg-gradient-to-br from-indigo-200 via-gray to-red-200 shadow-md rounded-xl p-8">
+      <div className="max-w-4xl mx-auto bg-gradient-to-br from-indigo-100 via-gray to-red-100 shadow-md rounded-xl p-8">
        
         <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-center text-black uppercase">
     Personal Portfolio Form
   </h1>
+
+  
+      {/* ✅ Image below title */}
+            <div className="flex justify-center mb-6">
+              <img 
+                src={PortfolioImg} 
+                alt="Brand Questionnaire Banner" 
+                className="w-full max-h-[450px] object-cover rounded-xl shadow-md"
+              />
+            </div>
+  
 
   {/* Intro Section */}
   <div className="mb-10 text-black leading-relaxed">

@@ -8,7 +8,6 @@ function Footer() {
 
   const isContactPage = path === '/contacts';
   const isAboutPage = path === '/about';
-  const isServicesPage = path === '/services';
   const isCreativeProcess = path === '/about/creative-process';
   const isPricings = path === '/pricings';
   const isHome = path === '/';
@@ -16,7 +15,7 @@ function Footer() {
   return (
     <footer
       className={`w-full bottom-0 left-0 z-50 ${
-        isAboutPage || isServicesPage || isCreativeProcess || isHome || isPricings
+        isAboutPage || isCreativeProcess || isHome || isPricings
           ? 'bg-gray-200 text-black'
           : 'bg-[#090909] text-white'
       }`}
@@ -32,7 +31,7 @@ function Footer() {
         {/* Social Links */}
         <div 
         className={`flex flex-col md:flex-row gap-4 md:gap-8 ${
-        isAboutPage || isServicesPage || isCreativeProcess || isHome || isPricings
+        isAboutPage  || isCreativeProcess || isHome || isPricings
           ? 'bg-gray-200 text-black'
           : 'bg-[#090909] text-white'
       }`}>
@@ -48,7 +47,7 @@ function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               className={`font-semibold hover:text-[orangered] transition-colors duration-300 ${
-                isContactPage ? 'text-white' : isAboutPage || isServicesPage || isCreativeProcess || isHome || isPricings ? 'text-black' : 'text-white'
+                isContactPage ? 'text-white' : isAboutPage || isCreativeProcess || isHome || isPricings ? 'text-black' : 'text-white'
               }`}
             >
               {label}

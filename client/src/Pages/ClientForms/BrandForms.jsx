@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
+import BrandImg from '../../assets/brand-banner.jpeg'; 
 import axios from 'axios';
+
 import { motion } from 'framer-motion';
 
 function BrandForms() {
@@ -73,7 +75,17 @@ function BrandForms() {
       >
         {/* Header */}
         <div className="mb-10 text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Brand Website Questionnaire</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">Brand Website Questionnaire</h1>\
+
+            {/* ✅ Image below title */}
+                    <div className="flex justify-center mb-6">
+                      <img 
+                        src={BrandImg} 
+                        alt="Brand Questionnaire Banner" 
+                        className="w-full max-h-[450px] object-cover rounded-xl shadow-md"
+                      />
+                    </div>
+
           <p className="text-lg text-gray-600">
             Let’s create a website that <span className="text-red-500 font-semibold">captures your brand</span> 
             and drives real results 🚀

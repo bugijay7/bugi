@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';  // ✅ import Link
 import websiteImg from '../assets/john1.jpeg'; 
 
 function Website() {
@@ -102,6 +103,17 @@ function Website() {
         <p className="text-xl font-semibold text-center mt-10 text-green-700">
           Let’s build something that works for you — beautifully, simply, and effectively.
         </p>
+
+        {/* ✅ Link to Home */}
+        <div className="text-center mt-12">
+          <Link 
+            to="/ClientForms/StoreForms" 
+            className="inline-block px-6 py-3 bg-green-700 text-white rounded-lg shadow-md hover:bg-green-800 transition duration-300"
+          >
+            Get Your Online Shop Started
+          </Link>
+        </div>
+
       </div>
     </div>
   );

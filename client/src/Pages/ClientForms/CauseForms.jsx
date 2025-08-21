@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import CauseImg from '../../assets/cause-banner.jpeg'; 
 import axios from 'axios';
 
 function CauseForms() {
@@ -67,6 +68,15 @@ function CauseForms() {
          <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-center text-black uppercase">
     Cause Website stater Pack
   </h1>
+
+    {/* ✅ Image below title */}
+            <div className="flex justify-center mb-6">
+              <img 
+                src={CauseImg} 
+                alt="Cause Website Banner" 
+                className="w-full max-h-[450px] object-cover rounded-xl shadow-md"
+              />
+            </div>
 
   {/* Intro Section */}
   <div className="mb-10 text-gray-700 leading-relaxed">

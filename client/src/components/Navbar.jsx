@@ -6,7 +6,6 @@ import { FaBars, FaTimes } from "react-icons/fa";
 function Navbar() {
   const location = useLocation();
   const isAbout = location.pathname === "/about";
-  const isServices = location.pathname === "/services";
   const isCreativeProcess = location.pathname === "/about/creative-process";
   const isPricings = location.pathname === "/pricings";
   const isHome = location.pathname === "/";
@@ -30,7 +29,7 @@ function Navbar() {
     ["Packages", "/pricings"],
     ["Process", "/about/process"],
     ["How It Works", "/about/creative-process"],
-    ["Website", "/website"],
+    ["Online Businesses", "/website"],
   ];
 
   const clientsLinks = [
@@ -43,13 +42,13 @@ function Navbar() {
   return (
     <header
       className={`w-full fixed top-0 pt-5 left-0 z-[9999] ${
-        isAbout || isServices || isCreativeProcess || isPricings || isHome || isWebsite
+        isAbout || isCreativeProcess || isPricings || isHome || isWebsite
           ? "bg-gray-200 text-black"
           : "bg-[#090909] text-white"
       }`}
     >
 
-      <nav  className="w-full max-w-full overflow-x-hidden mx-auto px-4 sm:px-6 py-4 flex items-center justify-between z-[9999]">
+      <nav  className="w-full max-w-full mx-auto px-4 sm:px-6 py-4 flex items-center justify-between z-[9999]">
 
         {/* Logo */}
         <Link to="/" className="text-3xl font-extrabold uppercase leading-none">
@@ -57,7 +56,7 @@ function Navbar() {
         </Link>
 
         {/* Desktop Links */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className=" hidden md:flex items-center gap-8">
           <ul className="flex gap-6 items-center font-bold">
             {mainLinks.map(([label, path]) => (
               <li key={path}>
@@ -99,7 +98,11 @@ function Navbar() {
 
         {/* Call to action */}
         <Link to="/start" className="hidden md:block" >
-          <button className="px-4 py-2 bg-black text-white rounded-lg shadow hover:bg-blue-700">
+          <button  className={`left-0 z-[9999] px-4 py-2 rounded-lg bg-teal-500 text-gray-200 font-bold shadow hover:bg-blue-700 ${
+        isAbout || isCreativeProcess || isPricings || isHome || isWebsite
+          ? "bg-gray-200 text-black"
+          : "bg-[#090909] text-white"
+      }`}>
             Free Consultation
           </button>
         </Link>

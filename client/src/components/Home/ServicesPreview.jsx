@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../../styles/servicespreview.css'
 
 function ServicesPreview() {
@@ -27,7 +28,9 @@ function ServicesPreview() {
         <div className='preview-box-left'>
           <h2>A preview look at what we offer and how we deliver</h2>
           <p>For a more in-depth look at the process</p>
-          <button>Process</button>
+          <a href="/about/creative-process" className="benefits-button" aria-label="Start your project">
+            Process
+          </a>
         </div>
 
         <div className='preview-box-right'>
