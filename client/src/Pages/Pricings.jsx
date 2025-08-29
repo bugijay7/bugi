@@ -72,7 +72,7 @@ function Pricings() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-200 text-gray-800 py-24 px-6 font-[Montserrat]">
+    <div className="min-h-screen bg-gray-200 text-gray-800 py-24 px-6 mt-10 font-[Montserrat]">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-center text-[#090909] uppercase tracking-wide">
           Website Pricing Packages

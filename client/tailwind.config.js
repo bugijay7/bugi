@@ -1,21 +1,25 @@
 import daisyui from "daisyui";
 
+/** @type {import('tailwindcss').Config} */
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,jsx,ts,tsx}",  // include all component files
+    "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
       fontFamily: {
-        mont: ['Montserrat', 'sans-serif'],   // ✅ creates `font-mont`
+        manrope: ['Manrope', 'sans-serif'],  
         ledger: ['Ledger', 'serif'],
       },
       colors: {
-        softgray: '#dfdcdc', // 👈 name it anything you want
-         border: "hsl(var(--border))", // <-- this is the key
+        softgray: "#dfdcdc",
+        cream: "#ffefcd",
+        olive: "#a5be74",
+        amber: "#e09132",
+        charcoal: "#424530",
       },
     },
   },
   plugins: [daisyui],
-};
+}

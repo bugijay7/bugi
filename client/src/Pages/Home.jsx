@@ -11,9 +11,9 @@ function Home() {
   return (
     <div>
         <Hero />
-          <Solution />
-        <ServicesPreview />
-        <Benefits />
+        <Solution />
+         <ServicesPreview />
+         <Benefits />
         <Highlights />
         <WorkPreview />
         <Cta />
@@ -22,3 +22,5 @@ function Home() {
 }
 
 export default Home
+
+

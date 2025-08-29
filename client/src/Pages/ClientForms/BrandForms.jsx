@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import BrandImg from '../../assets/brand-banner.jpeg'; 
 import axios from 'axios';
-
 import { motion } from 'framer-motion';
 
 function BrandForms() {

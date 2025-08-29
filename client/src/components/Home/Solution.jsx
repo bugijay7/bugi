@@ -1,36 +1,85 @@
-import React from 'react';
-import websiteImg from '../../assets/furniq.JPG';
-import '../../styles/solution.css';
+import React from "react";
+import { Link } from "react-router-dom";
+
+import webImg from "../../assets/web.jpeg";
+import customImg from "../../assets/custom.jpeg";
+import ecommerceImg from "../../assets/ecommerce.jpeg";
 
 function Solution() {
-
-
   return (
-    <div className="solution-section">
-      <figure className="image-container">
-        <img
-          src={websiteImg}
-          alt="website image"
-          className="solution-image"
-        />
-      </figure>
-      <div className="solution-text">
-        <h3 className="solution-title">Your Customers Are Searching Online</h3>
-        <p className="solution-text"> <span className=''>Imagine this: </span><br></br>James just moved into a new apartment in 
-          Westlands. His mattress is still on the floor, and he’s tired of balancing his TV on two crates. 
-He pulls out his phone and searches “modern sofa set Nairobi.” 
+    <section className="solution-section  items-center justify-center bg-gray-200 text-[#090909] mt-10 py-16 px-6">
+      <div className="max-w-7xl mx-auto flex flex-col gap-16">
+        {/* ✅ Section 1: Hero Content */}
+        <div className="flex flex-col items-center text-center gap-6">
+          <h3 className="text-4xl md:text-5xl font-extrabold text-orange-500">
+            Welcome to Yohan Labs
+          </h3>
+          <p className="text-lg md:text-xl text-[#090909] leading-relaxed max-w-3xl">
+            At Yohan Labs, we help businesses unlock their full potential online.
+            From modern websites that attract and convert, to scalable backend
+            systems and seamless integrations — we craft digital solutions
+            designed to grow your brand and deliver results.
+          </p>
+          <Link
+            to="/services"
+            className="px-6 py-3 bg-orange-500 text-white font-semibold rounded-lg shadow-md hover:bg-orange-600 transition"
+          >
+            Explore Our Services
+          </Link>
+        </div>
 
-Up pops a furniture shop with a slick website —
- high-quality photos, prices, even a “Buy Now” button. James clicks, loves what he sees, and orders. <br></br>
- <br></br> 
-Meanwhile, your store (just 10 minutes away) has the exact sofa James wants… but without a website, you’re invisible. 
-By the time you hear about it, James is already posting his new sofa on Instagram with #NewHomeVibes. 
-<br></br><br></br>
-In Kenya today, people shop with their eyes first — and those eyes are on Google. 
-A modern, mobile-friendly website puts you in front of them, builds trust,
- and gets you the sale before they even step into your shop.</p>
+        {/* ✅ Section 2: Services Cards */}
+        <div className="grid mt-10 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Card 1 */}
+          <div className="bg-white text-gray-900 rounded-xl shadow-md hover:shadow-lg transition overflow-hidden">
+            <img
+              src={webImg}
+              alt="Web Design & Development"
+              className="w-full h-48 object-cover"
+            />
+            <div className="p-6">
+              <h4 className="text-xl font-bold mb-3">Web Design & Development</h4>
+              <p className="text-gray-700 leading-relaxed">
+                Clean, modern, and responsive websites that provide seamless
+                experiences across all devices.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 2 */}
+          <div className="bg-white text-gray-900 rounded-xl shadow-md hover:shadow-lg transition overflow-hidden">
+            <img
+              src={customImg}
+              alt="Custom Solutions"
+              className="w-full h-48 object-cover"
+            />
+            <div className="p-6">
+              <h4 className="text-xl font-bold mb-3">Custom Solutions</h4>
+              <p className="text-gray-700 leading-relaxed">
+                Scalable backend systems, APIs, and tailored solutions built to
+                match your business needs.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 3 */}
+          <div className="bg-white text-gray-900 rounded-xl shadow-md hover:shadow-lg transition overflow-hidden">
+            <img
+              src={ecommerceImg}
+              alt="E-Commerce & Integrations"
+              className="w-full h-48 object-cover"
+            />
+            <div className="p-6">
+              <h4 className="text-xl font-bold mb-3">E-Commerce & Integrations</h4>
+              <p className="text-gray-700 leading-relaxed">
+                From online stores to payment gateways and third-party integrations,
+                we make your business ready for digital growth.
+              </p>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
 

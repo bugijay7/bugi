@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-// Import your images (replace with your own)
+// Import your images
 import frontendImg from "../assets/services/frontend.jpeg";
 import backendImg from "../assets/services/backend.jpeg";
 import fullstackImg from "../assets/services/fullstack.jpeg";
@@ -83,15 +84,21 @@ function Services() {
   };
 
   return (
-    <section className="text-gray-200 bg-[#090909] px-5 py-20">
-      <p className="text-[2.8rem] font-extrabold text-center mb-[60px] tracking-wider text-gray-200">
-        SERVICES
-      </p>
+    <>
+     
 
-      <div className="max-w-[960px] mx-auto flex flex-col gap-[30px]">
-        {faqs.map((faq, index) => (
-          <div key={index}>
-            <div className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
+      {/* ✅ Services Grid Section */}
+      <section className="text-gray-200 bg-[#090909] px-5 py-28">
+        <p className="text-[2.8rem] font-extrabold text-center mb-[60px] tracking-wider text-gray-200">
+          SERVICES
+        </p>
+
+        <div className="max-w-[1200px] mx-auto grid grid-cols-2 lg:grid-cols-3 gap-6">
+          {faqs.map((faq, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
+            >
               {/* Image */}
               <img
                 src={faq.image}
@@ -100,7 +107,7 @@ function Services() {
               />
 
               {/* Content */}
-              <div className="px-[30px] py-[25px]">
+              <div className="px-[20px] py-[20px]">
                 <button
                   className="w-full text-left flex justify-between items-start text-[1.25rem] font-bold text-[#222] hover:text-[#de5f5e] transition-colors duration-200"
                   onClick={() => toggleFAQ(index)}
@@ -118,14 +125,20 @@ function Services() {
                 )}
               </div>
             </div>
+          ))}
+        </div>
 
-            {index < faqs.length - 1 && (
-              <hr className="border-t border-[#bbb] my-[25px] opacity-40" />
-            )}
-          </div>
-        ))}
-      </div>
-    </section>
+        {/* 🔗 Link to Work Page */}
+        <div className="text-center mt-12">
+          <Link
+            to="/work"
+            className="inline-block px-8 py-3 bg-orange-500 rounded-lg font-semibold hover:bg-orange-600 transition text-white"
+          >
+            See Hand-Picked Projects
+          </Link>
+        </div>
+      </section>
+    </>
   );
 }
 
