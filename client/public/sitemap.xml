@@ -4,13 +4,62 @@
       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
-
-<url>
-  <loc>https://www.yohanlabs.online/</loc>
-  <lastmod>2025-12-02T11:58:23+00:00</lastmod>
-</url>
-
+  <url>
+    <loc>https://www.yohanlabs.online/</loc>
+    <lastmod>2025-12-02</lastmod>
+  </url>
+  <url>
+    <loc>https://www.yohanlabs.online/about</loc>
+    <lastmod>2025-12-02</lastmod>
+  </url>
+  <url>
+    <loc>https://www.yohanlabs.online/contacts</loc>
+    <lastmod>2025-12-02</lastmod>
+  </url>
+  <url>
+    <loc>https://www.yohanlabs.online/services</loc>
+    <lastmod>2025-12-02</lastmod>
+  </url>
+  <url>
+    <loc>https://www.yohanlabs.online/work</loc>
+    <lastmod>2025-12-02</lastmod>
+  </url>
+  <url>
+    <loc>https://www.yohanlabs.online/start</loc>
+    <lastmod>2025-12-02</lastmod>
+  </url>
+  <url>
+    <loc>https://www.yohanlabs.online/pricings</loc>
+    <lastmod>2025-12-02</lastmod>
+  </url>
+  <url>
+    <loc>https://www.yohanlabs.online/about/process</loc>
+    <lastmod>2025-12-02</lastmod>
+  </url>
+  <url>
+    <loc>https://www.yohanlabs.online/website</loc>
+    <lastmod>2025-12-02</lastmod>
+  </url>
+  <url>
+    <loc>https://www.yohanlabs.online/about/creative-process</loc>
+    <lastmod>2025-12-02</lastmod>
+  </url>
+  <url>
+    <loc>https://www.yohanlabs.online/ClientForms/PortfolioForms</loc>
+    <lastmod>2025-12-02</lastmod>
+  </url>
+  <url>
+    <loc>https://www.yohanlabs.online/ClientForms/BrandForms</loc>
+    <lastmod>2025-12-02</lastmod>
+  </url>
+  <url>
+    <loc>https://www.yohanlabs.online/ClientForms/StoreForms</loc>
+    <lastmod>2025-12-02</lastmod>
+  </url>
+  <url>
+    <loc>https://www.yohanlabs.online/ClientForms/CauseForms</loc>
+    <lastmod>2025-12-02</lastmod>
+  </url>
 
 </urlset>
