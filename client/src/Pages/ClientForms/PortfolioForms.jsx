@@ -33,7 +33,7 @@ function PortfolioForms() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:3000/api/portfolios', formData); 
+      await axios.post('https://bugi-2.onrender.com/api/portfolios', formData); 
       alert('Portfolio form submitted successfully!');
       setFormData({
         fullName: '',

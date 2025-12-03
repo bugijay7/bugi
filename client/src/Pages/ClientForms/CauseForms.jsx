@@ -36,7 +36,7 @@ function CauseForms() {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token'); // Optional auth
-      await axios.post('http://localhost:3000/api/causes', formData, {
+      await axios.post('https://bugi-2.onrender.com/api/causes', formData, {
         headers: {
           Authorization: `Bearer ${token}`
         }

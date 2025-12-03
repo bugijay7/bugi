@@ -9,7 +9,7 @@ function Consultations() {
   useEffect(() => {
     const fetchConsultations = async () => {
       try {
-        const res = await axios.get("http://localhost:3000/api/consultations");
+        const res = await axios.get("https://bugi-2.onrender.com/api/consultations");
         setConsultations(res.data);
       } catch (err) {
         setError(err.response?.data?.message || err.message);

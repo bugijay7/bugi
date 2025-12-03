@@ -9,7 +9,7 @@ function Brands() {
   useEffect(() => {
     const fetchBrands = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/brands');
+        const response = await axios.get('https://bugi-2.onrender.com/api/brands');
         setBrands(response.data);
       } catch (err) {
         console.error('Error fetching brands:', err);

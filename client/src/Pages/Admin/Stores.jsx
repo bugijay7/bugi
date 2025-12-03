@@ -9,7 +9,7 @@ function Stores() {
   useEffect(() => {
     const fetchStores = async () => {
       try {
-        const res = await axios.get('http://localhost:3000/api/stores'); // ✅ Axios request
+        const res = await axios.get('https://bugi-2.onrender.com/api/stores'); // ✅ Axios request
         setStores(res.data);
       } catch (err) {
         setError(err.response?.data?.message || err.message);

@@ -39,7 +39,7 @@ function BrandForms() {
     e.preventDefault();
     try {
       const token = localStorage.getItem('token');
-      await axios.post('http://localhost:3000/api/brands', formData, {
+      await axios.post('https://bugi-2.onrender.com/api/brands', formData, {
         headers: { Authorization: `Bearer ${token}` },
       });
       alert('Form submitted successfully!');

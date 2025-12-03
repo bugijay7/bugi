@@ -8,7 +8,7 @@ function Portfolio() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/api/portfolios")
+      .get("https://bugi-2.onrender.com/api/portfolios")
       .then((res) => {
         setProjects(res.data);
         setLoading(false);

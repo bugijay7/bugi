@@ -21,7 +21,7 @@ function GettingStarted() {
     e.preventDefault();
 
     try {
-      await axios.post('http://localhost:3000/api/consultations', formData);
+      await axios.post('https://bugi-2.onrender.com/api/consultations', formData);
       setMessage('Your consultation request has been submitted!');
       setFormData({ name: '', businessName: '', email: '', phone: '', description: '' });
     } catch (error) {
