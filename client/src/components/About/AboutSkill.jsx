@@ -21,6 +21,17 @@ const skills = [
     description: 'Version control, CI/CD, and cloud-based deployment.',
     items: ['Git & GitHub', 'Docker (basic)', 'Netlify / Vercel / Render', 'Railway', 'VS Code'],
   },
+  {
+  title: 'Hosting, SEO & Optimization',
+  description: 'Production hosting, site indexing, and performance tuning.',
+  items: [
+    'DNS & domain management',
+    'Google Search Console',
+    'SEO meta & structured data',
+    'Speed optimization',
+    'SSL deployment'
+  ],
+},
 ];
 
 function AboutSkill() {

@@ -47,14 +47,14 @@ function Navbar() {
 
   return (
     <header
-      className={` fixed top-0 left-0 right-0 pt-5 z-[9999] ${
+      className={`fixed top-0 left-0 right-0 pt-5 z-[9999] ${
         isLightBg ? "bg-gray-200 text-black" : "bg-[#090909] text-white"
       }`}
     >
       <nav className="max-w-[1240px] mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
         {/* Logo */}
        <Link to="/" className="flex items-center gap-2">
-  <h1 className="text-3xl italic font-extrabold leading-none flex items-baseline">
+  <h1 className="text-2xl  font-bold leading-none flex items-baseline">
     YOHAN LABS
   </h1>
 </Link>
@@ -124,10 +124,10 @@ function Navbar() {
         {/* Call to Action (Desktop) */}
         <Link to="/start" className="hidden md:block">
           <button
-            className={`px-4 py-2 rounded-lg font-bold shadow transition ${
+            className={`px-4 py-2 rounded-lg border-[#090909] font-bold shadow transition ${
               isLightBg
-                ? "bg-black text-white hover:bg-gray-800"
-                : "bg-gray-200 text-[#090909] hover:bg-amber-700 hover:text-gray-200"
+                ? " text-[#090909] "
+                : " text-white"
             }`}
           >
             Free Consultation

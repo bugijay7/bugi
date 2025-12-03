@@ -6,7 +6,7 @@ function WorkPreview() {
   return (
     <div className="w-full min-h-[70vh] bg-gray-200 text-black">
       {/* Optional Section Title */}
-      <section className="px-6 sm:px-10 py-5 text-2xl font-bold text-gray-800 font-[Montserrat] md:text-3xl max-w-[1400px] mx-auto">
+      <section className="px-6 sm:px-10 py-5 text-2xl font-bold text-gray-800 font md:text-3xl max-w-[1400px] mx-auto">
         {/* Title (optional, currently empty) */}
       </section>
 
@@ -14,10 +14,10 @@ function WorkPreview() {
       <section className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-10 px-6 sm:px-10 py-12 sm:py-[60px] my-[40px] max-w-[1400px] mx-auto">
         {/* Text Content */}
         <div className="w-full lg:flex-1">
-          <p className="text-[2rem] sm:text-[3rem] md:text-[4rem] font-black text-black mb-4 leading-tight uppercase font-[Montserrat]">
+          <p className="text-[2rem] sm:text-[3rem] md:text-[4rem] font-black text-black mb-4 leading-tight uppercase font">
             Forked <br /> up
           </p>
-          <p className="text-base sm:text-lg text-gray-700 font-medium leading-relaxed max-w-[600px] font-[Montserrat]">
+          <p className="text-base sm:text-lg text-gray-700 font-medium leading-relaxed max-w-[600px] font">
             An online hub that showcases the menu, ambiance, location, and services, allowing customers to explore, book, and connect with the dining experience.
           </p>
         </div>
@@ -36,10 +36,10 @@ function WorkPreview() {
       <section className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-10 px-6 sm:px-10 py-12 sm:py-[60px] my-[40px] max-w-[1400px] mx-auto">
         {/* Text Content */}
         <div className="w-full lg:flex-1">
-          <p className="text-[2rem] sm:text-[3rem] md:text-[4rem] font-black text-black mb-4 leading-tight uppercase font-[Montserrat]">
+          <p className="text-[2rem] sm:text-[3rem] md:text-[4rem] font-black text-black mb-4 leading-tight uppercase font">
             Personal <br /> blog
           </p>
-          <p className="text-base sm:text-lg text-gray-700 font-medium leading-relaxed max-w-[600px] font-[Montserrat]">
+          <p className="text-base sm:text-lg text-gray-700 font-medium leading-relaxed max-w-[600px] font">
             A personal hub that highlights your work, skills, personality, and services—making it easy for clients to explore your projects, get to know you, and reach out with confidence.
           </p>
         </div>

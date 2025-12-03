@@ -20,7 +20,7 @@ function Footer() {
           : 'bg-[#090909] text-white'
       }`}
     >
-      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-8 py-10 flex flex-col md:flex-row justify-between items-start gap-10 font-[Montserrat] text-sm md:text-base">
+      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-8 py-10 flex flex-col md:flex-row justify-between items-start gap-10 font text-sm md:text-base">
         
         {/* Info Section */}
         <div className="text-left">

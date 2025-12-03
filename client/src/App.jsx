@@ -70,7 +70,7 @@ function App() {
          <Route path="/ClientForms/BrandForms" element={<BrandForms />} />
          <Route path="/ClientForms/StoreForms" element={<StoreForms />} />
          <Route path="/ClientForms/CauseForms" element={<CauseForms />} />
-         <Route path="/20250816" element={<AdminHome />} />
+         <Route path="/bugijay7" element={<AdminHome />} />
         <Route path="/admin/consultations" element={<GetConsultation />} />
         <Route path="/admin/brands" element={<GetBrands />} />
         <Route path="/admin/causes" element={<GetCauses />} />
