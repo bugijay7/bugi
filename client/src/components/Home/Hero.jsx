@@ -1,61 +1,52 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import heroVideo from "../../assets/hero-video.mp4";
+import "../../styles/hero.css";
 
 function Hero() {
   return (
-    <div className="relative w-full min-h-screen overflow-hidden">
-      {/* Video Background */}
-      <video
-        className="absolute inset-0 w-full h-full object-cover"
-        autoPlay
-        loop
-        muted
-        playsInline
-      >
-        <source src={heroVideo} type="video/mp4" />
-        Your browser does not support the video tag.
-      </video>
-
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/50"></div>
+    <section className="hero-container"> 
+      
+      
+     
 
       {/* Content */}
-      <section className="relative z-10 flex items-center justify-evenly min-h-screen px-4 sm:px-6 text-center text-white">
-        <div className="max-w-2xl">
-          <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold leading-tight">
-            <span className="text-orange-500">Interactive</span> Web Solutions
-            for local challenges
-          </h1>
+      <section className="hero-content">
+        <div className="hero-text">
+         
 
-          <p className="mt-4 text-base sm:text-lg md:text-xl text-gray-200">
-            "Your website should be your most reliable team member{" "}
-            <span className="hidden sm:inline">
-              <br />
-            </span>
-            always ready,{" "}
-            <span className="hidden sm:inline">
-              <br />
-            </span>
-            always working."
+          <p>
+            modern  web 
+            <br />
+             rethought."
           </p>
 
-          <div className="mt-6 flex flex-col sm:flex-row gap-2 sm:gap-4 justify-center">
+         
+        </div>
+
+        {/* ✅ Section 1: Hero Content */}
+                <div className="w-full flex flex-col items-end justify-end text-right gap-6 pt-[360px]">
+                  <h3 className="text-4xl md:text-8xl font-extrabold text-[#f9f7f3]">
+                    Yohan Labs
+                  </h3>
+                  <p className="text-sm md:text-xl text-[#fbf9f6] leading-relaxed max-w-3xl">
+                    At Yohan Labs, we help businesses unlock their full potential online.
+                    From modern websites that attract and convert, to scalable backend
+                    systems and seamless integrations — we craft digital solutions
+                    designed to grow your brand and deliver results.
+                  </p>
+                  <div className="hero-buttons">
             <Link to="/pricings">
-              <button className="px-6 py-3 bg-orange-500 rounded-lg font-semibold hover:bg-orange-600 transition">
-                Get Started
-              </button>
+              <button className="btn-primary">Get Started</button>
             </Link>
+
             <Link to="/services">
-              <button className="px-6 py-3 border border-white rounded-lg font-semibold hover:bg-white hover:text-black transition">
-                 What We Do
-              </button>
+              <button className="btn-secondary">What We Do</button>
             </Link>
           </div>
-        </div>
+                </div>
       </section>
-    </div>
+    </section>
   );
 }
 
-export default Hero;
+export default Hero; 
