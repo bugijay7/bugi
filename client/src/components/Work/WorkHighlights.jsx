@@ -4,7 +4,7 @@ import turs from '../../assets/turs.jpg';
 import muscleDistrict from '../../assets/muscledistrict.jpg';
 import kashio from '../../assets/kashio.jpg';
 import furniq from '../../assets/furniq.JPG';
-import afc from '../../assets/afc.png';
+import afc from '../../assets/AFC.png';
 import zoe from '../../assets/zoe.png';
 
 function WorkHighlights() {
