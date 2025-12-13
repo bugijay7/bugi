@@ -1,30 +1,33 @@
 import jwt from 'jsonwebtoken';
-import { sql } from '../config/db.js'; 
+import mongoose from 'mongoose';
 
 export const authenticateToken = (req, res, next) => {
-  const token = req.headers['authorization']?.split(' ')[1];
-  
-  if (!token) {
-    return res.status(401).json({ message: 'No token provided' });
-  }
+  const authHeader = req.headers['authorization'];
+  const token = authHeader && authHeader.split(' ')[1];
 
-  jwt.verify(token, process.env.JWT_SECRET, async (err, decoded) => {
-    if (err) {
-      return res.status(403).json({ message: 'Failed to authenticate token' });
-    }
+  if (token == null) return res.sendStatus(401);
 
-    try {
-      const user = await sql`SELECT * FROM users WHERE id = ${decoded.id}`;
-      if (user.length === 0) {
-        return res.status(404).json({ message: 'User not found' });
-      }
-      req.user = user[0];
-      next();
-    } catch (error) {
-      console.error('Database error:', error);
-      res.status(500).json({ message: 'Internal server error' });
-    }
+  jwt.verify(token, process.env.ACCESS_TOKEN_SECRET, (err, user) => {
+    if (err) return res.sendStatus(403);
+    req.user = user;
+    next();
   });
-}
+};  
 
-   
+export const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true });
+    console .log('MongoDB connected successfully');
+  } catch (error) {
+    console.error('MongoDB connection error:', error);
+  }
+};  
+
+export const disconnectDB = async () => {
+  try {
+    await mongoose.disconnect();    
+    console.log('MongoDB disconnected successfully');
+  } catch (error) {
+    console.error('MongoDB disconnection error:', error);
+  }       
+  };

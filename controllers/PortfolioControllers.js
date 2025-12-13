@@ -1,82 +1,67 @@
-import bcrypt from 'bcryptjs';
-import { sql } from '../config/db.js';
-import jwt from 'jsonwebtoken';
+import Portfolio from "../models/PortfolioModel.js";
 
+// Get all portfolios
 export const getPortfolios = async (req, res) => {
+  try {
+    const portfolios = await Portfolio.find();  
+    res.json(portfolios);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};  
+
+// Get portfolio by ID
+export const getPortfolioById = async (req, res) => {   
     try {
-        const portfolios = await sql`SELECT * FROM portfolios`;
-        res.status(200).json(portfolios);
-    } catch (error) {
-        res.status(500).json({ message: 'Error fetching portfolios' });
+    const foundPortfolio = await Portfolio.findById(req.params.id);
+    if (!foundPortfolio) {
+      return res.status(404).json({ message: 'Portfolio not found' });
     }
-}
+    res.json(foundPortfolio);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }     
+};  
 
-export const getPortfolioById = async (req, res) => {
-    try {
-        const { id } = req.params;
-        const portfolio = await sql`SELECT * FROM portfolios WHERE id = ${id}`;
-        if (portfolio.length === 0) {
-            return res.status(404).json({ message: 'Portfolio not found' });
-        }
-        res.status(200).json(portfolio[0]);
-    } catch (error) {
-        res.status(500).json({ message: 'Error fetching portfolio' });
-    }
-}
-
-
+// Create a new portfolio
 export const createPortfolios = async (req, res) => {
   try {
-    const {
-      fullName,
-      email,
-      phone,
-      profession,
-      portfolioGoal,
-      workTypes,
-      sections,
-      designPrefs,
-      timeline,
-      notes
-    } = req.body;
-
-    const newPortfolio = await sql`
-      INSERT INTO portfolios 
-      (full_name, email, phone, profession, portfolio_goal, work_types, sections, design_prefs, timeline, notes)
-      VALUES (${fullName}, ${email}, ${phone}, ${profession}, ${portfolioGoal}, ${workTypes}, ${sections}, ${designPrefs}, ${timeline}, ${notes})
-      RETURNING *`;
-
-    res.status(201).json(newPortfolio[0]);
+    const newPortfolio = new Portfolio(req.body); 
+    const savedPortfolio = await newPortfolio.save();  
+    res.status(201).json(savedPortfolio);
   } catch (error) {
-    console.error("Error creating portfolio:", error);
-    res.status(500).json({ message: 'Error creating portfolio' });
+    res.status(400).json({ message: error.message });
   }
 };
 
+
+// Update an existing portfolio
 export const updatePortfolios = async (req, res) => {
-    try {
-        const { id } = req.params;
-        const { name, description } = req.body;
-        const updatedPortfolio = await sql`UPDATE portfolios SET name = ${name}, description = ${description} WHERE id = ${id} RETURNING *`;
-        if (updatedPortfolio.length === 0) {
-            return res.status(404).json({ message: 'Portfolio not found' });
-        }
-        res.status(200).json(updatedPortfolio[0]);
-    } catch (error) {
-        res.status(500).json({ message: 'Error updating portfolio' });
-    }
-}   
+  try {
+    const updatedPortfolio = await Portfolio.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );  
+    if (!updatedPortfolio) {    
+        return res.status(404).json({ message: 'Portfolio not found' });    
+    } 
+    res.json(updatedPortfolio);   
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  } 
+};  
 
-
-export const deletePortfolios = async (req, res) => {        
-    try {
-        const { id } = req.params;
-        const deletedPortfolio = await sql`DELETE FROM portfolios WHERE id = ${id} RETURNING *`;
-        if (deletedPortfolio.length === 0) {
-            return res.status(404).json({ message: 'Portfolio not found' });
-        }
-        res.status(200).json({ message: 'Portfolio deleted successfully' });
+// Delete a portfolio   
+export const deletePortfolios = async (req, res) => {
+  try { 
+    const deletedPortfolio = await Portfolio.findByIdAndDelete(req.params.id);      
+    if (!deletedPortfolio) {
+      return res.status(404).json({ message: 'Portfolio not found' });
+    }   
+    res.json({ message: 'Portfolio deleted successfully' });    
     } catch (error) {
-        res.status(500).json({ message: 'Error deleting portfolio' });
+    res.status(500).json({ message: error.message });   
     }
-}   
+};  
+

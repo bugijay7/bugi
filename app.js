@@ -1,9 +1,11 @@
 import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
+import mongoose, { connect } from 'mongoose'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 
+import connectDB from './config/db.js';
 import brandsRoutes from './routes/BrandRoutes.js';
 import storesRoutes from './routes/StoresRoutes.js';
 import portfoliosRoutes from './routes/PortfolioRoutes.js';
@@ -11,11 +13,12 @@ import causesRoutes from './routes/CauseRoutes.js';
 import consultationRoutes from './routes/ConsultationRoutes.js';
 
 dotenv.config();
+connectDB();
 const app = express();
 
 
 app.use(cors({
-    origin: 'https://bugi.vercel.app/',
+    origin: 'https://bugi.vercel.app',
     credentials: true
 }));
 app.use(express.json());

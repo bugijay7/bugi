@@ -5,6 +5,7 @@ function Consultations() {
   const [consultations, setConsultations] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [selected, setSelected] = useState(null);
 
   useEffect(() => {
     const fetchConsultations = async () => {
@@ -22,56 +23,121 @@ function Consultations() {
   }, []);
 
   if (loading)
-    return <p className="text-center text-gray-600 pt-36">Loading consultations...</p>;
+    return (
+      <div className="flex justify-center items-center min-h-screen text-gray-500">
+        Loading consultations...
+      </div>
+    );
+
   if (error)
     return (
-      <p className="text-center text-red-500 font-semibold pt-36">
+      <div className="flex justify-center items-center min-h-screen text-red-500 font-semibold">
         Error: {error}
-      </p>
+      </div>
     );
 
   return (
-    <div className="max-w-6xl mx-auto p-6 pt-36 min-h-[100vh]">
-      <h2 className="text-3xl font-bold mb-8 text-gray-800 uppercase text-center">
-        All Consultations
-      </h2>
+    <div className="min-h-screen bg-gray-100 pt-28 px-4 sm:px-8">
+      <div className="max-w-7xl mx-auto mb-6">
+        <h1 className="text-3xl font-bold text-gray-900">
+          Consultations
+        </h1>
+        <p className="text-gray-500">
+          Click a message to read full details
+        </p>
+      </div>
 
-      {consultations.length > 0 ? (
+      <div className="max-w-7xl mx-auto bg-white rounded-xl shadow-lg overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="w-full border border-gray-200 shadow-md rounded-lg">
-            <thead className="bg-gray-100">
+          <table className="min-w-full">
+            <thead className="bg-gray-50">
               <tr>
-                <th className="p-3 text-left text-sm font-semibold text-gray-700">#</th>
-                <th className="p-3 text-left text-sm font-semibold text-gray-700">Name</th>
-                <th className="p-3 text-left text-sm font-semibold text-gray-700">Business</th>
-                <th className="p-3 text-left text-sm font-semibold text-gray-700">Email</th>
-                <th className="p-3 text-left text-sm font-semibold text-gray-700">Phone</th>
-                <th className="p-3 text-left text-sm font-semibold text-gray-700">Description</th>
-                <th className="p-3 text-left text-sm font-semibold text-gray-700">Submitted At</th>
+                {["#", "Client", "Business", "Phone", "Message", "Date"].map(
+                  (head) => (
+                    <th
+                      key={head}
+                      className="px-6 py-4 text-left text-xs font-semibold text-gray-500 uppercase"
+                    >
+                      {head}
+                    </th>
+                  )
+                )}
               </tr>
             </thead>
-            <tbody>
+
+            <tbody className="divide-y divide-gray-100">
               {consultations.map((consult, index) => (
                 <tr
-                  key={consult.id}
-                  className="border-t hover:bg-gray-50 transition"
+                  key={consult._id}
+                  className="hover:bg-gray-50 transition"
                 >
-                  <td className="p-3 text-sm text-gray-700">{index + 1}</td>
-                  <td className="p-3 text-sm text-gray-900 font-medium">{consult.name}</td>
-                  <td className="p-3 text-sm text-gray-700">{consult.business_name}</td>
-                  <td className="p-3 text-sm text-gray-700">{consult.email}</td>
-                  <td className="p-3 text-sm text-gray-700">{consult.phone}</td>
-                  <td className="p-3 text-sm text-gray-700">{consult.description}</td>
-                  <td className="p-3 text-sm text-gray-500">
-                    {new Date(consult.created_at).toLocaleString()}
+                  <td className="px-6 py-4 text-sm text-gray-500">
+                    {index + 1}
+                  </td>
+
+                  <td className="px-6 py-4">
+                    <div className="font-medium text-gray-900">
+                      {consult.name}
+                    </div>
+                    <div className="text-sm text-gray-500">
+                      {consult.email}
+                    </div>
+                  </td>
+
+                  <td className="px-6 py-4 text-sm text-gray-700">
+                    {consult.businessName || "—"}
+                  </td>
+
+                  <td className="px-6 py-4 text-sm text-gray-700">
+                    {consult.phone}
+                  </td>
+
+                  <td
+                    className="px-6 py-4 text-sm text-blue-600 cursor-pointer hover:underline"
+                    onClick={() => setSelected(consult)}
+                  >
+                    View message
+                  </td>
+
+                  <td className="px-6 py-4 text-sm text-gray-500">
+                    {new Date(consult.createdAt).toLocaleDateString()}
                   </td>
                 </tr>
               ))}
             </tbody>
           </table>
         </div>
-      ) : (
-        <p className="text-gray-500 text-center">No consultations found.</p>
+      </div>
+
+      {/* Modal */}
+      {selected && (
+        <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+          <div className="bg-white max-w-lg w-full rounded-xl shadow-xl p-6 relative">
+            <button
+              onClick={() => setSelected(null)}
+              className="absolute top-3 right-3 text-gray-400 hover:text-black"
+            >
+              ✕
+            </button>
+
+            <h3 className="text-xl font-bold mb-2">
+              {selected.name}
+            </h3>
+
+            <p className="text-sm text-gray-500 mb-4">
+              {selected.email} • {selected.phone}
+            </p>
+
+            <div className="bg-gray-50 p-4 rounded-lg text-gray-700 whitespace-pre-wrap">
+              {selected.description}
+            </div>
+
+            <p className="text-xs text-gray-400 mt-4">
+              Submitted on{" "}
+              {new Date(selected.createdAt).toLocaleString()}
+            </p>
+          </div>
+        </div>
       )}
     </div>
   );
