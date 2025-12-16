@@ -18,7 +18,7 @@ A place to showcase your ideas, engage your audience, and transform your digital
           </p>
           <Link
             to="/services"
-            className=" text-[#1c1205] font-semibold">
+            className=" text-[#1c1205] font-semibold underline underline-offset-8  underline-bold">
             Explore Our Services
           </Link>
         </div>

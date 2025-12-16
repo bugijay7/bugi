@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import CreativeProcess from '../Pages/about/CreativeProcess';
 
 function Footer() {
   const location = useLocation();
@@ -20,7 +19,7 @@ function Footer() {
           : 'bg-[#090909] text-white'
       }`}
     >
-      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-8 py-10 flex flex-col md:flex-row justify-between items-start gap-10 font text-sm md:text-base">
+      <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-8 py-10 flex flex-col md:flex-row justify-between items-start gap-10 text-sm md:text-base">
         
         {/* Info Section */}
         <div className="text-left">
@@ -28,30 +27,32 @@ function Footer() {
           <p className="font-extrabold">Interactive Developer</p>
         </div>
 
-        {/* Social Links */}
-        <div 
-        className={`flex flex-col md:flex-row gap-4 md:gap-8 ${
-        isAboutPage  || isCreativeProcess || isHome || isPricings
-          ? 'bg-gray-200 text-black'
-          : 'bg-[#090909] text-white'
-      }`}>
-       
+        {/* Page Links */}
+        <div
+          className={`flex flex-col md:flex-row gap-4 md:gap-8 ${
+            isAboutPage || isCreativeProcess || isHome || isPricings
+              ? 'text-black'
+              : 'text-white'
+          }`}
+        >
           {[
-            { label: 'Twitter', url: 'https://twitter.com' },
-            { label: 'Instagram', url: 'https://instagram.com' },
-            { label: 'Github', url: 'https://github.com' }
-          ].map(({ label, url }) => (
-            <a
+            { label: 'About', to: '/about' },
+            { label: 'Works', to: '/works' },
+            { label: 'Contact', to: '/contacts' },
+          ].map(({ label, to }) => (
+            <Link
               key={label}
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
+              to={to}
               className={`font-semibold hover:text-[orangered] transition-colors duration-300 ${
-                isContactPage ? 'text-white' : isAboutPage || isCreativeProcess || isHome || isPricings ? 'text-black' : 'text-white'
+                isContactPage
+                  ? 'text-white'
+                  : isAboutPage || isCreativeProcess || isHome || isPricings
+                  ? 'text-black'
+                  : 'text-white'
               }`}
             >
               {label}
-            </a>
+            </Link>
           ))}
         </div>
 

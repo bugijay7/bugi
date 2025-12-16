@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaCheckCircle } from 'react-icons/fa';
-import benefitsImg from '../../assets/benefits.jpeg';
+import shapeImg from '../../assets/shape.jpeg'; // <-- your shape image
 
 function Benefits() {
   const items = [
@@ -31,27 +31,19 @@ function Benefits() {
   ];
 
   return (
-    <section className="px-6  bg-gray-200 mt-20">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
-        
-        {/* Left Side - Image */}
-        <div className="flex">
-          <img
-            src={benefitsImg}
-            alt="E-commerce benefits illustration"
-            className="w-full h-full object-cover rounded-2xl shadow-lg"
-          />
-        </div>
+    <section className="relative overflow-hidden bg-[#d9b17f] pt-20 pb-20 px-6">
+      
+      <div className="max-w-[1200px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center relative">
 
-        {/* Right Side - Content */}
+        {/* Left - Content */}
         <div className="flex flex-col justify-between">
           <div>
             <header className="mb-10">
-              <h2 className="text-3xl font-extrabold text-gray-900 mb-4">
+              <h2 className="text-3xl font-extrabold text-[#2a3b2b] mb-4">
                 Benefits that actually move products
               </h2>
-              <p className="text-gray-600 leading-relaxed">
-                In Kenya’s busy online marketplace, you have seconds to convince a shopper to trust you and buy.  
+              <p className="text-gray-200 leading-relaxed max-w-xl">
+                In Kenya’s busy online marketplace, you have seconds to convince a shopper to trust you and buy.
                 These essentials make your e-commerce site work harder for every click.
               </p>
             </header>
@@ -61,30 +53,49 @@ function Benefits() {
               {items.map((b, i) => (
                 <article
                   key={i}
-                  className="bg-white rounded-xl shadow-md p-5 flex flex-col gap-3 hover:shadow-lg transition"
+                  className="bg-[#2a3b2b] rounded-xl p-5 flex flex-col gap-3
+                             shadow-md hover:shadow-xl transition"
                 >
-                  <FaCheckCircle className="text-green-500 text-2xl" aria-hidden="true" />
-                  <h3 className="text-lg font-semibold text-gray-800">{b.title}</h3>
-                  <p className="text-gray-600 text-sm">{b.text}</p>
+                  <FaCheckCircle
+                    className="text-[#e4870e] text-2xl"
+                    aria-hidden="true"
+                  />
+                  <h3 className="text-sm md:text-lg font-semibold text-[#d9b17f]">
+                    {b.title}
+                  </h3>
+                  <p className="text-white text-xs md:text-sm leading-relaxed">
+                    {b.text}
+                  </p>
                 </article>
               ))}
             </div>
           </div>
 
           {/* CTA */}
-          <div className="mt-10">
+          <div className="mt-12">
+            <p className="mb-3 text-sm text-gray-200">
+              Let’s set up a store that earns while you sleep.
+            </p>
             <a
               href="/ClientForms/StoreForms"
-              className="inline-block px-6 py-3 bg-red-500 text-white rounded-lg shadow-md hover:bg-red-600 transition"
-              aria-label="Start your project"
+              className="inline-block px-6 py-3 bg-[#2a3b2b] text-white
+                         rounded-lg shadow-md hover:bg-red-600 transition"
             >
               Start your online store
             </a>
-            <p className="mt-3 text-sm text-gray-500">
-              Let’s set up a store that earns while you sleep.
-            </p>
           </div>
         </div>
+
+        {/* Right - Shape Image */}
+        <div className="hidden md:flex justify-end">
+          <img
+            src={shapeImg}
+            alt=""
+            className="md:w-[620px] w-full opacity-90"
+            aria-hidden="true"
+          />
+        </div>
+
       </div>
     </section>
   );

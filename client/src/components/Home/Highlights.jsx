@@ -1,93 +1,91 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { FaCode, FaPaintBrush, FaSearch, FaArrowRight, FaHandshake, FaTools } from 'react-icons/fa';
-import heroImg from '../../assets/web-expert.jpeg';
-import '../../styles/highlights.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import {
+  FaCode,
+  FaPaintBrush,
+  FaSearch,
+  FaHandshake,
+  FaTools,
+  FaArrowRight,
+} from "react-icons/fa";
 
 function Highlights() {
   const problems = [
     {
-      title: "Your website looks outdated or unprofessional",
-      icon: <FaPaintBrush className="icon-indigo" />,
-      solution: "Clean, modern designs that are mobile-friendly, accessible, and built to impress your audience from the first click.",
+      title: "Outdated or Unprofessional Website",
+      text: "Clean, modern, mobile-friendly designs that instantly build trust and credibility.",
+      icon: <FaPaintBrush />,
     },
     {
-      title: "It’s slow or doesn’t work well on all devices",
-      icon: <FaCode className="icon-green" />,
-      solution: "Fast, responsive development using modern frameworks like React & Next.js for smooth, scalable performance.",
+      title: "Slow or Unresponsive Experience",
+      text: "Fast, scalable development that works smoothly across all devices.",
+      icon: <FaCode />,
     },
     {
-      title: "No one can find your business online",
-      icon: <FaSearch className="icon-yellow" />,
-      solution: "Search engine optimization and performance tuning to boost visibility and climb rankings on Google.",
+      title: "Hard to Find on Google",
+      text: "SEO-focused builds and performance tuning to improve visibility and rankings.",
+      icon: <FaSearch />,
     },
     {
-      title: "Your site breaks or needs constant fixes",
-      icon: <FaTools className="icon-pink" />,
-      solution: "Regular maintenance, security updates, and backups to keep your site stable and safe 24/7.",
+      title: "Frequent Website Issues",
+      text: "Ongoing maintenance, backups, and security for long-term stability.",
+      icon: <FaTools />,
     },
     {
-      title: "You’re not tracking what’s working",
-      icon: <FaSearch className="icon-blue" />,
-      solution: "Analytics integration to monitor visitor behavior and make data-driven improvements.",
+      title: "No Insight Into What Works",
+      text: "Analytics integration with data-driven improvements for smarter growth.",
+      icon: <FaSearch />,
     },
     {
-      title: "You’re unsure what direction to take",
-      icon: <FaHandshake className="icon-red" />,
-      solution: "1-on-1 consultations to clarify your goals, define your strategy, and guide you through the process.",
+      title: "Unclear Digital Strategy",
+      text: "1-on-1 consultations with clear guidance from idea to launch.",
+      icon: <FaHandshake />,
     },
   ];
 
   return (
-    <div className="highlights-section" id="some">
-      <div className="highlights-container">
+    <section className="bg-[#d9b17f] py-24">
+      <div className="max-w-[1200px] mx-auto px-6 w-full">
 
-        <div className="highlights-flex">
-          {/* Sidebar Image */}
-          <aside className="highlights-aside">
-            <img
-              src={heroImg}
-              alt="Web Developer Kibugi"
-              className="highlights-img"
-            />
-          </aside>
+        {/* Content */}
+        <div className="flex flex-col gap-20">
 
-          {/* Main Content */}
-          <section className="highlights-content">
-            
-            {/* Intro */}
-            <div>
-              <h2 className="highlights-title">
-                Solving Real Problems With Smart Web Solutions
-              </h2>
-              <p className="highlights-intro">
-                Many businesses lose opportunities because their websites are slow, outdated, or hard to find.  
-                Here’s how I turn those challenges into growth.
-              </p>
-            </div>
-
-            {/* Problem → Solution Grid */}
-            <div className="highlights-grid">
-              {problems.map((item, index) => (
-                <div key={index} className="highlights-card">
-                  <div className="highlights-card-header">
-                    {item.icon}
-                    <h3 className="highlights-card-title">{item.title}</h3>
-                  </div>
-                  <p className="highlights-card-text">
-                    <strong className="solution-label">Solution:</strong> {item.solution}
-                  </p>
+          {/* Problems Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-12">
+            {problems.map((item, index) => (
+              <div key={index} className="flex flex-col gap-4">
+                <div className="flex items-center gap-3 text-teal-700">
+                  <span className="text-xl">{item.icon}</span>
+                  <h3 className="text-sm md:text-xl font-bold text-[#2a3b2b]">
+                    {item.title}
+                  </h3>
                 </div>
-              ))}
-            </div>
 
-            {/* CTA */}
-           
+                <p className="text-gray-900 text-xs md:text-sm leading-relaxed max-w-md">
+                  {item.text}
+                </p>
 
-          </section>
+                <div className="border-t border-gray-700 w-16"></div>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <div className="flex justify-start">
+            <Link
+              to="/start"
+              className="inline-flex items-center gap-3 px-8 py-4
+                         bg-indigo-600 text-white text-xs md:text-sm
+                         font-semibold rounded-lg shadow-md
+                         hover:bg-indigo-700 transition duration-300"
+            >
+              Let’s Solve Your Website Problems <FaArrowRight />
+            </Link>
+          </div>
+
         </div>
       </div>
-    </div>
+    </section>
   );
 }
 

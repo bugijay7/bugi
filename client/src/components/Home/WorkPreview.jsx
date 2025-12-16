@@ -1,58 +1,138 @@
 import React from 'react';
-import earth from '../../assets/earth.jpeg';
-import portfolio from '../../assets/portfolio.JPG';
+import { Link } from 'react-router-dom';
 
 function WorkPreview() {
+  const packages = [
+    {
+      title: 'Personal Portfolios',
+      bg: 'bg-[#d9b17b]',
+      accent: 'text-cyan-600',
+      features: [
+        '🎨 Custom layout & styling',
+        '🖼️ Project galleries',
+        '📄 Resume/downloadable CV',
+        '📫 Contact & socials section',
+        '📱 Mobile-friendly design',
+      ],
+      audience: ['Designers', 'Developers', 'Writers', 'Photographers', 'Filmmakers', 'Job seekers'],
+      btnText: 'Build My Site',
+      link: '/ClientForms/PortfolioForms',
+    },
+    {
+      title: 'Online Stores',
+      bg: 'bg-[#d9b17b]',
+      accent: 'text-red-500',
+      features: [
+        '🛒 Product catalog & filters',
+        '💳 Checkout & payment integration',
+        '📦 Inventory management',
+        '📈 Analytics & performance tracking',
+        '🤝 CRM integration',
+      ],
+      audience: ['Retailers', 'Artisans', 'Digital sellers', 'Restaurants', 'Wholesalers', 'Service providers'],
+      btnText: 'Get Started',
+      link: '/ClientForms/StoreForms',
+    },
+    {
+      title: 'Brand Portals',
+      bg: 'bg-[#d9b17b]',
+      accent: 'text-teal-600',
+      features: [
+        '🌐 Branded landing pages',
+        '📥 Lead capture forms',
+        '📊 Blog & SEO ready',
+        '🧭 Clear navigation structure',
+        '💬 Live chat integration',
+      ],
+      audience: ['Coaches', 'Consultants', 'Agencies', 'Content creators', 'Product brands', 'Small businesses'],
+      btnText: 'Inquire Now',
+      link: '/ClientForms/BrandForms',
+    },
+    {
+      title: 'Cause Platforms',
+      bg: 'bg-[#d9b17b]',
+      accent: 'text-fuchsia-600',
+      features: [
+        '🤝 Donation & fundraising tools',
+        '📅 Events calendar',
+        '📰 Blog & stories',
+        '📌 Mission & team showcase',
+        '📧 Newsletter signup',
+      ],
+      audience: ['NGOs', 'Churches', 'Youth orgs', 'Charities', 'Foundations', 'Community groups'],
+      btnText: 'Start My Mission',
+      link: '/ClientForms/CauseForms',
+    },
+  ];
+
   return (
-    <div className="w-full min-h-[70vh] bg-gray-200 text-black">
-      {/* Optional Section Title */}
-      <section className="px-6 sm:px-10 py-5 text-2xl font-bold text-gray-800 font md:text-3xl max-w-[1400px] mx-auto">
-        {/* Title (optional, currently empty) */}
-      </section>
+    <div className="min-h-screen bg-[#d9b17f] text-gray-800 py-24 px-6 mb-0">
+      <div className="max-w-6xl mx-auto">
+        <h2 className="text-xl md:text-5xl font-bold mb-6 text-center text-[#263627] tracking-wide">
+          Website Pricing Packages
+        </h2>
 
-      {/* === Section 1 === */}
-      <section className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-10 px-6 sm:px-10 py-12 sm:py-[60px] my-[40px] max-w-[1400px] mx-auto">
-        {/* Text Content */}
-        <div className="w-full lg:flex-1">
-          <p className="text-[2rem] sm:text-[3rem] md:text-[4rem] font-black text-black mb-4 leading-tight uppercase font">
-            Forked <br /> up
-          </p>
-          <p className="text-base sm:text-lg text-gray-700 font-medium leading-relaxed max-w-[600px] font">
-            An online hub that showcases the menu, ambiance, location, and services, allowing customers to explore, book, and connect with the dining experience.
-          </p>
-        </div>
+        <p className="text-sm md:text-lg text-center mb-16 text-black max-w-2xl mx-auto">
+          Pick the right solution for your project. All plans include responsive design,
+          basic SEO, fast loading, and optimized performance.
+          <br /><br />
+          <strong className="text-white">Custom add-ons available.</strong>
+        </p>
 
-        {/* Image */}
-        <div className="w-full max-w-[550px] transition-transform duration-300 hover:scale-[1.02]">
-          <img
-            src={earth}
-            alt="Forked Up"
-            className="w-full h-auto rounded-xl object-cover shadow-xl hover:shadow-2xl transition-shadow duration-300"
-          />
-        </div>
-      </section>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+          {packages.map((pkg, idx) => (
+            <div
+              key={idx}
+              className={`
+                ${pkg.bg}
+                bg-opacity-40
+                backdrop-blur-lg
+                rounded-xl
+                p-6
+                border border-white/30
+                shadow-lg
+                hover:shadow-2xl
+                transition-all
+                duration-300
+                hover:-translate-y-1
+              `}
+            >
+              <div className="flex justify-between items-center mb-4">
+                <h3 className={`text-2xl font-bold ${pkg.accent}`}>
+                  {pkg.title}
+                </h3>
+              </div>
 
-      {/* === Section 2 === */}
-      <section className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-10 px-6 sm:px-10 py-12 sm:py-[60px] my-[40px] max-w-[1400px] mx-auto">
-        {/* Text Content */}
-        <div className="w-full lg:flex-1">
-          <p className="text-[2rem] sm:text-[3rem] md:text-[4rem] font-black text-black mb-4 leading-tight uppercase font">
-            Personal <br /> blog
-          </p>
-          <p className="text-base sm:text-lg text-gray-700 font-medium leading-relaxed max-w-[600px] font">
-            A personal hub that highlights your work, skills, personality, and services—making it easy for clients to explore your projects, get to know you, and reach out with confidence.
-          </p>
-        </div>
+              {/* Audience */}
+              <div className="text-sm mb-6">
+                <p className="font-bold text-gray-900 mb-2">Ideal for:</p>
+                <div className="grid grid-cols-2 gap-2 text-gray-900 text-sm">
+                  {pkg.audience.map((aud, i) => (
+                    <div key={i}>• {aud}</div>
+                  ))}
+                </div>
+              </div>
 
-        {/* Image */}
-        <div className="w-full max-w-[550px] transition-transform duration-300 hover:scale-[1.02]">
-          <img
-            src={portfolio}
-            alt="reuben portfolio"
-            className="w-full h-auto rounded-xl object-cover shadow-xl hover:shadow-2xl transition-shadow duration-300"
-          />
+              {/* Features */}
+              <ul className="flex flex-col gap-2 text-gray-800 text-sm mb-6">
+                {pkg.features.map((feat, fIdx) => (
+                  <li key={fIdx}>{feat}</li>
+                ))}
+              </ul>
+
+              <p className="text-xs text-gray-900 italic mb-4">
+                Includes 3 months of free maintenance & support
+              </p>
+
+              <Link to={pkg.link} className="block">
+                <button className="w-full py-2 rounded-md font-semibold text-white bg-gray-900 hover:bg-gray-800 transition">
+                  {pkg.btnText}
+                </button>
+              </Link>
+            </div>
+          ))}
         </div>
-      </section>
+      </div>
     </div>
   );
 }

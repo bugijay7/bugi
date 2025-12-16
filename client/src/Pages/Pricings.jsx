@@ -72,13 +72,13 @@ function Pricings() {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-200 text-gray-800 py-24 px-6 mt-10 font">
+    <div className="min-h-screen bg-gray-200 text-gray-800 py-24 px-6 mt-10">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-4xl sm:text-5xl font-bold mb-6 text-center text-[#090909] uppercase tracking-wide">
+        <h2 className="text-xl md:text-5xl font-bold mb-6 text-center text-[#090909] uppercase tracking-wide">
           Website Pricing Packages
         </h2>
 
-        <p className="text-lg text-center mb-16 text-black max-w-2xl mx-auto">
+        <p className="text-sm md:text-lg text-center mb-16 text-black max-w-2xl mx-auto">
           Pick the right solution for your project. All plans include responsive design, basic SEO, fast loading, and optimized performance.
           <br /><br />
           <strong className="text-red-500">Custom add-ons available.</strong>

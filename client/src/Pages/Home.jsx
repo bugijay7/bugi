@@ -10,13 +10,13 @@ import ServicesPreview from '../components/Home/ServicesPreview'
 function Home() {
   return (
     <div>
-        <Hero />
-        <Solution />
+         <Hero />
+         <Solution />
          <ServicesPreview />
          <Benefits />
-        <Highlights />
-        <WorkPreview />
-        <Cta />
+         <Highlights />
+         <WorkPreview />
+         <Cta />
     </div>
   )
 }
