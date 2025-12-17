@@ -9,15 +9,19 @@ function Stores() {
   useEffect(() => {
     const fetchStores = async () => {
       try {
-        const res = await axios.get("https://bugi-2.onrender.com/api/stores");
+        const token = localStorage.getItem("token");
+        const res = await axios.get("https://bugi-2.onrender.com/api/stores", {
+          headers: { Authorization: `Bearer ${token}` },
+          withCredentials: true,
+        });
         setStores(res.data);
       } catch (err) {
-        setError(err.response?.data?.message || err.message);
+        console.error(err);
+        setError("Failed to load brand submissions.");
       } finally {
         setLoading(false);
       }
     };
-
     fetchStores();
   }, []);
 

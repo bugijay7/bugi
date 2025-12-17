@@ -10,10 +10,15 @@ function Consultations() {
   useEffect(() => {
     const fetchConsultations = async () => {
       try {
-        const res = await axios.get("https://bugi-2.onrender.com/api/consultations");
+        const token = localStorage.getItem("token");
+        const res = await axios.get("https://bugi-2.onrender.com/api/causes", {
+          headers: { Authorization: `Bearer ${token}` },
+          withCredentials: true,
+        });
         setConsultations(res.data);
       } catch (err) {
-        setError(err.response?.data?.message || err.message);
+        console.error(err);
+        setError("Failed to load consultations.");
       } finally {
         setLoading(false);
       }

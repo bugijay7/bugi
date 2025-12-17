@@ -6,19 +6,25 @@ function Causes() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
+   useEffect(() => {
     const fetchCauses = async () => {
       try {
-        const res = await axios.get("https://bugi-2.onrender.com/api/causes");
+        const token = localStorage.getItem("token");
+        const res = await axios.get("https://bugi-2.onrender.com/api/causes", {
+          headers: { Authorization: `Bearer ${token}` },
+          withCredentials: true,
+        });
         setCauses(res.data);
       } catch (err) {
-        setError(err.response?.data?.message || err.message);
+        console.error(err);
+        setError("Failed to load brand submissions.");
       } finally {
         setLoading(false);
       }
     };
     fetchCauses();
   }, []);
+
 
   if (loading)
     return (

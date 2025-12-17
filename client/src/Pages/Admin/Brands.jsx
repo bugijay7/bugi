@@ -12,6 +12,7 @@ function Brands() {
         const token = localStorage.getItem("token");
         const res = await axios.get("https://bugi-2.onrender.com/api/brands", {
           headers: { Authorization: `Bearer ${token}` },
+          withCredentials: true,
         });
         setBrands(res.data);
       } catch (err) {

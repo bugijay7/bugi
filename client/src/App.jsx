@@ -74,7 +74,7 @@ function App() {
         <Route path="/admin/consultations" element={<GetConsultation />} />
         <Route path="/admin/brands" element={<GetBrands />} />
         <Route path="/admin/causes" element={<GetCauses />} />
-        <Route path="/admin/portfolio" element={<GetPortfolio />} />
+        <Route path="/admin/portfolios" element={<GetPortfolio />} />
         <Route path="/admin/stores" element={<GetStores />} />
       </Routes>
       <WhatsappFloat />

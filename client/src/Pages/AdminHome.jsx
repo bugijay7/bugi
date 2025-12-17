@@ -29,7 +29,7 @@ function AdminHome() {
             🌍 View Causes
           </Link>
           <Link
-            to="/admin/portfolio"
+            to="/admin/portfolios"
             className="px-4 py-3 rounded-lg bg-gray-50 hover:bg-gray-100 border border-gray-200 text-gray-700 font-medium shadow-sm transition"
           >
             🖼️ Manage Portfolio

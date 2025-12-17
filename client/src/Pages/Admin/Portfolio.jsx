@@ -7,28 +7,24 @@ function Portfolio() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    axios
-      .get("https://bugi-2.onrender.com/api/portfolios")
-      .then((res) => {
+    const fetchProjects = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        const res = await axios.get("https://bugi-2.onrender.com/api/portfolios", {
+          headers: { Authorization: `Bearer ${token}` },
+          withCredentials: true,
+        });
         setProjects(res.data);
+      } catch (err) {
+        console.error(err);
+        setError("Failed to load portfolio submissions.");
+      } finally {
         setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Axios error:", err);
-        if (err.response) {
-          setError(
-            `Error ${err.response.status}: ${
-              err.response.data.message || "Server error"
-            }`
-          );
-        } else if (err.request) {
-          setError("No response from server. Please check your backend.");
-        } else {
-          setError(`Request error: ${err.message}`);
-        }
-        setLoading(false);
-      });
+      }
+    };
+    fetchProjects();
   }, []);
+
 
   if (loading)
     return <p className="text-center text-gray-600">Loading portfolio...</p>;
