@@ -1,80 +1,100 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useState } from 'react';
 import bgImage from '../assets/form.jpeg';
+import axios from 'axios';
 
 function GettingStarted() {
-  const [consultations, setConsultations] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState('');
+  const [formData, setFormData] = useState({
+    name: '',
+    businessName: '',
+    email: '',
+    phone: '',
+    description: '',
+  });
 
-  useEffect(() => {
-    const fetchConsultations = async () => {
-      try {
-        const token = localStorage.getItem('token'); // if auth required
-        const res = await axios.get('https://bugi-2.onrender.com/api/consultations', {
-          headers: { Authorization: `Bearer ${token}` },
-          withCredentials: true,
-        });
-        setConsultations(res.data);
-      } catch (err) {
-        console.error(err);
-        setError('Failed to load consultation requests.');
-      } finally {
-        setLoading(false);
-      }
-    };
+  const [message, setMessage] = useState('');
 
-    fetchConsultations();
-  }, []);
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
-  if (loading) return (
-    <div className="flex justify-center items-center min-h-screen text-gray-500">
-      Loading consultation requests...
-    </div>
-  );
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  if (error) return (
-    <div className="flex justify-center items-center min-h-screen text-red-600 font-semibold">
-      {error}
-    </div>
-  );
+    try {
+      await axios.post('https://bugi-2.onrender.com/api/consultations', formData);
+      setMessage('Your consultation request has been submitted!');
+      setFormData({ name: '', businessName: '', email: '', phone: '', description: '' });
+    } catch (error) {
+      console.log('Error submitting form:', error);
+      setMessage('Something went wrong. Please try again later.');
+    }
+  };
 
   return (
     <div
-      className="min-h-screen bg-cover bg-center pt-28 px-4 sm:px-8 lg:px-16"
+      className="bg-cover bg-center flex items-center justify-center px-4 py-12"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
-      <div className="max-w-7xl mx-auto mb-10 text-center">
-        <h1 className="text-4xl font-bold text-gray-900">Consultation Requests</h1>
-        <p className="text-gray-600 mt-2">View all submitted consultation forms from clients</p>
-      </div>
+      <div className="max-w-3xl w-full bg-white bg-opacity-90 p-8 rounded-lg shadow-lg mt-30">
+        <h2 className="text-4xl font-bold text-center text-black mb-8">Ready to bring your ideas to life?</h2>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {consultations.map((c) => (
-          <div
-            key={c._id}
-            className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden flex flex-col"
-          >
-            <div className="h-1 bg-gradient-to-r from-blue-500 to-indigo-500"></div>
-            <div className="p-6 flex flex-col flex-grow">
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">{c.name}</h2>
-              <p className="text-sm text-gray-500 mb-4">{c.businessName}</p>
+        <p className="max-w-[400px] mx-auto text-center text-gray-700 mb-6 font-bold">
+          Fill out the form below for a free consultation. <br />
+          Prefer a good old chat? <br />
+          <strong className="text-red-700">Call</strong> or <strong className="text-green-700">WhatsApp</strong> me at{' '}
+          <strong className="text-black">+254702442418</strong>
+        </p>
 
-              <div className="text-sm text-gray-600 mb-4 space-y-1">
-                <p><span className="font-semibold">Email:</span> {c.email}</p>
-                <p><span className="font-semibold">Phone:</span> {c.phone}</p>
-              </div>
+        {message && <p className="text-center font-semibold text-green-700">{message}</p>}
 
-              <div className="bg-gray-50 p-4 rounded-xl text-sm text-gray-700 mb-4 h-24 overflow-y-auto">
-                {c.description || 'No description provided.'}
-              </div>
-
-              <p className="text-xs text-gray-400 mt-auto">
-                Submitted on {new Date(c.createdAt).toLocaleDateString()}
-              </p>
+        <form className="space-y-6" onSubmit={handleSubmit}>
+          {['name', 'businessName', 'email', 'phone'].map((field) => (
+            <div key={field}>
+              <label htmlFor={field} className="block text-sm font-medium text-black uppercase">
+                {field === 'name'
+                  ? 'Your Name'
+                  : field === 'businessName'
+                  ? 'Business Name'
+                  : field === 'email'
+                  ? 'Email Address'
+                  : 'Phone Number'}
+              </label>
+              <input
+                type={field === 'email' ? 'email' : field === 'phone' ? 'tel' : 'text'}
+                id={field}
+                name={field}
+                value={formData[field]}
+                onChange={handleChange}
+                required
+                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-black focus:border-black"
+              />
             </div>
+          ))}
+
+          <div>
+            <label htmlFor="description" className="block text-sm font-medium text-black uppercase">
+              Brief Description of Your Business
+            </label>
+            <textarea
+              id="description"
+              name="description"
+              rows="4"
+              value={formData.description}
+              onChange={handleChange}
+              required
+              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-black focus:border-black"
+            ></textarea>
           </div>
-        ))}
+
+          <div className="text-center">
+            <button
+              type="submit"
+              className="bg-black text-white font-semibold px-6 py-2 rounded-md hover:bg-gray-800 transition duration-300"
+            >
+              Get Free Consultation
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   );
