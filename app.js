@@ -1,6 +1,8 @@
 import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
+import cron from 'node-cron';
+import axios from 'axios';
 import mongoose, { connect } from 'mongoose'
 import bcrypt from 'bcryptjs'
 import jwt from 'jsonwebtoken'
@@ -31,6 +33,16 @@ app.use('/api/causes', causesRoutes );
 app.use('/api/consultations', consultationRoutes);
 
 
+// Cron job to keep Render awake
+cron.schedule("*/5 * * * *", async () => {
+  try {
+    const url = "https://bugi-2.onrender.com/ping"; // your backend URL
+    await axios.get(url);
+    console.log(`Pinged server at ${new Date().toLocaleTimeString()}`);
+  } catch (error) {
+    console.error("Ping failed:", error.message);
+  }
+});
 
 
 app.listen(process.env.PORT, () => {
