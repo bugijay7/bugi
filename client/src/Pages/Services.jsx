@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 // Import your images
 import frontendImg from "../assets/services/frontend.jpeg";
@@ -11,7 +12,6 @@ import apiImg from "../assets/services/api.jpeg";
 import devopsImg from "../assets/services/devops.jpeg";
 import performanceImg from "../assets/services/perfomance.jpeg";
 import securityImg from "../assets/services/security.jpeg";
-import responsiveImg from "../assets/services/responsive.jpeg";
 
 const faqs = [
   {
@@ -68,12 +68,7 @@ const faqs = [
       "The latest security practices are applied to protect data and maintain safe digital experiences.",
     image: securityImg,
   },
-  {
-    question: "Responsive Design",
-    answer:
-      "Websites are crafted to look and perform perfectly across phones, tablets, and desktops.",
-    image: responsiveImg,
-  },
+ 
 ];
 
 function Services() {
@@ -85,41 +80,51 @@ function Services() {
 
   return (
     <>
-     
+      {/* SEO Metadata */}
+      <Helmet>
+        <title>Web Development & Services in Nairobi, Kenya | Yohan Labs</title>
+        <meta
+          name="description"
+          content="Yohan Labs offers professional web development services in Nairobi, Kenya. Frontend, backend, full-stack, CMS, API integration, and more to grow your business online."
+        />
+      </Helmet>
 
-      {/* ✅ Services Grid Section */}
-      <section className="text-gray-200 bg-[#090909] px-5 py-28">
-        <p className="text-[2.8rem] font-extrabold text-center mb-[60px] tracking-wider text-gray-200">
+      {/* Services Grid Section */}
+      <section className="text-gray-200 bg-[#d9b17f] px-5 py-28">
+        <p className="text-[2.8rem] font-extrabold text-left md:text-center mb-[10px] tracking-wider text-[#1c1205]">
           SERVICES
         </p>
+        <p className="text-sm md:text-base text-left md:text-center text-[#1c1205] mb-12 max-w-3xl mx-auto">
+  We provide a wide range of digital services to help businesses succeed online, from frontend and backend development to full-stack solutions and seamless integrations.
+</p>
 
         <div className="max-w-[1200px] mx-auto grid grid-cols-2 lg:grid-cols-3 gap-6">
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
+              className="bg-[#1c1205]  shadow-md overflow-hidden transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
             >
               {/* Image */}
               <img
                 src={faq.image}
                 alt={faq.question}
-                className="w-full h-56 object-cover"
+                className="w-full  h-40 md:h-56 object-cover"
               />
 
               {/* Content */}
-              <div className="px-[20px] py-[20px]">
+              <div className="px-[20px] py-[10px]">
                 <button
-                  className="w-full text-left flex justify-between items-start text-[1.25rem] font-bold text-[#222] hover:text-[#de5f5e] transition-colors duration-200"
+                  className="w-full text-left flex justify-between items-start text-[0.75rem] md:text-[1.25rem] font-bold text-[#d9b17f] hover:text-[#de5f5e] transition-colors duration-200"
                   onClick={() => toggleFAQ(index)}
                 >
                   {faq.question}
-                  <span className="text-[1.5rem] text-[#888] ml-3">
+                  <span className="text-[1.5rem] text-[#635109] ml-3">
                     {activeIndex === index ? "−" : "+"}
                   </span>
                 </button>
 
                 {activeIndex === index && (
-                  <p className="mt-4 text-[1rem] leading-7 text-[#333] font-medium animate-fadeIn">
+                  <p className="mt-4 text-[0.6rem] md:text-[1rem]  text-[#d9b17f] font-medium animate-fadeIn">
                     {faq.answer}
                   </p>
                 )}
@@ -128,7 +133,7 @@ function Services() {
           ))}
         </div>
 
-        {/* 🔗 Link to Work Page */}
+        {/* Link to Work Page */}
         <div className="text-center mt-12">
           <Link
             to="/work"

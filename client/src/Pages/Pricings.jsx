@@ -6,7 +6,7 @@ function Pricings() {
   const packages = [
         {
       title: 'Personal Portfolios',
-     
+       price: 'From Ksh 15,000',
       bg: 'bg-blue-300',
       accent: 'text-cyan-600',
       features: [
@@ -22,7 +22,7 @@ function Pricings() {
     },
     {
       title: 'Online Stores',
-    
+      price: 'From Ksh 55,000',
       bg: 'bg-red-300',
       accent: 'text-red-500',
       features: [
@@ -38,7 +38,7 @@ function Pricings() {
     },
     {
       title: 'Brand Portals',
-    
+      price: 'From Ksh 35,000',
       bg: 'bg-green-300',
       accent: 'text-teal-600',
       features: [
@@ -55,7 +55,7 @@ function Pricings() {
 
     {
       title: 'Cause Platforms',
-   
+     price: 'From Ksh 40,000',
       bg: 'bg-purple-300',
       accent: 'text-fuchsia-600',
       features: [
@@ -89,7 +89,7 @@ function Pricings() {
             <div key={idx} className={`rounded-xl shadow-md border ${pkg.bg} p-6`}>
               <div className="flex justify-between items-center mb-4">
                 <h3 className={`text-2xl font-bold ${pkg.accent}`}>{pkg.title}</h3>
-               
+                <span className="text-lg font-semibold text-gray-900">{pkg.price}</span>
               </div>
 
               {/* Audience */}

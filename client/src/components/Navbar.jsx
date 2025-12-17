@@ -6,9 +6,16 @@ import "../styles/navbar.css";
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+
   const toggleMenu = () => setIsOpen(!isOpen);
   const toggleDropdown = (name) => {
     setActiveDropdown((prev) => (prev === name ? null : name));
+  };
+
+  // Close dropdown and mobile menu when link is clicked
+  const handleLinkClick = () => {
+    setIsOpen(false);
+    setActiveDropdown(null);
   };
 
   const mainLinks = [
@@ -39,72 +46,101 @@ function Navbar() {
   ];
 
   return (
-    <>
-      <nav className="navbar-container">
+    <nav className="navbar-container">
+      <Link to="/" className="logo" onClick={handleLinkClick}>
+        YOHAN LABS
+      </Link>
 
-  <Link to="/" className="logo">YOHAN LABS</Link>
+      {isOpen && (
+        <ul className="desktop-menu open">
+          <li className="dropdown">
+            <button
+              type="button"
+              className="dropdown-toggle"
+              onClick={() => toggleDropdown("main")}
+            >
+              Main
+            </button>
+            <ul className={`dropdown-menu ${activeDropdown === "main" ? "show" : ""}`}>
+              {mainLinks.map(([label, path]) => (
+                <li key={path}>
+                  <Link to={path} onClick={handleLinkClick}>
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </li>
 
-  {/* SHOW MENU ONLY WHEN TOGGLED */}
-  {isOpen && (
-      <ul className="desktop-menu open">
-      <li className="dropdown">
-        <button type="button" className="dropdown-toggle" onClick={() => toggleDropdown('main')}>Main</button>
-        <ul className={`dropdown-menu ${activeDropdown === 'main' ? 'show' : ''}`}>
-          {mainLinks.map(([label, path]) => (
-            <li key={path}>
-              <Link to={path}>{label}</Link>
-            </li>
-          ))}
+          <li className="dropdown">
+            <button
+              type="button"
+              className="dropdown-toggle"
+              onClick={() => toggleDropdown("resources")}
+            >
+              Resources
+            </button>
+            <ul className={`dropdown-menu ${activeDropdown === "resources" ? "show" : ""}`}>
+              {resourcesLinks.map(([label, path]) => (
+                <li key={path}>
+                  <Link to={path} onClick={handleLinkClick}>
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </li>
+
+          <li className="dropdown">
+            <button
+              type="button"
+              className="dropdown-toggle"
+              onClick={() => toggleDropdown("about")}
+            >
+              About
+            </button>
+            <ul className={`dropdown-menu ${activeDropdown === "about" ? "show" : ""}`}>
+              {aboutLinks.map(([label, path]) => (
+                <li key={path}>
+                  <Link to={path} onClick={handleLinkClick}>
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </li>
+
+          <li className="dropdown">
+            <button
+              type="button"
+              className="dropdown-toggle"
+              onClick={() => toggleDropdown("clients")}
+            >
+              Clients
+            </button>
+            <ul className={`dropdown-menu ${activeDropdown === "clients" ? "show" : ""}`}>
+              {clientsLinks.map(([label, path]) => (
+                <li key={path}>
+                  <Link to={path} onClick={handleLinkClick}>
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </li>
         </ul>
-      </li>
+      )}
 
-      <li className="dropdown">
-        <button type="button" className="dropdown-toggle" onClick={() => toggleDropdown('resources')}>Resources</button>
-        <ul className={`dropdown-menu ${activeDropdown === 'resources' ? 'show' : ''}`}>
-          {resourcesLinks.map(([label, path]) => (
-            <li key={path}>
-              <Link to={path}>{label}</Link>
-            </li>
-          ))}
-        </ul>
-      </li>
+      <section className="cta-dropdown">
+        <Link to="/start" className="cta-desktop" onClick={handleLinkClick}>
+          <button className="cta-btn">Free Consultation</button>
+        </Link>
 
-      <li className="dropdown">
-        <button type="button" className="dropdown-toggle" onClick={() => toggleDropdown('about')}>About</button>
-        <ul className={`dropdown-menu ${activeDropdown === 'about' ? 'show' : ''}`}>
-          {aboutLinks.map(([label, path]) => (
-            <li key={path}>
-              <Link to={path}>{label}</Link>
-            </li>
-          ))}
-        </ul>
-      </li>
-
-      <li className="dropdown">
-        <button type="button" className="dropdown-toggle" onClick={() => toggleDropdown('clients')}>Clients</button>
-        <ul className={`dropdown-menu ${activeDropdown === 'clients' ? 'show' : ''}`}>
-          {clientsLinks.map(([label, path]) => (
-            <li key={path}>
-              <Link to={path}>{label}</Link>
-            </li>
-          ))}
-        </ul>
-      </li>
-    </ul>
-  )}
-
-  <section className="cta-dropdown">
-    <Link to="/start" className="cta-desktop">
-      <button className="cta-btn">Free Consultation</button>
-    </Link>
-
-    <button className="mobile-toggle" onClick={toggleMenu}>
-      {isOpen ? <FaTimes /> : <FaBars />}
-    </button>
-  </section>
-</nav>
-
-    </>
+        <button className="mobile-toggle" onClick={toggleMenu}>
+          {isOpen ? <FaTimes /> : <FaBars />}
+        </button>
+      </section>
+    </nav>
   );
 }
 

@@ -9,7 +9,7 @@ import zoe from '../../assets/zoe.png';
 
 function WorkHighlights() {
   return (
-    <div className="bg-[#090909] text-white mt-0">
+    <div className="bg-[#1c1205] text-white">
       {/* Project 1 */}
       <section className="flex flex-wrap justify-between items-center gap-[60px] px-10 py-[60px] my-[60px] max-w-[1400px] mx-auto rounded-2xl  bg-transparent">
         <div className="flex-1 min-w-[280px]">

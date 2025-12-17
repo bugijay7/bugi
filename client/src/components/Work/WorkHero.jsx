@@ -2,7 +2,7 @@ import React from 'react';
 
 function WorkHero() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-[50vh] md:min-h-[70vh] px-8 sm:px-16 lg:px-8 bg-[#090909] text-gray-200 mb-0">
+    <div className="flex flex-col items-center justify-center min-h-[50vh] md:min-h-[70vh] px-8 sm:px-16 lg:px-8 bg-[#1c1205] text-gray-200">
       <div className="text-left w-full max-w-[1400px]">
         <p className="text-[3rem] sm:text-[4rem] md:text-[6rem] lg:text-[8rem] xl:text-[9rem] font-extrabold leading-tight">
           PROJECTS<br />LABS
