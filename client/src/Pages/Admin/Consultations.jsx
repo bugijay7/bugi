@@ -10,10 +10,8 @@ function Consultations() {
   useEffect(() => {
     const fetchConsultations = async () => {
       try {
-        const token = localStorage.getItem('token'); // if auth required
         const res = await axios.get('https://bugi-2.onrender.com/api/consultations', {
-          headers: { Authorization: `Bearer ${token}` },
-          withCredentials: true,
+          withCredentials: true, // keep this if you need cookies; remove otherwise
         });
         setConsultations(res.data);
       } catch (err) {
@@ -27,17 +25,19 @@ function Consultations() {
     fetchConsultations();
   }, []);
 
-  if (loading) return (
-    <div className="flex justify-center items-center min-h-screen text-gray-500">
-      Loading consultation requests...
-    </div>
-  );
+  if (loading)
+    return (
+      <div className="flex justify-center items-center min-h-screen text-gray-500">
+        Loading consultation requests...
+      </div>
+    );
 
-  if (error) return (
-    <div className="flex justify-center items-center min-h-screen text-red-600 font-semibold">
-      {error}
-    </div>
-  );
+  if (error)
+    return (
+      <div className="flex justify-center items-center min-h-screen text-red-600 font-semibold">
+        {error}
+      </div>
+    );
 
   return (
     <div
@@ -61,8 +61,12 @@ function Consultations() {
               <p className="text-sm text-gray-500 mb-4">{c.businessName}</p>
 
               <div className="text-sm text-gray-600 mb-4 space-y-1">
-                <p><span className="font-semibold">Email:</span> {c.email}</p>
-                <p><span className="font-semibold">Phone:</span> {c.phone}</p>
+                <p>
+                  <span className="font-semibold">Email:</span> {c.email}
+                </p>
+                <p>
+                  <span className="font-semibold">Phone:</span> {c.phone}
+                </p>
               </div>
 
               <div className="bg-gray-50 p-4 rounded-xl text-sm text-gray-700 mb-4 h-24 overflow-y-auto">
