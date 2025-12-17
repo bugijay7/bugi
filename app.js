@@ -16,12 +16,10 @@ connectDB();
 
 const app = express();
 
-// ✅ CORS configuration for production
 app.use(cors({
-  origin: 'https://bugi.vercel.app', // your frontend URL only
-  credentials: true,                 // allow cookies / auth headers
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
+  origin: 'https://bugi.vercel.app',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
 }));
 
 // Middleware to parse JSON
