@@ -33,6 +33,11 @@ app.use('/api/causes', causesRoutes );
 app.use('/api/consultations', consultationRoutes);
 
 
+// Ping route for cron job
+app.get('/ping', (req, res) => {
+  res.status(200).send('Server is awake!');
+});
+
 // Cron job to keep Render awake
 cron.schedule("*/5 * * * *", async () => {
   try {
