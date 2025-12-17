@@ -1,13 +1,10 @@
-import express from 'express'
-import cors from 'cors'
-import dotenv from 'dotenv'
+import express from 'express';
+import cors from 'cors';
+import dotenv from 'dotenv';
 import cron from 'node-cron';
 import axios from 'axios';
-import mongoose, { connect } from 'mongoose'
-import bcrypt from 'bcryptjs'
-import jwt from 'jsonwebtoken'
-
 import connectDB from './config/db.js';
+
 import brandsRoutes from './routes/BrandRoutes.js';
 import storesRoutes from './routes/StoresRoutes.js';
 import portfoliosRoutes from './routes/PortfolioRoutes.js';
@@ -16,22 +13,26 @@ import consultationRoutes from './routes/ConsultationRoutes.js';
 
 dotenv.config();
 connectDB();
+
 const app = express();
 
-
+// ✅ CORS configuration for production
 app.use(cors({
-    origin: 'https://bugi.vercel.app',
-    credentials: true
+  origin: 'https://bugi.vercel.app', // your frontend URL only
+  credentials: true,                 // allow cookies / auth headers
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
 }));
+
+// Middleware to parse JSON
 app.use(express.json());
 
-
-app.use('/api/brands', brandsRoutes );
-app.use('/api/stores', storesRoutes );
-app.use('/api/portfolios', portfoliosRoutes );
-app.use('/api/causes', causesRoutes );
+// ✅ API Routes
+app.use('/api/brands', brandsRoutes);
+app.use('/api/stores', storesRoutes);
+app.use('/api/portfolios', portfoliosRoutes);
+app.use('/api/causes', causesRoutes);
 app.use('/api/consultations', consultationRoutes);
-
 
 // Ping route for cron job
 app.get('/ping', (req, res) => {
@@ -39,17 +40,18 @@ app.get('/ping', (req, res) => {
 });
 
 // Cron job to keep Render awake
-cron.schedule("*/5 * * * *", async () => {
+cron.schedule('*/5 * * * *', async () => {
   try {
-    const url = "https://bugi-2.onrender.com/ping"; // your backend URL
+    const url = 'https://bugi-2.onrender.com/ping';
     await axios.get(url);
     console.log(`Pinged server at ${new Date().toLocaleTimeString()}`);
   } catch (error) {
-    console.error("Ping failed:", error.message);
+    console.error('Ping failed:', error.message);
   }
 });
 
-
-app.listen(process.env.PORT, () => {
-    console.log(`Server is running on port ${process.env.PORT}`);
+// Start server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
