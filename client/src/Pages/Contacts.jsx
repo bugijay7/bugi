@@ -3,8 +3,8 @@ import contactImage from '../assets/contact.jpeg';
 
 function Contacts() {
   return (
-    <div className="bg-[#090909] flex flex-col justify-center items-center min-h-screen px-4">
-      <div className="w-full max-w-6xl mt-10 text-white font-sans">
+    <div className="bg-[#d9b17f] flex flex-col justify-center items-center min-h-screen px-4">
+      <div className="w-full max-w-6xl md:pt-30 text-white font-sans">
         
         {/* Contact Image */}
         <div className="w-full mb-12">

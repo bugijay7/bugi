@@ -51,7 +51,7 @@ function StoreForms() {
   };
 
   return (
-    <div className="min-h-screen bg-[#090909] py-30 px-6 sm:px-12 lg:px-20 text-black font-sans">
+    <div className="min-h-screen bg-[#d9b17f] py-30 px-6 sm:px-12 lg:px-20 text-black font-sans">
      <div className="max-w-4xl mx-auto bg-white shadow-md rounded-xl p-8">
   <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-center text-black uppercase">
     E-commerce Website Questionnaire

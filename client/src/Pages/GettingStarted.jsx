@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import bgImage from '../assets/form.jpeg';
+import bgImage from '../assets/hero8.jpg';
 import axios from 'axios';
 
 function GettingStarted() {
@@ -35,7 +35,7 @@ function GettingStarted() {
       className="bg-cover bg-center flex items-center justify-center px-4 py-12"
       style={{ backgroundImage: `url(${bgImage})` }}
     >
-      <div className="max-w-3xl w-full bg-white bg-opacity-90 p-8 rounded-lg shadow-lg mt-30">
+      <div className="max-w-3xl w-full bg-[#d9b17f] p-8 rounded-lg shadow-lg mt-30">
         <h2 className="text-4xl font-bold text-center text-black mb-8">Ready to bring your ideas to life?</h2>
 
         <p className="max-w-[400px] mx-auto text-center text-gray-700 mb-6 font-bold">

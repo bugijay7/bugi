@@ -11,7 +11,7 @@ function Process() {
   return (
     <div
       className={`w-full ${
-        isLightThemeRoute ? 'bg-gray-100 text-black' : 'bg-[#090909] text-white'
+        isLightThemeRoute ? "bg-[#d9b17f] text-[#1c1205]" : "bg-[#1c1205] text-[#d9b17f]"
       }`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-8 py-32 space-y-24">

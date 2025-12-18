@@ -4,7 +4,7 @@ import websiteImg from '../assets/john1.jpeg';
 
 function Website() {
   return (
-    <div className="bg-gray-200 text-gray-800 py-36 px-6 sm:px-12 lg:px-20">
+    <div className="bg-[#d9b17f] text-gray-800 py-36 px-6 sm:px-12 lg:px-20">
       <div className="max-w-5xl mx-auto">
 
         {/* Image */}
