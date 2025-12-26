@@ -16,9 +16,26 @@ connectDB();
 
 const app = express();
 
+/* =========================
+   ✅ CORS (Allow multiple origins)
+========================= */
+const allowedOrigins = [
+  'https://bugi.vercel.app', 
+  'https://yohanlabs.online'
+];
+
 app.use(cors({
-  origin: 'https://bugi.vercel.app',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  origin: function(origin, callback) {
+    // Allow requests with no origin (Postman, server-to-server)
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error(`CORS blocked for origin ${origin}`));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true,
 }));
 
