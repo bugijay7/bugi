@@ -19,14 +19,35 @@ function GettingStarted() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setMessage('');
 
     try {
-      await axios.post('https://bugi-2.onrender.com/api/consultations', formData);
+      await axios.post(
+        'https://bugi-2.onrender.com/api/consultations',
+        formData,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+
       setMessage('Your consultation request has been submitted!');
-      setFormData({ name: '', businessName: '', email: '', phone: '', description: '' });
+      setFormData({
+        name: '',
+        businessName: '',
+        email: '',
+        phone: '',
+        description: '',
+      });
     } catch (error) {
-      console.log('Error submitting form:', error);
-      setMessage('Something went wrong. Please try again later.');
+      console.error('Error submitting form:', error);
+
+      if (error.response?.data?.message) {
+        setMessage(error.response.data.message);
+      } else {
+        setMessage('Something went wrong. Please try again later.');
+      }
     }
   };
 
@@ -36,21 +57,31 @@ function GettingStarted() {
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       <div className="max-w-3xl w-full bg-[#d9b17f] p-8 rounded-lg shadow-lg mt-30">
-        <h2 className="text-4xl font-bold text-center text-black mb-8">Ready to bring your ideas to life?</h2>
+        <h2 className="text-4xl font-bold text-center text-black mb-8">
+          Ready to bring your ideas to life?
+        </h2>
 
         <p className="max-w-[400px] mx-auto text-center text-gray-700 mb-6 font-bold">
           Fill out the form below for a free consultation. <br />
           Prefer a good old chat? <br />
-          <strong className="text-red-700">Call</strong> or <strong className="text-green-700">WhatsApp</strong> me at{' '}
+          <strong className="text-red-700">Call</strong> or{' '}
+          <strong className="text-green-700">WhatsApp</strong> me at{' '}
           <strong className="text-black">+254702442418</strong>
         </p>
 
-        {message && <p className="text-center font-semibold text-green-700">{message}</p>}
+        {message && (
+          <p className="text-center font-semibold text-green-700">
+            {message}
+          </p>
+        )}
 
         <form className="space-y-6" onSubmit={handleSubmit}>
           {['name', 'businessName', 'email', 'phone'].map((field) => (
             <div key={field}>
-              <label htmlFor={field} className="block text-sm font-medium text-black uppercase">
+              <label
+                htmlFor={field}
+                className="block text-sm font-medium text-black uppercase"
+              >
                 {field === 'name'
                   ? 'Your Name'
                   : field === 'businessName'
@@ -60,7 +91,13 @@ function GettingStarted() {
                   : 'Phone Number'}
               </label>
               <input
-                type={field === 'email' ? 'email' : field === 'phone' ? 'tel' : 'text'}
+                type={
+                  field === 'email'
+                    ? 'email'
+                    : field === 'phone'
+                    ? 'tel'
+                    : 'text'
+                }
                 id={field}
                 name={field}
                 value={formData[field]}
@@ -72,7 +109,10 @@ function GettingStarted() {
           ))}
 
           <div>
-            <label htmlFor="description" className="block text-sm font-medium text-black uppercase">
+            <label
+              htmlFor="description"
+              className="block text-sm font-medium text-black uppercase"
+            >
               Brief Description of Your Business
             </label>
             <textarea
