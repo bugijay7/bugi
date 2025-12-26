@@ -16,33 +16,32 @@ connectDB();
 
 const app = express();
 
-/* =========================
-   ✅ CORS (Allow multiple origins)
-========================= */
-const allowedOrigins = [
-  'https://bugi.vercel.app', 
-  'https://yohanlabs.online'
-];
+// ✅ Allowed origins
+const allowedOrigins = ['https://bugi.vercel.app', 'https://yohanlabs.online'];
 
-app.use(cors({
-  origin: function(origin, callback) {
-    // Allow requests with no origin (Postman, server-to-server)
-    if (!origin) return callback(null, true);
-
-    if (allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error(`CORS blocked for origin ${origin}`));
-    }
+// ✅ CORS middleware
+const corsOptions = {
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true); // Postman, server-to-server
+    if (allowedOrigins.includes(origin)) callback(null, true);
+    else callback(new Error('Not allowed by CORS'));
   },
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true,
-}));
+  optionsSuccessStatus: 200
+};
+
+// Apply CORS middleware
+app.use(cors(corsOptions));
+
+// ✅ Explicitly handle preflight OPTIONS requests
+app.options('*', cors(corsOptions));
 
 // Middleware to parse JSON
 app.use(express.json());
 
-// ✅ API Routes
+// API Routes
 app.use('/api/brands', brandsRoutes);
 app.use('/api/stores', storesRoutes);
 app.use('/api/portfolios', portfoliosRoutes);
@@ -54,11 +53,10 @@ app.get('/ping', (req, res) => {
   res.status(200).send('Server is awake!');
 });
 
-// Cron job to keep Render awake
+// Render keep-alive
 cron.schedule('*/5 * * * *', async () => {
   try {
-    const url = 'https://bugi-2.onrender.com/ping';
-    await axios.get(url);
+    await axios.get('https://bugi-2.onrender.com/ping');
     console.log(`Pinged server at ${new Date().toLocaleTimeString()}`);
   } catch (error) {
     console.error('Ping failed:', error.message);
@@ -67,6 +65,4 @@ cron.schedule('*/5 * * * *', async () => {
 
 // Start server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
