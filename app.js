@@ -16,32 +16,16 @@ connectDB();
 
 const app = express();
 
-// ✅ Allowed origins
-const allowedOrigins = ['https://bugi.vercel.app', 'https://yohanlabs.online'];
-
-// ✅ CORS middleware
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin) return callback(null, true); // Postman, server-to-server
-    if (allowedOrigins.includes(origin)) callback(null, true);
-    else callback(new Error('Not allowed by CORS'));
-  },
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
+app.use(cors({
+  origin: ['https://bugi.vercel.app', 'https://yohanlabs.online'],
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true,
-  optionsSuccessStatus: 200
-};
-
-// Apply CORS middleware
-app.use(cors(corsOptions));
-
-// ✅ Explicitly handle preflight OPTIONS requests
-app.options('*', cors(corsOptions));
+}));
 
 // Middleware to parse JSON
 app.use(express.json());
 
-// API Routes
+// ✅ API Routes
 app.use('/api/brands', brandsRoutes);
 app.use('/api/stores', storesRoutes);
 app.use('/api/portfolios', portfoliosRoutes);
@@ -53,10 +37,11 @@ app.get('/ping', (req, res) => {
   res.status(200).send('Server is awake!');
 });
 
-// Render keep-alive
+// Cron job to keep Render awake
 cron.schedule('*/5 * * * *', async () => {
   try {
-    await axios.get('https://bugi-2.onrender.com/ping');
+    const url = 'https://bugi-2.onrender.com/ping';
+    await axios.get(url);
     console.log(`Pinged server at ${new Date().toLocaleTimeString()}`);
   } catch (error) {
     console.error('Ping failed:', error.message);
@@ -65,4 +50,6 @@ cron.schedule('*/5 * * * *', async () => {
 
 // Start server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
