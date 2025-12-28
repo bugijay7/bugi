@@ -16,15 +16,17 @@ connectDB();
 
 const app = express();
 
+// ✅ FIXED CORS CONFIGURATION
 app.use(cors({
   origin: [
     'https://bugi.vercel.app', 
-    'https://yohanlabs.online',
-    'http://localhost:5173',      // Add this if using Vite
+    'https://www.yohanlabs.online', 
+    'https://bugi-2.onrender.com',  // 🔧 Added "www." to match your frontend domain exactly
+    'http://localhost:5173',          // For local dev (Vite)
   ],
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],  // Add OPTIONS
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],  // ✅ Ensure OPTIONS is allowed
   credentials: true,
-  allowedHeaders: ['Content-Type'],  // Add this
+  allowedHeaders: ['Content-Type', 'Authorization'],      // 🔧 Added 'Authorization' for tokens if needed
 }));
 
 
@@ -33,10 +35,15 @@ app.use(cors({
 app.use(express.json());
 
 // ✅ API Routes
+console.log('Brand route: /api/brands');
 app.use('/api/brands', brandsRoutes);
+console.log('Store route: /api/stores');
 app.use('/api/stores', storesRoutes);
+console.log('portfolio route: /api/portfolios');
 app.use('/api/portfolios', portfoliosRoutes);
+console.log('causes route: /api/causes');
 app.use('/api/causes', causesRoutes);
+console.log('consult route: /api/consultations');
 app.use('/api/consultations', consultationRoutes);
 
 // Ping route for cron job
