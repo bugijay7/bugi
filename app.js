@@ -17,10 +17,17 @@ connectDB();
 const app = express();
 
 app.use(cors({
-  origin: ['https://bugi.vercel.app', 'https://yohanlabs.online'],
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  origin: [
+    'https://bugi.vercel.app', 
+    'https://yohanlabs.online',
+    'http://localhost:5173',      // Add this if using Vite
+  ],
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],  // Add OPTIONS
   credentials: true,
+  allowedHeaders: ['Content-Type', 'Authorization'],  // Add this
 }));
+
+
 
 // Middleware to parse JSON
 app.use(express.json());

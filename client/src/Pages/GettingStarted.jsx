@@ -76,37 +76,81 @@ function GettingStarted() {
         )}
 
         <form className="space-y-6" onSubmit={handleSubmit}>
-          {['name', 'businessName', 'email', 'phone'].map((field) => (
-            <div key={field}>
-              <label
-                htmlFor={field}
-                className="block text-sm font-medium text-black uppercase"
-              >
-                {field === 'name'
-                  ? 'Your Name'
-                  : field === 'businessName'
-                  ? 'Business Name'
-                  : field === 'email'
-                  ? 'Email Address'
-                  : 'Phone Number'}
-              </label>
-              <input
-                type={
-                  field === 'email'
-                    ? 'email'
-                    : field === 'phone'
-                    ? 'tel'
-                    : 'text'
-                }
-                id={field}
-                name={field}
-                value={formData[field]}
-                onChange={handleChange}
-                required
-                className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-black focus:border-black"
-              />
-            </div>
-          ))}
+          <div>
+            <label
+              htmlFor="name"
+              className="block text-sm font-medium text-black uppercase"
+            >
+              Your Name
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              autoComplete="name"
+              required
+              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-black focus:border-black"
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="businessName"
+              className="block text-sm font-medium text-black uppercase"
+            >
+              Business Name
+            </label>
+            <input
+              type="text"
+              id="businessName"
+              name="businessName"
+              value={formData.businessName}
+              onChange={handleChange}
+              autoComplete="organization"
+              required
+              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-black focus:border-black"
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="email"
+              className="block text-sm font-medium text-black uppercase"
+            >
+              Email Address
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              autoComplete="email"
+              required
+              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-black focus:border-black"
+            />
+          </div>
+
+          <div>
+            <label
+              htmlFor="phone"
+              className="block text-sm font-medium text-black uppercase"
+            >
+              Phone Number
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              autoComplete="tel"
+              required
+              className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-black focus:border-black"
+            />
+          </div>
 
           <div>
             <label
@@ -121,6 +165,7 @@ function GettingStarted() {
               rows="4"
               value={formData.description}
               onChange={handleChange}
+              autoComplete="off"
               required
               className="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-black focus:border-black"
             ></textarea>
