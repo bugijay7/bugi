@@ -30,6 +30,7 @@ const faqs = [
 
 function Faq() {
   return (
+    <section className="bg-[#d9b17f] py-10">  
     <div className="flex flex-col gap-6 px-4 py-10 max-w-[1400px] mx-auto">
       {faqs.map((faq, index) => (
         <div key={index} className="flex flex-col gap-4">
@@ -47,6 +48,7 @@ function Faq() {
         </div>
       ))}
     </div>
+    </section>
   );
 }
 

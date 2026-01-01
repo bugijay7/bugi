@@ -4,7 +4,7 @@ import '../../styles/about/abouthighlight.css';
 
 function AboutHighlight() {
   return (
-    <div className="about-highlight">
+    <div className="about-highlight bg-[#d9b17f]">
       <div className="about-highlight-container">
         
         {/* Left Section */}

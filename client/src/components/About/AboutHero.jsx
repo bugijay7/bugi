@@ -3,7 +3,7 @@ import kibugi from '../../assets/maina.jpeg';
 
 function AboutHero() {
   return (
-    <div className="flex flex-col items-center justify-center py-20 px-4">
+    <div className="flex flex-col items-center justify-center py-20 px-4 bg-[#d9b17f]">
       <div className="text-left w-full max-w-[1400px] flex flex-col items-start justify-around gap-10">
         {/* Title */}
         <p className="text-[3rem] sm:text-[5rem] md:text-[7rem] lg:text-[9rem] font-extrabold leading-none uppercase">

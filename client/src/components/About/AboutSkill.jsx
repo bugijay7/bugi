@@ -36,7 +36,7 @@ const skills = [
 
 function AboutSkill() {
   return (
-    <div className="w-full bg-gray-200 text-[#090909] py-16 px-6 sm:px-12">
+    <div className="w-full bg-[#d9b17f] text-[#090909] py-16 px-6 sm:px-12">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-12">
         {/* Introductory Section (Left Column) */}
         <div className="w-full md:w-1/2">

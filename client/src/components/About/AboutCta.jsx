@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 function AboutCta() {
   return (
-    <div className="px-4 md:px-10 py-10 md:py-[60px] text-[#111] font-montserrat max-w-[1400px] mx-auto">
+    <section className="bg-[#1c1205] text-[#d9b17f]">
+    <div className="px-4 md:px-10 py-10 md:py-[60px]  font-montserrat max-w-[1400px] mx-auto">
       
       {/* Header Section */}
       <section className="flex flex-row justify-between items-start flex-wrap uppercase font-bold text-[1rem] sm:text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem] xl:text-[1.4rem] mb-10 gap-4">
@@ -34,6 +35,7 @@ function AboutCta() {
         </Link>
       </section>
     </div>
+    </section>
   );
 }
 

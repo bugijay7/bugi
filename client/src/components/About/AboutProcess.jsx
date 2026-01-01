@@ -2,9 +2,10 @@ import React from 'react';
 
 function AboutProcess() {
   return (
-    <div className="flex flex-col gap-6 px-4 py-10 max-w-[1400px] mx-auto">
+    <section className="bg-[#d9b17f] py-10">
+    <div className="flex flex-col gap-6 px-4 py-10 max-w-[1400px] mx-auto ">
       <div className="chat chat-start">
-        <div className="chat-bubble bg-[#0909909] text-gray-200">
+        <div className="chat-bubble bg-[#090909] text-gray-200">
           Do you offer freelance or contract services?
         </div>
       </div>
@@ -15,7 +16,7 @@ function AboutProcess() {
       </div>
 
       <div className="chat chat-start">
-        <div className="chat-bubble bg-[#0909909] text-gray-200">
+        <div className="chat-bubble bg-[#090909] text-gray-200">
           Do you do UI/UX design as well, or only development?
         </div>
       </div>
@@ -25,6 +26,7 @@ function AboutProcess() {
         </div>
       </div>
     </div>
+    </section>
   );
 }
 

@@ -39,7 +39,6 @@ function About() {
       <AboutSkill />
       <AboutServices />
       <AboutCta />
-      <Cta />
     </div>
   );
 }
