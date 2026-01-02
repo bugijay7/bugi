@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const steps = [
   { title: '1. Idea & Purpose', desc: 'Clarify the goal and purpose of the website.' },
@@ -24,7 +25,7 @@ function CreativeProcess() {
         {/* Row 1 (Horizontal) */}
         <div className="flex flex-wrap justify-center gap-6">
           {steps.slice(0, 3).map((step, index) => (
-            <div key={index} className="bg-red-400 p-6 rounded-xl w-72 shadow-md text-left">
+            <div key={index} className="bg-[#d9b17f] p-6 rounded-xl w-72 shadow-md text-left">
               <h3 className="font-bold text-xl mb-2">{step.title}</h3>
               <p className="text-sm text-white">{step.desc}</p>
             </div>
@@ -37,7 +38,7 @@ function CreativeProcess() {
         {/* Row 2 (Vertical) */}
         <div className="flex flex-col items-center gap-6">
           {steps.slice(3, 6).map((step, index) => (
-            <div key={index} className="bg-red-400 p-6 rounded-xl w-72 shadow-md text-left">
+            <div key={index} className="bg-[#d9b17f] p-6 rounded-xl w-72 shadow-md text-left">
               <h3 className="font-bold text-xl mb-2">{step.title}</h3>
               <p className="text-sm text-white">{step.desc}</p>
             </div>
@@ -50,7 +51,7 @@ function CreativeProcess() {
         {/* Row 3 (Horizontal) */}
         <div className="flex flex-wrap justify-center gap-6">
           {steps.slice(6, 9).map((step, index) => (
-            <div key={index} className="bg-red-400 p-6 rounded-xl w-72 shadow-md text-left">
+            <div key={index} className="bg-[#d9b17f] p-6 rounded-xl w-72 shadow-md text-left">
               <h3 className="font-bold text-xl mb-2">{step.title}</h3>
               <p className="text-sm text-white">{step.desc}</p>
             </div>
@@ -61,11 +62,21 @@ function CreativeProcess() {
         <div className="text-3xl">⬇️</div>
 
         {/* Final Step */}
-        <div className="bg-red-400 p-6 rounded-xl w-72 shadow-md text-left">
+        <div className="bg-[#d9b17f] p-6 rounded-xl w-72 shadow-md text-left">
           <h3 className="font-bold text-xl mb-2">{steps[9].title}</h3>
           <p className="text-sm text-white">{steps[9].desc}</p>
         </div>
+             {/* Call to Action */}
+<Link
+  to="/start"
+  className="mt-12 inline-block max-w-[1400px] mx-auto  bg-[#d9b17f] text-white px-8 py-3 rounded-lg font-semibold uppercase tracking-wide hover:bg-gray-800 transition"
+>
+ Get a free Consultation
+</Link>
       </div>
+
+ 
+
     </div>
   );
 }
