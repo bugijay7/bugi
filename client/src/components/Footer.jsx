@@ -37,7 +37,7 @@ function Footer() {
         >
           {[
             { label: 'About', to: '/about' },
-            { label: 'Works', to: '/works' },
+            { label: 'Works', to: '/work' },
             { label: 'Contact', to: '/contacts' },
           ].map(({ label, to }) => (
             <Link
