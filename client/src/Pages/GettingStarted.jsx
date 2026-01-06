@@ -57,13 +57,13 @@ function GettingStarted() {
       style={{ backgroundImage: `url(${bgImage})` }}
     >
       <div className="max-w-3xl w-full bg-[#d9b17f] p-8 rounded-lg shadow-lg mt-30">
-        <h2 className="text-4xl font-bold text-center text-black mb-8">
+        <h2 className="text-xl md:text-4xl font-bold text-center text-black mb-8">
           Ready to bring your ideas to life?
         </h2>
 
-        <p className="max-w-[400px] mx-auto text-center text-gray-700 mb-6 font-bold">
+        <p className="max-w-[400px] mx-auto text-center text-gray-700 mb-6 md:font-bold text-sm md:text-lg pb-3">
           Fill out the form below for a free consultation. <br />
-          Prefer a good old chat? <br />
+          Prefer a good old chat? <br /> <br></br>
           <strong className="text-red-700">Call</strong> or{' '}
           <strong className="text-green-700">WhatsApp</strong> me at{' '}
           <strong className="text-black">+254702442418</strong>
@@ -79,7 +79,7 @@ function GettingStarted() {
           <div>
             <label
               htmlFor="name"
-              className="block text-sm font-medium text-black uppercase"
+              className="block text-xs font-medium text-black uppercase"
             >
               Your Name
             </label>

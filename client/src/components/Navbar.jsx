@@ -51,29 +51,24 @@ function Navbar() {
   ];
 
   const dropdownClass = (name) => `
-    hidden flex-col
-    rounded-lg shadow-lg
-    z-50
+    flex-col rounded-lg shadow-lg z-50
     md:absolute md:left-0 md:top-full md:min-w-[260px]
-    md:group-hover:flex
-    ${activeDropdown === name ? "flex" : ""}
+    ${activeDropdown === name ? "flex" : "hidden"}
     ${isLightNavbar ? "bg-[#1c1205] text-[#d9b17f]" : "bg-[#d9b17f] text-[#1c1205]"}
   `;
 
   const navBg = isLightNavbar ? "bg-[#d9b17f]" : "bg-[#1c1205]";
   const navText = isLightNavbar ? "text-[#1c1205]" : "text-[#d9b17f]";
-  const buttonBg = isLightNavbar ? "bg-[#1c1205] text-[#d9b17f]" : "bg-[#d9b17f] text-[#1c1205]";
+  const buttonBg = isLightNavbar
+    ? "bg-[#1c1205] text-[#d9b17f]"
+    : "bg-[#d9b17f] text-[#1c1205]";
 
   return (
     <nav
       className={`fixed top-5 left-1/2 z-[1000] w-[80%] -translate-x-1/2 rounded-lg px-4 py-3 flex items-center justify-between ${navBg} ${navText}`}
     >
       {/* LOGO */}
-      <Link
-        to="/"
-        onClick={handleLinkClick}
-        className="text-xl font-bold"
-      >
+      <Link to="/" onClick={handleLinkClick} className="text-xl font-bold">
         YOHAN LABS
       </Link>
 
@@ -87,7 +82,7 @@ function Navbar() {
         md:flex-row md:bg-transparent md:p-0 ${navBg}`}
       >
         {/* MAIN */}
-        <li className="relative group flex flex-col md:pb-2">
+        <li className="relative flex flex-col md:pb-2">
           <button
             onClick={() => toggleDropdown("main")}
             className="text-left text-sm font-bold"
@@ -110,7 +105,7 @@ function Navbar() {
         </li>
 
         {/* RESOURCES */}
-        <li className="relative group flex flex-col md:pb-2">
+        <li className="relative flex flex-col md:pb-2">
           <button
             onClick={() => toggleDropdown("resources")}
             className="text-left text-sm font-bold"
@@ -133,7 +128,7 @@ function Navbar() {
         </li>
 
         {/* ABOUT */}
-        <li className="relative group flex flex-col md:pb-2">
+        <li className="relative flex flex-col md:pb-2">
           <button
             onClick={() => toggleDropdown("about")}
             className="text-left text-sm font-bold"
@@ -156,7 +151,7 @@ function Navbar() {
         </li>
 
         {/* CLIENTS */}
-        <li className="relative group flex flex-col md:pb-2">
+        <li className="relative flex flex-col md:pb-2">
           <button
             onClick={() => toggleDropdown("clients")}
             className="text-left text-sm font-bold"
@@ -187,10 +182,7 @@ function Navbar() {
           </button>
         </Link>
 
-        <button
-          onClick={toggleMenu}
-          className="text-sm md:hidden"
-        >
+        <button onClick={toggleMenu} className="text-sm md:hidden">
           {isOpen ? <FaTimes /> : <FaBars />}
         </button>
       </div>
