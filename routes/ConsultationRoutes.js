@@ -1,6 +1,5 @@
 import express from 'express';
 import  { getConsultations, getConsultationById, createConsultation, updateConsultation, deleteConsultation } from '../controllers/ConsultationController.js';
-import { authenticateToken } from '../middlewares/auth.js';
 
 const router = express.Router();
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import formImg from '../../assets/form-banner.jpeg'; 
 import axios from 'axios';
 
@@ -19,6 +19,14 @@ function StoreForms() {
     notes: ''
   });
 
+  useEffect(() => {
+    const link = document.createElement('link');
+    link.href = 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;700;900&display=swap';
+    link.rel = 'stylesheet';
+    document.head.appendChild(link);
+    document.title = "E-commerce Discovery Brief | Yohan Labs";
+  }, []);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -28,107 +36,135 @@ function StoreForms() {
     e.preventDefault();
     try {
       await axios.post('https://bugi-2.onrender.com/api/stores', formData); 
-      alert('Store form submitted successfully!');
+      alert('Commerce strategy submitted successfully!');
       setFormData({
-        fullName: '',
-        businessName: '',
-        email: '',
-        phone: '',
-        description: '',
-        estimatedProducts: '',
-        productAssets: '',
-        paymentMethods: '',
-        deliveryRegions: '',
-        branding: '',
-        styleInspiration: '',
-        timeline: '',
-        notes: ''
+        fullName: '', businessName: '', email: '', phone: '',
+        description: '', estimatedProducts: '', productAssets: '',
+        paymentMethods: '', deliveryRegions: '', branding: '',
+        styleInspiration: '', timeline: '', notes: ''
       });
     } catch (error) {
-        console.error('Submission error:', error);
+      console.error('Submission error:', error);
       alert('Submission failed. Please try again.');
     }
   };
 
   return (
-    <div className="min-h-screen bg-[#d9b17f] py-30 px-6 sm:px-12 lg:px-20 text-black font-sans">
-     <div className="max-w-4xl mx-auto bg-white shadow-md rounded-xl p-8">
-  <h1 className="text-3xl sm:text-4xl font-bold mb-6 text-center text-black uppercase">
-    E-commerce Website Questionnaire
-  </h1>
+    <div className="bg-[#f3e9e2] text-[#0d2b35] min-h-screen selection:bg-[#c9886b] selection:text-white pb-32" style={{ fontFamily: '"Inter", sans-serif' }}>
+      
+      {/* Commerce Header */}
+      <section className="pt-32 pb-20 px-6 bg-[#0d2b35] text-[#f3e9e2]">
+        <div className="max-w-4xl mx-auto text-center">
+          <span className="text-[#c9886b] text-xs font-black tracking-[0.5em] uppercase mb-6 block">Retail Strategy</span>
+          <h1 className="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none mb-4" style={{ fontFamily: '"Playfair Display", serif' }}>
+            Digital <span className="text-[#c9886b] italic">Storefront</span>
+          </h1>
+          <p className="text-[#f3e9e2]/60 text-sm tracking-[0.2em] uppercase font-bold">Scaling Commerce Globally</p>
+        </div>
+      </section>
 
-    {/* ✅ Image below title */}
-          <div className="flex justify-center mb-6">
-            <img 
-              src={formImg} 
-              alt="Brand Questionnaire Banner" 
-              className="w-full max-h-[450px] object-cover rounded-xl shadow-md"
-            />
+      <div className="max-w-6xl mx-auto px-6 -mt-16 relative z-10">
+        <div className="bg-white p-4 shadow-2xl mb-20">
+          <img src={formImg} alt="Banner" className="w-full h-72 md:h-[500px] object-cover grayscale hover:grayscale-0 transition-all duration-1000" />
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
+          
+          {/* Side Info */}
+          <div className="lg:col-span-1">
+            <div className="sticky top-32 space-y-12">
+              <div>
+                <h2 className="text-2xl font-black uppercase tracking-tighter mb-6" style={{ fontFamily: '"Playfair Display", serif' }}>The Advantage</h2>
+                <div className="space-y-6">
+                  {[
+                    { title: "Wider Reach", desc: "Sell beyond local borders 24/7." },
+                    { title: "Cost-Effective", desc: "Lower overhead than physical retail." },
+                    { title: "Scalability", desc: "Grow your range without limits." }
+                  ].map((adv, i) => (
+                    <div key={i} className="border-l-2 border-[#c9886b] pl-6">
+                      <h4 className="text-xs font-black uppercase tracking-widest text-[#0d2b35]">{adv.title}</h4>
+                      <p className="text-sm font-light text-[#0d2b35]/60">{adv.desc}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div className="p-8 bg-[#c9886b] text-white">
+                <p className="text-sm font-bold uppercase tracking-widest leading-relaxed">
+                  "Let's build a powerful online store tailored specifically to your business goals."
+                </p>
+              </div>
+            </div>
           </div>
 
-  {/* Intro Section */}
-  <div className="mb-10 text-black leading-relaxed">
-    <p className="mb-4 text-lg">
-      An <strong>online store</strong> is a digital platform where you can showcase and sell your products or services to
-      customers anytime, anywhere. It’s like having your business open 24/7, without the limitations of a physical shop.
-    </p>
-    <p className="mb-2 font-semibold">Advantages of having an online store:</p>
-    <ul className="list-disc pl-6 space-y-2">
-      <li><strong>Wider Reach:</strong> Sell beyond your local area and reach customers globally.</li>
-      <li><strong>Cost-Effective:</strong> Lower operating costs compared to physical shops.</li>
-      <li><strong>Convenience:</strong> Customers can browse and buy your products 24/7.</li>
-      <li><strong>Brand Growth:</strong> Build a professional digital presence that increases trust.</li>
-      <li><strong>Scalability:</strong> Easily expand your product range and handle more customers.</li>
-    </ul>
-  </div>
+          {/* Form Content */}
+          <div className="lg:col-span-2">
+            <form onSubmit={handleSubmit} className="space-y-8 bg-white/40 p-8 md:p-12 backdrop-blur-md">
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="flex flex-col gap-2">
+                  <label className="text-[10px] font-black uppercase tracking-widest opacity-50">Full Name</label>
+                  <input name="fullName" value={formData.fullName} onChange={handleChange} className="bg-transparent border-b border-[#0d2b35]/20 focus:border-[#c9886b] outline-none py-3" />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <label className="text-[10px] font-black uppercase tracking-widest opacity-50">Business Name</label>
+                  <input name="businessName" value={formData.businessName} onChange={handleChange} className="bg-transparent border-b border-[#0d2b35]/20 focus:border-[#c9886b] outline-none py-3" />
+                </div>
+              </div>
 
-  <p className="text-center text-gray-600 mb-10">
-    Help us understand your needs so we can build a powerful online store tailored to your business.
-  </p>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="flex flex-col gap-2">
+                  <label className="text-[10px] font-black uppercase tracking-widest opacity-50">Business Email</label>
+                  <input name="email" type="email" value={formData.email} onChange={handleChange} className="bg-transparent border-b border-[#0d2b35]/20 focus:border-[#c9886b] outline-none py-3" />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <label className="text-[10px] font-black uppercase tracking-widest opacity-50">Phone / WhatsApp</label>
+                  <input name="phone" value={formData.phone} onChange={handleChange} className="bg-transparent border-b border-[#0d2b35]/20 focus:border-[#c9886b] outline-none py-3" />
+                </div>
+              </div>
 
+              <div className="flex flex-col gap-2">
+                <label className="text-[10px] font-black uppercase tracking-widest opacity-50">Product Description</label>
+                <textarea name="description" value={formData.description} onChange={handleChange} rows="3" className="bg-transparent border-b border-[#0d2b35]/20 focus:border-[#c9886b] outline-none py-3 resize-none" placeholder="Describe what your store will sell..." />
+              </div>
 
-        <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Repeat fields with name & value bindings */}
-          <input name="fullName" value={formData.fullName} onChange={handleChange} placeholder="Your Full Name" className="w-full border p-3 rounded" />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="flex flex-col gap-4">
+                  <label className="text-[10px] font-black uppercase tracking-widest opacity-50">Product Asset Readiness</label>
+                  <select name="productAssets" value={formData.productAssets} onChange={handleChange} className="bg-white border border-[#0d2b35]/10 p-4 outline-none focus:border-[#c9886b]">
+                    <option value="">-- Select --</option>
+                    <option>Yes, I have all assets</option>
+                    <option>Still working on it</option>
+                    <option>No, not yet</option>
+                  </select>
+                </div>
+                <div className="flex flex-col gap-2">
+                  <label className="text-[10px] font-black uppercase tracking-widest opacity-50">Estimated Products</label>
+                  <input name="estimatedProducts" value={formData.estimatedProducts} onChange={handleChange} className="bg-transparent border-b border-[#0d2b35]/20 focus:border-[#c9886b] outline-none py-3" placeholder="e.g. 50-100" />
+                </div>
+              </div>
 
-          <input name="businessName" value={formData.businessName} onChange={handleChange} placeholder="Business Name" className="w-full border p-3 rounded" />
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="flex flex-col gap-2">
+                  <label className="text-[10px] font-black uppercase tracking-widest opacity-50">Payment Methods</label>
+                  <input name="paymentMethods" value={formData.paymentMethods} onChange={handleChange} className="bg-transparent border-b border-[#0d2b35]/20 focus:border-[#c9886b] outline-none py-3" placeholder="e.g. M-Pesa, Card" />
+                </div>
+                <div className="flex flex-col gap-2">
+                  <label className="text-[10px] font-black uppercase tracking-widest opacity-50">Project Timeline</label>
+                  <input name="timeline" value={formData.timeline} onChange={handleChange} className="bg-transparent border-b border-[#0d2b35]/20 focus:border-[#c9886b] outline-none py-3" />
+                </div>
+              </div>
 
-          <input name="email" type="email" value={formData.email} onChange={handleChange} placeholder="Business Email" className="w-full border p-3 rounded" />
+              <div className="flex flex-col gap-2">
+                <label className="text-[10px] font-black uppercase tracking-widest opacity-50">Delivery Regions</label>
+                <textarea name="deliveryRegions" value={formData.deliveryRegions} onChange={handleChange} rows="2" className="bg-transparent border-b border-[#0d2b35]/20 focus:border-[#c9886b] outline-none py-3 resize-none" />
+              </div>
 
-          <input name="phone" value={formData.phone} onChange={handleChange} placeholder="Phone / WhatsApp" className="w-full border p-3 rounded" />
-
-          <textarea name="description" value={formData.description} onChange={handleChange} placeholder="Describe what your store will sell" className="w-full border p-3 rounded" />
-
-          <input name="estimatedProducts" value={formData.estimatedProducts} onChange={handleChange} placeholder="Estimated number of products" className="w-full border p-3 rounded" />
-
-          <select name="productAssets" value={formData.productAssets} onChange={handleChange} className="w-full border p-3 rounded">
-            <option value="">-- Select product asset readiness --</option>
-            <option>Yes, I have all</option>
-            <option>Some, still working on it</option>
-            <option>No, not yet</option>
-          </select>
-
-          <input name="paymentMethods" value={formData.paymentMethods} onChange={handleChange} placeholder="Preferred payment methods" className="w-full border p-3 rounded" />
-
-          <textarea name="deliveryRegions" value={formData.deliveryRegions} onChange={handleChange} placeholder="Do you offer delivery? If yes, where?" className="w-full border p-3 rounded" />
-
-          <select name="branding" value={formData.branding} onChange={handleChange} className="w-full border p-3 rounded">
-            <option value="">-- Select branding state --</option>
-            <option>Yes, I have them</option>
-            <option>Just a logo</option>
-            <option>No, I need help with branding</option>
-          </select>
-
-          <input name="styleInspiration" value={formData.styleInspiration} onChange={handleChange} placeholder="Websites you like (optional)" className="w-full border p-3 rounded" />
-
-          <input name="timeline" value={formData.timeline} onChange={handleChange} placeholder="Timeline" className="w-full border p-3 rounded" />
-
-          <textarea name="notes" value={formData.notes} onChange={handleChange} placeholder="Any other requests or notes?" className="w-full border p-3 rounded" />
-
-          <button type="submit" className="w-full bg-red-500 hover:bg-red-600 text-white py-3 rounded font-semibold text-lg">
-            Submit Form
-          </button>
-        </form>
+              <button type="submit" className="w-full bg-[#c9886b] text-white py-8 text-xs font-black uppercase tracking-[0.5em] hover:bg-[#0d2b35] transition-all duration-500 shadow-xl">
+                Submit Strategy Brief →
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -1,75 +1,111 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import contactImage from '../assets/contact.jpeg';
 
 function Contacts() {
+  useEffect(() => {
+    // Injecting Fonts
+    const link = document.createElement('link');
+    link.href = 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;700;900&display=swap';
+    link.rel = 'stylesheet';
+    document.head.appendChild(link);
+    document.title = "Contact | Yohan Labs Nairobi";
+  }, []);
+
   return (
-    <div className="bg-[#d9b17f] flex flex-col justify-center items-center min-h-screen px-4">
-      <div className="w-full max-w-6xl md:pt-30 text-white font-sans">
+    <div className="bg-[#f3e9e2] text-[#0d2b35] min-h-screen selection:bg-[#c9886b] selection:text-white" style={{ fontFamily: '"Inter", sans-serif' }}>
+      
+      {/* Split Hero Section */}
+      <div className="flex flex-col lg:flex-row min-h-screen">
         
-        {/* Contact Image */}
-        <div className="w-full mb-12">
+        {/* Left Side: Visual */}
+        <div className="lg:w-1/2 h-[50vh] lg:h-screen relative overflow-hidden bg-[#0d2b35]">
           <img
             src={contactImage}
             alt="Contact"
-            className="w-full h-64 md:h-96 object-cover rounded-xl shadow-lg"
+            className="w-full h-full object-cover opacity-80 grayscale hover:grayscale-0 transition-all duration-1000"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#0d2b35] via-transparent to-transparent"></div>
+          <div className="absolute bottom-12 left-12">
+            <p className="text-[#c9886b] text-xs font-black tracking-[0.5em] uppercase mb-4">Connection</p>
+            <h1 className="text-white text-5xl md:text-7xl font-black uppercase tracking-tighter leading-none" style={{ fontFamily: '"Playfair Display", serif' }}>
+              LET'S BUILD <br /> <span className="italic text-[#c9886b]">TOGETHER</span>
+            </h1>
+          </div>
         </div>
 
-        {/* Header Intro */}
-        <section className="mb-10">
-          <h2 className="text-center text-2xl md:text-4xl font-bold">
-            Let's Build Something Together
-          </h2>
-          <p className="mt-4 text-md md:text-lg leading-relaxed text-gray-300 text-center">
-            Whether you're ready to start a project, <br />have questions,<br /> or just want to connect,<br /> my inbox is always open. <br /><br />Reach out, and I'll get back to you as soon as I can.
-          </p>
-        </section>
-
-        {/* Email Section */}
-        <section className="mt-20">
-          <p className="text-center text-xl md:text-2xl font-semibold mb-6">
-            SEND ME A<br />MESSAGE
-          </p>
-          <a
-            href="mailto:yohanlabs@gmail.com"
-            className="block text-white no-underline uppercase text-center text-[1rem] sm:text-[1.5rem] md:text-[2rem] lg:text-[3rem] font-extrabold leading-none"
-          >
-            yohanlabske@gmail.com
-          </a>
-          <a
-            href="mailto:bugijay7@gmail.com"
-            className="block text-white no-underline uppercase text-center text-[1rem] sm:text-[1.5rem] md:text-[2rem] lg:text-[3rem] font-extrabold leading-none mt-10"
-          >
-            bugijay7@gmail.com
-          </a>
-        </section>
-
-        {/* Address & Hours */}
-        <section className="mt-28 grid grid-cols-1 md:grid-cols-2 gap-10">
-          <div>
-            <h3 className="text-xl md:text-2xl font-bold mb-4">Office Address</h3>
-            <p className="text-gray-300 leading-relaxed">
-              Kiambu, Kenya<br />
-              Yohan Labs HQ<br />
-              Off Waiyaki Way, Kiambaa
+        {/* Right Side: Content */}
+        <div className="lg:w-1/2 px-8 lg:px-20 py-20 flex flex-col justify-center">
+          
+          <section className="mb-20">
+            <h2 className="text-sm font-black tracking-[0.4em] uppercase text-[#c9886b] mb-6">Introduction</h2>
+            <p className="text-2xl md:text-4xl leading-snug tracking-tight font-light italic" style={{ fontFamily: '"Playfair Display", serif' }}>
+              Whether you're ready to start a project, have questions, or just want to connect, my inbox is always open.
             </p>
-          </div>
-          <div>
-            <h3 className="text-xl md:text-2xl font-bold mb-4">Working Hours</h3>
-            <p className="text-gray-300 leading-relaxed">
-              Monday – Friday: 24hrs<br />
-              Saturday: 24hrs<br />
-              Sunday: 24hrs
-            </p>
-          </div>
-        </section>
+          </section>
 
-        {/* Footer Message */}
-        <section className="mt-28 mb-20">
-          <p className="text-md md:text-lg text-gray-400 italic text-center">
-            No bots, no waiting lines — just a real human excited to hear from you.
-          </p>
-        </section>
+          {/* Contact Methods Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 border-t border-[#0d2b35]/10 pt-12">
+            
+            {/* Email Section */}
+            <section className="flex flex-col gap-4">
+              <p className="text-xs font-black tracking-[0.3em] uppercase text-[#0d2b35]/50">
+                Send me a message
+              </p>
+              <div className="flex flex-col gap-2">
+                <a href="mailto:yohanlabs@gmail.com" className="text-lg font-bold hover:text-[#c9886b] transition-colors underline decoration-[#c9886b]/30 underline-offset-8">
+                  yohanlabske@gmail.com
+                </a>
+                <a href="mailto:bugijay7@gmail.com" className="text-lg font-bold hover:text-[#c9886b] transition-colors underline decoration-[#c9886b]/30 underline-offset-8">
+                  bugijay7@gmail.com
+                </a>
+              </div>
+            </section>
+
+            {/* Address */}
+            <section className="flex flex-col gap-4">
+              <p className="text-xs font-black tracking-[0.3em] uppercase text-[#0d2b35]/50">
+                Office Address
+              </p>
+              <p className="text-lg leading-relaxed">
+                Kiambu, Kenya — Yohan Labs HQ<br />
+                <span className="font-light text-[#0d2b35]/70 italic">Off Waiyaki Way, Kiambaa</span>
+              </p>
+            </section>
+
+            {/* Hours */}
+            <section className="flex flex-col gap-4">
+              <p className="text-xs font-black tracking-[0.3em] uppercase text-[#0d2b35]/50">
+                Availability
+              </p>
+              <div className="text-sm font-bold uppercase tracking-widest flex flex-col gap-1">
+                <span>Mon – Fri: <span className="text-[#c9886b]">24hrs</span></span>
+                <span>Sat – Sun: <span className="text-[#c9886b]">24hrs</span></span>
+              </div>
+            </section>
+
+            {/* Footer Note */}
+            <section className="flex flex-col gap-4">
+               <p className="text-xs font-black tracking-[0.3em] uppercase text-[#0d2b35]/50">
+                Personal Touch
+              </p>
+              <p className="text-sm font-light leading-relaxed italic border-l-2 border-[#c9886b] pl-4">
+                No bots, no waiting lines — just a real human excited to hear from you.
+              </p>
+            </section>
+
+          </div>
+
+          {/* Social / CTA Link */}
+          <div className="mt-20">
+             <a 
+               href="https://www.instagram.com/yohanlabske/" 
+               className="inline-block bg-[#0d2b35] text-[#f3e9e2] px-12 py-6 text-xs font-black uppercase tracking-[0.4em] hover:bg-[#c9886b] transition-all duration-500"
+             >
+               keep up with us on Instagram
+             </a>
+          </div>
+
+        </div>
       </div>
     </div>
   );

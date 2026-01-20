@@ -1,18 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes, FaChevronDown } from "react-icons/fa";
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [scrolled, setScrolled] = useState(false);
 
   const { pathname } = useLocation();
 
-  // Pages that use LIGHT navbar
-  const isLightNavbar =
-    pathname === "/" ||
-    pathname === "/about/process" ||
-    pathname === "/work";
+  // Scroll logic for premium feel
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const toggleDropdown = (name) =>
@@ -23,168 +25,156 @@ function Navbar() {
     setActiveDropdown(null);
   };
 
-  const mainLinks = [
-    ["Home", "/"],
-    ["Works", "/work"],
-    ["About", "/about"],
-    ["Contacts", "/contacts"],
+  const navGroups = [
+    {
+      id: "main",
+      label: "Main",
+      links: [
+        ["Home", "/"],
+        ["Works", "/work"],
+        ["About", "/about"],
+        ["Contacts", "/contacts"],
+      ],
+    },
+    {
+      id: "resources",
+      label: "Resources",
+      links: [
+        ["Services", "/services"],
+        ["Online Businesses", "/website"],
+        ["Packages", "/pricings"],
+      ],
+    },
+    {
+      id: "clients",
+      label: "Clients",
+      links: [
+        ["For Portfolios", "/ClientForms/PortfolioForms"],
+        ["For Brands", "/ClientForms/BrandForms"],
+        ["For E-commerces", "/ClientForms/StoreForms"],
+        ["For Cause Platforms", "/ClientForms/CauseForms"],
+      ],
+    },
   ];
-
-  const resourcesLinks = [
-    ["Services", "/services"],
-    ["Online Businesses", "/website"],
-    ["Packages", "/pricings"],
-  ];
-
-  const aboutLinks = [
-    ["About Us", "/about"],
-    ["Process", "/about/process"],
-    ["Getting Started", "/start"],
-    ["How It Works", "/about/creative-process"],
-  ];
-
-  const clientsLinks = [
-    ["For Portfolios", "/ClientForms/PortfolioForms"],
-    ["For Brands", "/ClientForms/BrandForms"],
-    ["For E-commerces", "/ClientForms/StoreForms"],
-    ["For Cause Platforms", "/ClientForms/CauseForms"],
-  ];
-
-  const dropdownClass = (name) => `
-    flex-col rounded-lg shadow-lg z-50
-    md:absolute md:left-0 md:top-full md:min-w-[260px]
-    ${activeDropdown === name ? "flex" : "hidden"}
-    ${isLightNavbar ? "bg-[#1c1205] text-[#d9b17f]" : "bg-[#d9b17f] text-[#1c1205]"}
-  `;
-
-  const navBg = isLightNavbar ? "bg-[#d9b17f]" : "bg-[#1c1205]";
-  const navText = isLightNavbar ? "text-[#1c1205]" : "text-[#d9b17f]";
-  const buttonBg = isLightNavbar
-    ? "bg-[#1c1205] text-[#d9b17f]"
-    : "bg-[#d9b17f] text-[#1c1205]";
 
   return (
     <nav
-      className={`fixed top-5 left-1/2 z-[1000] w-[80%] -translate-x-1/2 rounded-lg px-4 py-3 flex items-center justify-between ${navBg} ${navText}`}
+      className={`fixed top-0 w-full z-[100] transition-all duration-500 border-b ${
+        scrolled 
+          ? "bg-white/90 backdrop-blur-md py-4 border-black/10 shadow-xl" 
+          : "bg-transparent py-8 border-white/10"
+      }`}
+      style={{ fontFamily: '"Inter", sans-serif' }}
     >
-      {/* LOGO */}
-      <Link to="/" onClick={handleLinkClick} className="text-xl font-bold">
-        YOHAN LABS
-      </Link>
-
-      {/* MENU */}
-      <ul
-        className={`${
-          isOpen ? "flex" : "hidden"
-        } fixed top-20 left-1/2 z-[999] w-[calc(100%-40px)] max-w-[700px]
-        -translate-x-1/2 flex-col gap-4 rounded-lg p-4
-        md:static md:flex md:w-auto md:max-w-none md:translate-x-0
-        md:flex-row md:bg-transparent md:p-0 ${navBg}`}
-      >
-        {/* MAIN */}
-        <li className="relative flex flex-col md:pb-2">
-          <button
-            onClick={() => toggleDropdown("main")}
-            className="text-left text-sm font-bold"
-          >
-            Main
-          </button>
-          <ul className={dropdownClass("main")}>
-            {mainLinks.map(([label, path]) => (
-              <li key={path}>
-                <Link
-                  to={path}
-                  onClick={handleLinkClick}
-                  className="block rounded-md px-3 py-2 font-bold hover:opacity-80"
-                >
-                  {label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </li>
-
-        {/* RESOURCES */}
-        <li className="relative flex flex-col md:pb-2">
-          <button
-            onClick={() => toggleDropdown("resources")}
-            className="text-left text-sm font-bold"
-          >
-            Resources
-          </button>
-          <ul className={dropdownClass("resources")}>
-            {resourcesLinks.map(([label, path]) => (
-              <li key={path}>
-                <Link
-                  to={path}
-                  onClick={handleLinkClick}
-                  className="block rounded-md px-3 py-2 font-bold hover:opacity-80"
-                >
-                  {label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </li>
-
-        {/* ABOUT */}
-        <li className="relative flex flex-col md:pb-2">
-          <button
-            onClick={() => toggleDropdown("about")}
-            className="text-left text-sm font-bold"
-          >
-            About
-          </button>
-          <ul className={dropdownClass("about")}>
-            {aboutLinks.map(([label, path]) => (
-              <li key={path}>
-                <Link
-                  to={path}
-                  onClick={handleLinkClick}
-                  className="block rounded-md px-3 py-2 font-bold hover:opacity-80"
-                >
-                  {label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </li>
-
-        {/* CLIENTS */}
-        <li className="relative flex flex-col md:pb-2">
-          <button
-            onClick={() => toggleDropdown("clients")}
-            className="text-left text-sm font-bold"
-          >
-            Clients
-          </button>
-          <ul className={dropdownClass("clients")}>
-            {clientsLinks.map(([label, path]) => (
-              <li key={path}>
-                <Link
-                  to={path}
-                  onClick={handleLinkClick}
-                  className="block rounded-md px-3 py-2 font-bold hover:opacity-80"
-                >
-                  {label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </li>
-      </ul>
-
-      {/* CTA + MOBILE TOGGLE */}
-      <div className="flex items-center gap-3">
-        <Link to="/start" onClick={handleLinkClick}>
-          <button className={`rounded-lg px-3 py-1 text-xs font-semibold ${buttonBg}`}>
-            Free Consultation
-          </button>
+      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
+        
+        {/* LOGO - Playfair for Premium Branding */}
+        <Link 
+          to="/" 
+          onClick={handleLinkClick}
+          className={`text-2xl font-black tracking-tighter transition-colors ${
+            scrolled ? "text-black" : "text-[#ffe4c4]"
+          }`}
+          style={{ fontFamily: '"Playfair Display", serif' }}
+        >
+          YOHAN LABS
         </Link>
 
-        <button onClick={toggleMenu} className="text-sm md:hidden">
-          {isOpen ? <FaTimes /> : <FaBars />}
-        </button>
+        {/* DESKTOP MENU */}
+        <ul className="hidden lg:flex items-center gap-10">
+          {navGroups.map((group) => (
+            <li key={group.id} className="relative group">
+              <button
+                onMouseEnter={() => setActiveDropdown(group.id)}
+                className={`flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.3em] transition-colors ${
+                  scrolled ? "text-black/70 hover:text-black" : "text-white/70 hover:text-white"
+                }`}
+              >
+                {group.label} <FaChevronDown className="text-[8px]" />
+              </button>
+
+              {/* DROPDOWN - Sharp Edges */}
+              <div 
+                onMouseLeave={() => setActiveDropdown(null)}
+                className={`absolute top-full left-0 mt-4 bg-white border border-black/5 min-w-[220px] shadow-2xl transition-all duration-300 ${
+                  activeDropdown === group.id ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-2"
+                }`}
+              >
+                <div className="flex flex-col">
+                  {group.links.map(([label, path]) => (
+                    <Link
+                      key={path}
+                      to={path}
+                      onClick={handleLinkClick}
+                      className="px-6 py-4 text-[10px] font-bold uppercase tracking-widest text-black border-b border-black/5 hover:bg-[#ffe4c4] transition-colors"
+                    >
+                      {label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </li>
+          ))}
+        </ul>
+
+        {/* RIGHT SIDE CTA */}
+        <div className="flex items-center gap-6">
+          <Link to="/start" onClick={handleLinkClick} className="hidden md:block">
+            <button className={`px-8 py-3 text-[10px] font-black uppercase tracking-[0.3em] transition-all border ${
+              scrolled 
+                ? "bg-black text-white border-black hover:bg-white hover:text-black" 
+                : "bg-white text-black border-white hover:bg-transparent hover:text-white"
+            }`}>
+              Consultation
+            </button>
+          </Link>
+
+          {/* MOBILE TOGGLE */}
+          <button 
+            onClick={toggleMenu}
+            className={`text-2xl transition-colors lg:hidden ${scrolled ? "text-black" : "text-white"}`}
+          >
+            {isOpen ? <FaTimes /> : <FaBars />}
+          </button>
+        </div>
+      </div>
+
+      {/* MOBILE OVERLAY - Architectural Sidebar */}
+      <div className={`fixed inset-0 bg-black z-[110] transition-transform duration-700 lg:hidden ${
+        isOpen ? "translate-x-0" : "translate-x-full"
+      }`}>
+        <div className="flex flex-col h-full p-10">
+          <div className="flex justify-between items-center mb-20">
+            <span className="text-white font-black tracking-tighter text-2xl" style={{ fontFamily: '"Playfair Display", serif' }}>YOHAN LABS</span>
+            <button onClick={toggleMenu} className="text-white text-3xl"><FaTimes /></button>
+          </div>
+
+          <div className="space-y-10 overflow-y-auto">
+            {navGroups.map((group) => (
+              <div key={group.id} className="flex flex-col gap-4">
+                <span className="text-[#ffe4c4] text-[10px] font-black uppercase tracking-[0.5em]">{group.label}</span>
+                <div className="flex flex-col gap-6 pl-4 border-l border-white/10">
+                  {group.links.map(([label, path]) => (
+                    <Link
+                      key={path}
+                      to={path}
+                      onClick={handleLinkClick}
+                      className="text-white text-2xl font-bold tracking-tighter uppercase"
+                      style={{ fontFamily: '"Playfair Display", serif' }}
+                    >
+                      {label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            ))}
+            <Link to="/start" onClick={handleLinkClick} className="block pt-10">
+              <button className="w-full py-6 bg-red-600 text-white font-black uppercase tracking-widest text-xs">
+                Free Consultation
+              </button>
+            </Link>
+          </div>
+        </div>
       </div>
     </nav>
   );

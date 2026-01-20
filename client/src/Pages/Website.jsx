@@ -1,118 +1,108 @@
-import React from 'react';
-import { Link } from 'react-router-dom';  // ✅ import Link
-import websiteImg from '../assets/john1.jpeg'; 
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import websiteImg from '../assets/john1.jpeg';
 
 function Website() {
+  useEffect(() => {
+    const link = document.createElement('link');
+    link.href = 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;700;900&display=swap';
+    link.rel = 'stylesheet';
+    document.head.appendChild(link);
+    document.title = "Why Every Business in Kenya Needs a Website | Yohan Labs";
+  }, []);
+
   return (
-    <div className="bg-[#d9b17f] text-gray-800 py-36 px-6 sm:px-12 lg:px-20">
-      <div className="max-w-5xl mx-auto">
-
-        {/* Image */}
-        <div className="mb-10">
-          <img
-            src={websiteImg}
-            alt="Why Every Business Needs a Website"
-            className="w-full max-h-[400px] object-cover rounded-xl shadow-md"
-          />
+    <div className="bg-[#f3e9e2] text-[#0d2b35] min-h-screen selection:bg-[#c9886b] selection:text-white" style={{ fontFamily: '"Inter", sans-serif' }}>
+      
+      {/* Hero Section */}
+      <div className="relative w-full h-[60vh] lg:h-[80vh] overflow-hidden bg-[#0d2b35]">
+        <img
+          src={websiteImg}
+          alt="Why Every Business Needs a Website"
+          className="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-1000"
+        />
+        <div className="absolute inset-0 flex items-center justify-center p-6 text-center">
+          <h1 className="text-white text-5xl md:text-8xl font-black uppercase tracking-tighter max-w-5xl leading-[0.9]" style={{ fontFamily: '"Playfair Display", serif' }}>
+            The Digital <br /> <span className="text-[#c9886b] italic">Imperative</span> in Kenya
+          </h1>
         </div>
+      </div>
 
-        {/* Title */}
-        <h1 className="text-4xl sm:text-5xl font-bold mb-6 text-center text-[#090909] uppercase">
-          Why Every Business in Kenya Needs a Website  
-        </h1>
-
+      <div className="max-w-4xl mx-auto px-6 py-24">
+        
         {/* Intro */}
-        <p className="text-lg sm:text-xl mb-6 leading-relaxed text-center max-w-[700px] mx-auto">
-          In today’s fast-changing Kenyan business environment, a website is no longer a luxury —
-          it’s a necessity. From Nairobi’s bustling CBD to small towns like Nakuru and Eldoret,
-          businesses that embrace digital presence are pulling ahead of those that don’t.  
-          According to the <span className="font-semibold">Communications Authority of Kenya (CAK)</span>,
-          Kenya’s internet penetration reached <span className="text-green-700 font-bold">over 40 million users</span> by 2023.
-          That means your potential customers are already online — the question is, can they find you?
-        </p>
+        <section className="mb-20">
+          <span className="text-[#c9886b] text-xs font-black tracking-[0.5em] uppercase mb-8 block">Article / Market Insights</span>
+          <p className="text-2xl md:text-3xl font-light leading-snug italic mb-10 text-[#0d2b35]" style={{ fontFamily: '"Playfair Display", serif' }}>
+            In today’s fast-changing Kenyan business environment, a website is no longer a luxury — it’s a necessity.
+          </p>
+          <div className="flex flex-col gap-6 text-[#0d2b35]/80 text-lg leading-relaxed border-l-4 border-[#c9886b] pl-8">
+            <p>
+              From Nairobi’s bustling CBD to small towns like Nakuru and Eldoret, businesses that embrace digital presence are pulling ahead of those that don’t.
+            </p>
+            <p>
+              According to the <span className="font-bold text-[#0d2b35]">Communications Authority of Kenya (CAK)</span>, Kenya’s internet penetration reached <span className="text-[#c9886b] font-bold">over 40 million users</span> by 2023. That means your potential customers are already online — the question is, can they find you?
+            </p>
+          </div>
+        </section>
 
-        {/* Section: Case for a Website */}
-        <h2 className="text-2xl font-bold mt-12 mb-4 text-[#090909]">
-          The Competitive Edge of Having a Website
-        </h2>
-        <ul className="space-y-6">
-          <li>
-            <strong className="text-red-400">✅ Be Found Online:</strong><br />
-            In Kenya, over <span className="font-semibold">70% of purchasing decisions</span> begin with an online search.
-            For instance, a restaurant in Westlands with an active website listing its menu and
-            location can attract tourists and locals searching on Google, while a similar
-            restaurant without a website may remain invisible.
-          </li>
+        {/* Section: Competitive Edge */}
+        <section className="mb-32">
+          <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tighter mb-12 border-b border-[#0d2b35]/10 pb-6" style={{ fontFamily: '"Playfair Display", serif' }}>
+            The Competitive <span className="text-[#c9886b]">Edge</span>
+          </h2>
+          
+          <div className="space-y-16">
+            {[
+              { title: "Be Found Online", content: "Over 70% of purchasing decisions in Kenya begin with an online search. A Westlands restaurant with a website wins while invisible competitors lose out." },
+              { title: "Build Trust", content: "Safaricom SME studies reveal businesses with websites are perceived as 40% more trustworthy. Trust is the currency of the digital market." },
+              { title: "Sell or Book Online", content: "E-commerce is thriving via M-Pesa integrations. A website means your shop in Gikomba never closes—it sells 24/7." },
+              { title: "Tell Your Story", content: "From Eldoret agribusinesses to Nairobi startups, your story attracts investors. Control your narrative outside of social media algorithms." }
+            ].map((item, idx) => (
+              <div key={idx} className="group">
+                <h3 className="text-xs font-black tracking-[0.3em] uppercase text-[#c9886b] mb-4">0{idx + 1} — {item.title}</h3>
+                <p className="text-xl font-light leading-relaxed group-hover:text-[#0d2b35] transition-colors">{item.content}</p>
+              </div>
+            ))}
+          </div>
+        </section>
 
-          <li>
-            <strong className="text-red-400">✅ Build Trust:</strong><br />
-            Kenyan consumers are becoming more discerning.  
-            A <span className="font-semibold">Safaricom SME study</span> revealed that businesses with websites and online reviews
-            are perceived as <span className="font-semibold">40% more trustworthy</span> than those without.
-          </li>
-
-          <li>
-            <strong className="text-red-400">✅ Sell or Book Online:</strong><br />
-            E-commerce is thriving — think of <span className="font-semibold">Jumia, Kilimall, and Sky.Garden</span>.
-            Even small businesses in Gikomba Market now sell via their websites and accept payments via
-            <span className="font-semibold"> M-Pesa integrations</span>.  
-            A simple website can mean 24/7 sales.
-          </li>
-
-          <li>
-            <strong className="text-red-400">✅ Tell Your Story:</strong><br />
-            From agribusinesses in Eldoret to tech startups in Nairobi’s Silicon Savannah,
-            websites allow Kenyan entrepreneurs to showcase their journey, values, and success stories.
-            A good story not only attracts customers but also investors.
-          </li>
-
-          <li>
-            <strong className="text-red-400">✅ Control the Narrative:</strong><br />
-            On social media, algorithms change constantly — but your website is yours to control.
-            Kenyan law under the <span className="font-semibold">Data Protection Act of 2019</span>
-            also supports businesses that own their digital assets responsibly, giving websites
-            an additional edge in credibility.
-          </li>
-        </ul>
+        {/* Pull Quote Section */}
+        <section className="bg-[#0d2b35] p-12 lg:p-20 my-32 relative overflow-hidden">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-[#c9886b] opacity-10 translate-x-16 -translate-y-16 rounded-full"></div>
+          <p className="text-[#f3e9e2] text-3xl md:text-4xl italic font-serif leading-tight relative z-10" style={{ fontFamily: '"Playfair Display", serif' }}>
+            "Kenyan law under the <span className="text-[#c9886b]">Data Protection Act of 2019</span> supports businesses that own their digital assets responsibly."
+          </p>
+        </section>
 
         {/* Case Studies */}
-        <h2 className="text-2xl font-bold mt-12 mb-4 text-[#090909]">
-          Real-Life Impacts in the Kenyan Market
-        </h2>
-        <p className="text-lg mb-6 leading-relaxed">
-          Consider <span className="font-semibold">Java House Kenya</span>. By investing in a sleek website
-          with online ordering, Java expanded beyond foot traffic and increased its delivery sales significantly.
-        </p>
-        <p className="text-lg mb-6 leading-relaxed">
-          Another example is <span className="font-semibold">Twiga Foods</span>, a Kenyan agri-tech company.
-          Their web presence enabled them to attract international investors, raising millions in funding
-          while digitizing food supply chains across the country.
-        </p>
-        <p className="text-lg mb-6 leading-relaxed">
-          Even SMEs like small law firms in Upper Hill or boutique hotels in Naivasha are finding that
-          a simple, well-designed website can multiply inquiries, bookings, and client trust.
-        </p>
+        <section className="mb-32 grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div>
+            <h2 className="text-3xl font-black uppercase tracking-tighter mb-8" style={{ fontFamily: '"Playfair Display", serif' }}>Market Impacts</h2>
+            <div className="space-y-6 text-[#0d2b35]/70">
+              <p>Consider <span className="text-[#0d2b35] font-bold">Java House Kenya</span>. Their sleek website enabled delivery sales that footprint traffic alone couldn't touch.</p>
+              <p><span className="text-[#0d2b35] font-bold">Twiga Foods</span> used their web presence to attract international investors, raising millions to digitize supply chains.</p>
+            </div>
+          </div>
+          <div className="bg-[#c9886b] p-8 flex flex-col justify-center">
+            <p className="text-white font-bold text-lg leading-snug">
+              Even SMEs in Naivasha or Upper Hill are finding that a well-designed website multiplies inquiries and client trust instantly.
+            </p>
+          </div>
+        </section>
 
         {/* Closing Text */}
-        <p className="text-lg sm:text-xl mt-8 leading-relaxed">
-          Whether you're a boda boda operator looking to expand logistics, a farmer in Kisumu,
-          or a startup in Nairobi, a website is one of the smartest investments you can make
-          in your brand.
-        </p>
-
-        <p className="text-xl font-semibold text-center mt-10 text-green-700">
-          Let’s build something that works for you — beautifully, simply, and effectively.
-        </p>
-
-        {/* ✅ Link to Home */}
-        <div className="text-center mt-12">
-          <Link 
-            to="/ClientForms/StoreForms" 
-            className="inline-block px-6 py-3 bg-green-700 text-white rounded-lg shadow-md hover:bg-green-800 transition duration-300"
-          >
-            Get Your Online Shop Started
+        <section className="text-center py-20 border-t border-[#0d2b35]/10">
+          <p className="text-2xl font-light italic mb-12 leading-relaxed" style={{ fontFamily: '"Playfair Display", serif' }}>
+            Whether you're a farmer in Kisumu or a startup in Nairobi, a website is the smartest investment you can make.
+          </p>
+          
+          <Link to="/ClientForms/StoreForms">
+            <button className="bg-[#0d2b35] text-white px-12 py-8 text-xs font-black uppercase tracking-[0.5em] hover:bg-[#c9886b] hover:scale-105 transition-all duration-500 shadow-2xl">
+              Get Your Online Shop Started
+            </button>
           </Link>
-        </div>
+        </section>
 
       </div>
     </div>

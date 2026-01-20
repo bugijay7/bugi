@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaCheckCircle } from 'react-icons/fa';
-import shapeImg from '../../assets/shape.jpeg'; // <-- your shape image
+import shapeImg from '../../assets/shape.jpeg'; 
 
 function Benefits() {
   const items = [
