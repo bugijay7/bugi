@@ -140,7 +140,7 @@ function Navbar() {
       </div>
 
       {/* MOBILE OVERLAY - Architectural Sidebar */}
-      <div className={`fixed inset-0 bg-black z-[110] transition-transform duration-700 lg:hidden ${
+      <div className={`fixed inset-0 bg-black z-[9999] transition-transform duration-700 lg:hidden ${
         isOpen ? "translate-x-0" : "translate-x-full"
       }`}>
         <div className="flex flex-col h-full p-10">
