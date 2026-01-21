@@ -145,7 +145,7 @@ function Navbar() {
       }`}>
         <div className="flex flex-col h-full p-10">
           <div className="flex justify-between items-center mb-20">
-            <span className="text-white font-black tracking-tighter text-2xl" style={{ fontFamily: '"Playfair Display", serif' }}>YOHAN LABS</span>
+            <span className="text-white font-black tracking-tighter text-xl md:text-2xl" style={{ fontFamily: '"Playfair Display", serif' }}>YOHAN LABS</span>
             <button onClick={toggleMenu} className="text-white text-3xl"><FaTimes /></button>
           </div>
 
