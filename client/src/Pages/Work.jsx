@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
 import earth from '../assets/earth.jpeg';
-import turs from '../assets/turs.jpg';
-import muscleDistrict from '../assets/muscledistrict.jpg';
-import kashio from '../assets/kashio.jpg';
-import furniq from '../assets/furniq.JPG';
-import afc from '../assets/AFC.png';
+import turs from '../assets/utrs.png';
+import muscleDistrict from '../assets/muscle.png';
+import kashio from '../assets/bubbles.png';
+import furniq from '../assets/furniq.png';
+import afc from '../assets/kiambaa.png';
 import zoe from '../assets/zoe.png';
 import Cta from '../components/Home/Cta';
 
