@@ -82,7 +82,7 @@ function Navbar() {
           to="/"
           onClick={handleLinkClick}
           className={`text-2xl font-black tracking-tighter transition-colors ${
-            scrolled ? "text-black" : "text-white"
+            scrolled ? "text-black" : "text-[#0d2b35]"
           }`}
           style={{ fontFamily: '"Playfair Display", serif' }}
         >
@@ -96,7 +96,7 @@ function Navbar() {
               <button
                 onMouseEnter={() => setActiveDropdown(group.id)}
                 className={`flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.3em] transition-colors ${
-                  scrolled ? "text-black/70 hover:text-black" : "text-white hover:text-white"
+                  scrolled ? "text-black/70 hover:text-black" : "text-black hover:text-[#0d2b35]"
                 }`}
               >
                 {group.label} <FaChevronDown className="text-[8px]" />
@@ -144,7 +144,7 @@ function Navbar() {
           <button
             onClick={toggleMenu}
             className={`text-2xl transition-colors lg:hidden z-[10001] ${
-              isOpen ? "text-white" : scrolled ? "text-black" : "text-white"
+              isOpen ? "text-[#0d2b35]" : scrolled ? "text-black" : "text-[#0d2b35]"
             }`}
           >
             {isOpen ? <FaTimes /> : <FaBars />}
@@ -156,7 +156,7 @@ function Navbar() {
     </nav>
       {/* MOBILE OVERLAY - Architectural Sidebar */}
       <div
-        className={`fixed inset-0 bg-black transition-transform duration-700 ease-in-out lg:hidden ${
+        className={`fixed inset-0 bg-black transition-transform z-[9999] duration-700 ease-in-out lg:hidden ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
         style={{ zIndex: 10000 }}
