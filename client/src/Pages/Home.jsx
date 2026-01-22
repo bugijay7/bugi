@@ -50,7 +50,7 @@ function Home() {
         className="w-full min-h-screen bg-cover bg-center flex flex-col justify-end relative overflow-hidden"
         style={{ backgroundImage: `url(${heroImg})` }}
       >
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-black/20 to-transparent"></div>
         <div className="flex flex-col items-end text-right gap-4 w-11/12 md:w-10/12 mx-auto pb-20 relative z-10">
           <h3 className="text-6xl md:text-[10rem] font-black text-white leading-none tracking-tighter" style={{ fontFamily: '"Playfair Display", serif' }}>
             YOHAN<br/>LABS

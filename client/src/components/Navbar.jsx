@@ -16,6 +16,15 @@ function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Prevent background scrolling when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [isOpen]);
+
   const toggleMenu = () => setIsOpen(!isOpen);
   const toggleDropdown = (name) =>
     setActiveDropdown((prev) => (prev === name ? null : name));
@@ -58,22 +67,22 @@ function Navbar() {
   ];
 
   return (
+    <>
     <nav
-      className={`fixed top-0 w-full z-[100] transition-all duration-500 border-b ${
-        scrolled 
-          ? "bg-white/90 backdrop-blur-md py-4 border-black/10 shadow-xl" 
+      className={`fixed top-0 w-full z-[9999] transition-all duration-500 border-b ${
+        scrolled
+          ? "bg-white/90 backdrop-blur-md py-4 border-black/10 shadow-xl"
           : "bg-transparent py-8 border-white/10"
       }`}
       style={{ fontFamily: '"Inter", sans-serif' }}
     >
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        
-        {/* LOGO - Playfair for Premium Branding */}
-        <Link 
-          to="/" 
+        {/* LOGO */}
+        <Link
+          to="/"
           onClick={handleLinkClick}
           className={`text-2xl font-black tracking-tighter transition-colors ${
-            scrolled ? "text-black" : "text-[#ffe4c4]"
+            scrolled ? "text-black" : "text-white"
           }`}
           style={{ fontFamily: '"Playfair Display", serif' }}
         >
@@ -87,14 +96,14 @@ function Navbar() {
               <button
                 onMouseEnter={() => setActiveDropdown(group.id)}
                 className={`flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.3em] transition-colors ${
-                  scrolled ? "text-black/70 hover:text-black" : "text-white/70 hover:text-white"
+                  scrolled ? "text-black/70 hover:text-black" : "text-white hover:text-white"
                 }`}
               >
                 {group.label} <FaChevronDown className="text-[8px]" />
               </button>
 
-              {/* DROPDOWN - Sharp Edges */}
-              <div 
+              {/* DROPDOWN */}
+              <div
                 onMouseLeave={() => setActiveDropdown(null)}
                 className={`absolute top-full left-0 mt-4 bg-white border border-black/5 min-w-[220px] shadow-2xl transition-all duration-300 ${
                   activeDropdown === group.id ? "opacity-100 visible translate-y-0" : "opacity-0 invisible translate-y-2"
@@ -120,46 +129,63 @@ function Navbar() {
         {/* RIGHT SIDE CTA */}
         <div className="flex items-center gap-6">
           <Link to="/start" onClick={handleLinkClick} className="hidden md:block">
-            <button className={`px-8 py-3 text-[10px] font-black uppercase tracking-[0.3em] transition-all border ${
-              scrolled 
-                ? "bg-black text-white border-black hover:bg-white hover:text-black" 
-                : "bg-white text-black border-white hover:bg-transparent hover:text-white"
-            }`}>
+            <button
+              className={`px-8 py-3 text-[10px] font-black uppercase tracking-[0.3em] transition-all border ${
+                scrolled
+                  ? "bg-black text-white border-black hover:bg-white hover:text-black"
+                  : "bg-white text-black border-white hover:bg-transparent hover:text-white"
+              }`}
+            >
               Consultation
             </button>
           </Link>
 
-          {/* MOBILE TOGGLE */}
-          <button 
+          {/* MOBILE TOGGLE BUTTON */}
+          <button
             onClick={toggleMenu}
-            className={`text-2xl transition-colors lg:hidden ${scrolled ? "text-black" : "text-white"}`}
+            className={`text-2xl transition-colors lg:hidden z-[10001] ${
+              isOpen ? "text-white" : scrolled ? "text-black" : "text-white"
+            }`}
           >
             {isOpen ? <FaTimes /> : <FaBars />}
           </button>
         </div>
       </div>
 
+    
+    </nav>
       {/* MOBILE OVERLAY - Architectural Sidebar */}
-      <div className={`fixed inset-0 bg-black z-[9999] transition-transform duration-700 lg:hidden ${
-        isOpen ? "translate-x-0" : "translate-x-full"
-      }`}>
-        <div className="flex flex-col h-full p-10">
-          <div className="flex justify-between items-center mb-20">
-            <span className="text-white font-black tracking-tighter text-xl md:text-2xl" style={{ fontFamily: '"Playfair Display", serif' }}>YOHAN LABS</span>
-            <button onClick={toggleMenu} className="text-white text-3xl"><FaTimes /></button>
+      <div
+        className={`fixed inset-0 bg-black transition-transform duration-700 ease-in-out lg:hidden ${
+          isOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+        style={{ zIndex: 10000 }}
+      >
+        <div className="flex flex-col h-full p-10 overflow-y-auto">
+          {/* Mobile Header within Menu */}
+          <div className="flex justify-between items-center mb-16 shrink-0">
+            <span
+              className="text-white font-black tracking-tighter text-xl"
+              style={{ fontFamily: '"Playfair Display", serif' }}
+            >
+              YOHAN LABS
+            </span>
           </div>
 
-          <div className="space-y-10 overflow-y-auto">
+          {/* Links */}
+          <div className="space-y-12 pb-20">
             {navGroups.map((group) => (
-              <div key={group.id} className="flex flex-col gap-4">
-                <span className="text-[#ffe4c4] text-[10px] font-black uppercase tracking-[0.5em]">{group.label}</span>
+              <div key={group.id} className="flex flex-col gap-5">
+                <span className="text-[#ffe4c4] text-[10px] font-black uppercase tracking-[0.5em]">
+                  {group.label}
+                </span>
                 <div className="flex flex-col gap-6 pl-4 border-l border-white/10">
                   {group.links.map(([label, path]) => (
                     <Link
                       key={path}
                       to={path}
                       onClick={handleLinkClick}
-                      className="text-white text-2xl font-bold tracking-tighter uppercase"
+                      className="text-white text-3xl font-bold tracking-tighter uppercase hover:text-[#de5f5e] transition-colors"
                       style={{ fontFamily: '"Playfair Display", serif' }}
                     >
                       {label}
@@ -168,15 +194,17 @@ function Navbar() {
                 </div>
               </div>
             ))}
+
             <Link to="/start" onClick={handleLinkClick} className="block pt-10">
-              <button className="w-full py-6 bg-red-600 text-white font-black uppercase tracking-widest text-xs">
+              <button className="w-full py-6 bg-[#de5f5e] text-white font-black uppercase tracking-widest text-xs hover:bg-white hover:text-black transition-all">
                 Free Consultation
               </button>
             </Link>
           </div>
         </div>
       </div>
-    </nav>
+
+    </>
   );
 }
 
