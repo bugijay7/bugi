@@ -8,52 +8,16 @@ import ecommerceImg from "../assets/ecommerce.jpeg";
 function Home() {
 
   useEffect(() => {
-  // Fonts
-  const link = document.createElement('link');
-  link.href = 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;700;900&display=swap';
-  link.rel = 'stylesheet';
-  document.head.appendChild(link);
+    // Fonts
+    const link = document.createElement('link');
+    link.href = 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;700;900&display=swap';
+    link.rel = 'stylesheet';
+    document.head.appendChild(link);
 
-  // Title
-  document.title = "Yohan Labs | Web Design Nairobi Kenya | Custom Websites & SEO Services";
-
-  // Meta Description
-  const meta = document.createElement('meta');
-  meta.name = "description";
-  meta.content = "Yohan Labs is a Nairobi-based web design and development studio specializing in custom websites, ecommerce stores, SEO optimization, and modern digital solutions in Kenya.";
-  document.head.appendChild(meta);
-
-  // ✅ STRUCTURED DATA (ADD THIS HERE)
-  const script = document.createElement("script");
-  script.type = "application/ld+json";
-  script.innerHTML = JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Yohan Labs",
-    "image": "https://yohanlabs.online/logo.png",
-    "url": "https://www.facebook.com/profile.php?id=61577628123447",
-    "telephone": "+254702443418",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Nairobi",
-      "addressCountry": "KE"
-    },
-    "areaServed": "Kenya",
-    "sameAs": [
-      "https://www.instagram.com/yohanlabske/",
-      "https://www.facebook.com/"
-    ],
-    "description": "Yohan Labs is a Nairobi-based web design and development agency offering custom websites, ecommerce solutions, and SEO services."
-  });
-
-  document.head.appendChild(script);
-
-}, []);
-
-    // ✅ SEO TITLE (VERY IMPORTANT)
+    // Title
     document.title = "Yohan Labs | Web Design Nairobi Kenya | Custom Websites & SEO Services";
 
-    // ✅ META DESCRIPTION
+    // Meta Description
     const meta = document.createElement('meta');
     meta.name = "description";
     meta.content = "Yohan Labs is a Nairobi-based web design and development studio specializing in custom websites, ecommerce stores, SEO optimization, and modern digital solutions in Kenya.";
@@ -87,7 +51,6 @@ function Home() {
 
         <div className="flex flex-col items-end text-right gap-4 w-11/12 md:w-10/12 mx-auto pb-20 relative z-10">
           
-          {/* ✅ H1 KEYWORD TARGET */}
           <h1 className="text-6xl md:text-[10rem] font-black text-white leading-none tracking-tighter" style={{ fontFamily: '"Playfair Display", serif' }}>
             YOHAN<br/>LABS
           </h1>
@@ -115,7 +78,6 @@ function Home() {
       <section className="py-40 px-6 border-b border-black/10">
         <div className="max-w-7xl mx-auto">
 
-          {/* ✅ H2 WITH KEYWORDS */}
           <h2 className="text-3xl md:text-6xl text-white leading-[1.1] max-w-5xl tracking-tight mb-20" style={{ fontFamily: '"Playfair Display", serif' }}>
             A Nairobi-based web design studio delivering <span className="italic text-[#1c1205]">high-performance</span> websites, SEO, and digital solutions.
           </h2>
@@ -123,7 +85,6 @@ function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-black/10 border border-black/10">
             {[webImg, customImg, ecommerceImg].map((img, i) => (
               <div key={i} className="group relative overflow-hidden bg-white">
-                {/* ✅ ALT TEXT FOR SEO */}
                 <img 
                   src={img} 
                   alt="Web design and development projects by Yohan Labs Kenya" 
@@ -158,7 +119,6 @@ function Home() {
       <section className="py-40 px-6">
         <div className="max-w-7xl mx-auto">
 
-          {/* ✅ H2 KEYWORD */}
           <h2 className="text-5xl md:text-9xl font-black text-[#263627] tracking-tighter uppercase leading-none" style={{ fontFamily: '"Playfair Display", serif' }}>
             Web Design Pricing Kenya
           </h2>
