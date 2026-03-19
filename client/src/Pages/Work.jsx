@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import earth from '../assets/earth.jpeg';
-import turs from '../assets/utrs.png';
+import turs from '../assets/utrs.PNG';
 import muscleDistrict from '../assets/muscle.png';
 import kashio from '../assets/bubbles.png';
 import furniq from '../assets/furniq.png';
