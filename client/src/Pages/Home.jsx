@@ -8,10 +8,47 @@ import ecommerceImg from "../assets/ecommerce.jpeg";
 function Home() {
 
   useEffect(() => {
-    const link = document.createElement('link');
-    link.href = 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;700;900&display=swap';
-    link.rel = 'stylesheet';
-    document.head.appendChild(link);
+  // Fonts
+  const link = document.createElement('link');
+  link.href = 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;700;900&display=swap';
+  link.rel = 'stylesheet';
+  document.head.appendChild(link);
+
+  // Title
+  document.title = "Yohan Labs | Web Design Nairobi Kenya | Custom Websites & SEO Services";
+
+  // Meta Description
+  const meta = document.createElement('meta');
+  meta.name = "description";
+  meta.content = "Yohan Labs is a Nairobi-based web design and development studio specializing in custom websites, ecommerce stores, SEO optimization, and modern digital solutions in Kenya.";
+  document.head.appendChild(meta);
+
+  // ✅ STRUCTURED DATA (ADD THIS HERE)
+  const script = document.createElement("script");
+  script.type = "application/ld+json";
+  script.innerHTML = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Yohan Labs",
+    "image": "https://yohanlabs.online/logo.png",
+    "url": "https://www.facebook.com/profile.php?id=61577628123447",
+    "telephone": "+254702443418",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Nairobi",
+      "addressCountry": "KE"
+    },
+    "areaServed": "Kenya",
+    "sameAs": [
+      "https://www.instagram.com/yohanlabske/",
+      "https://www.facebook.com/"
+    ],
+    "description": "Yohan Labs is a Nairobi-based web design and development agency offering custom websites, ecommerce solutions, and SEO services."
+  });
+
+  document.head.appendChild(script);
+
+}, []);
 
     // ✅ SEO TITLE (VERY IMPORTANT)
     document.title = "Yohan Labs | Web Design Nairobi Kenya | Custom Websites & SEO Services";
