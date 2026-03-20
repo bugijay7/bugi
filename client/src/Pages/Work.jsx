@@ -9,7 +9,7 @@ import zoe from '../assets/zoe.png';
 import Cta from '../components/Home/Cta';
 import veloura from '../assets/veloura.PNG';
 import nexafit from '../assets/nexafit.PNG';
-import mwangi from '../assets/mwangi.png'; 
+import mwangi from '../assets/mwangi.PNG'; 
 
 function Work() {
   useEffect(() => {
