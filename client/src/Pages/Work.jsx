@@ -7,8 +7,8 @@ import furniq from '../assets/furniq.PNG';
 import afc from '../assets/kiambaa.PNG';
 import zoe from '../assets/zoe.png';
 import Cta from '../components/Home/Cta';
-import veloura from '../assets/veloura.png';
-import nexafit from '../assets/nexafit.png';
+import veloura from '../assets/veloura.PNG';
+import nexafit from '../assets/nexafit.PNG';
 import mwangi from '../assets/mwangi.png'; 
 
 function Work() {
