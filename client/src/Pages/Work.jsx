@@ -7,6 +7,9 @@ import furniq from '../assets/furniq.PNG';
 import afc from '../assets/kiambaa.PNG';
 import zoe from '../assets/zoe.png';
 import Cta from '../components/Home/Cta';
+import veloura from '../assets/veloura.png';
+import nexafit from '../assets/nexafit.png';
+import mwangi from '../assets/mwangi.png'; 
 
 function Work() {
   useEffect(() => {
@@ -17,57 +20,79 @@ function Work() {
     document.title = "Portfolio & Projects | Yohan Labs - Web Design in Nairobi";
   }, []);
 
-  const projects = [
-    {
-      title: "Zoe Center",
-      desc: "A welcoming, easy-to-navigate website allowing visitors to learn about services, ministries, and events while improving digital communication.",
-      img: zoe,
-      link: "https://zoewc.vercel.app",
-      category: "COMMUNITY / RELIGION"
-    },
-    {
-      title: "AFC KIAMBAA",
-      desc: "A responsive church website designed to showcase ministry, events, and community outreach while improving online visibility.",
-      img: afc,
-      link: "https://afckiambaa.vercel.app",
-      category: "COMMUNITY / RELIGION"
-    },
-    {
-      title: "Forked Up",
-      desc: "An online hub showcasing menu and ambiance, allowing customers to explore and connect with the dining experience.",
-      img: earth,
-      link: "https://forkedup-phi.vercel.app",
-      category: "HOSPITALITY"
-    },
-    {
-      title: "Upper Room Sanctuary",
-      desc: "A digital platform sharing missions, sermons, and ways for the community to connect and grow in faith.",
-      img: turs,
-      link: "https://turs120.vercel.app",
-      category: "COMMUNITY / RELIGION"
-    },
-    {
-      title: "Muscle District",
-      desc: "A local gym website showcasing powerful training programs and expert coaching designed to help you build strength.",
-      img: muscleDistrict,
-      link: "https://muscle-district.vercel.app",
-      category: "HEALTH & FITNESS"
-    },
-    {
-      title: "Kashio Bubbles",
-      desc: "Modern laundromat website offering convenient laundry services with online scheduling and doorstep pickup.",
-      img: kashio,
-      link: "https://kashiobubbles.vercel.app",
-      category: "SERVICE / TECH"
-    },
-    {
-      title: "Furniq Works",
-      desc: "A modern furniture store offering stylish pieces with seamless online shopping and doorstep delivery.",
-      img: furniq,
-      link: "https://furniq-five.vercel.app",
-      category: "E-COMMERCE / RETAIL"
-    }
-  ];
+ const projects = [
+  {
+    title: "Zoe Center",
+    desc: "A welcoming, easy-to-navigate website allowing visitors to learn about services, ministries, and events while improving digital communication.",
+    img: zoe,
+    link: "https://zoewc.vercel.app",
+    category: "COMMUNITY / RELIGION"
+  },
+  
+  {
+    title: "Kimani wa Mbicha",
+    desc: "A professional photography portfolio website showcasing stunning visuals, client work, and booking services for events, portraits, and creative shoots.",
+    img: mwangi, // make sure you import this image
+    link: "https://mwangi-ruby.vercel.app", 
+    category: "CREATIVE / PHOTOGRAPHY"
+  },
+  {
+    title: "AFC KIAMBAA",
+    desc: "A responsive church website designed to showcase ministry, events, and community outreach while improving online visibility.",
+    img: afc,
+    link: "https://afckiambaa.vercel.app",
+    category: "COMMUNITY / RELIGION"
+  },
+  {
+    title: "Veloura Spa",
+    desc: "A luxury spa website designed to showcase wellness treatments, relaxation services, and seamless appointment booking.",
+    img: veloura,
+    link: "https://veloura-woad.vercel.app",
+    category: "BEAUTY / WELLNESS"
+  },
+  {
+    title: "Forked Up",
+    desc: "An online hub showcasing menu and ambiance, allowing customers to explore and connect with the dining experience.",
+    img: earth,
+    link: "https://forkedup-phi.vercel.app",
+    category: "HOSPITALITY"
+  },
+  {
+    title: "Upper Room Sanctuary",
+    desc: "A digital platform sharing missions, sermons, and ways for the community to connect and grow in faith.",
+    img: turs,
+    link: "https://turs120.vercel.app",
+    category: "COMMUNITY / RELIGION"
+  },
+  {
+    title: "Muscle District",
+    desc: "A local gym website showcasing powerful training programs and expert coaching designed to help you build strength.",
+    img: muscleDistrict,
+    link: "https://muscle-district.vercel.app",
+    category: "HEALTH & FITNESS"
+  },
+  {
+    title: "Kashio Bubbles",
+    desc: "Modern laundromat website offering convenient laundry services with online scheduling and doorstep pickup.",
+    img: kashio,
+    link: "https://kashiobubbles.vercel.app",
+    category: "SERVICE / TECH"
+  },
+  {
+    title: "Furniq Works",
+    desc: "A modern furniture store offering stylish pieces with seamless online shopping and doorstep delivery.",
+    img: furniq,
+    link: "https://furniq-five.vercel.app",
+    category: "E-COMMERCE / RETAIL"
+  },
+  {
+    title: "NexaFit Wellness",
+    desc: "A modern fitness and wellness platform highlighting training programs, coaching, and lifestyle transformation with easy membership access.",
+    img: nexafit,
+    link: "https://nexafit-36ni.vercel.app",
+    category: "HEALTH & FITNESS"
+  }
+];
 
   return (
     <div className="bg-[#f3e9e2] text-[#0d2b35] min-h-screen selection:bg-[#c9886b] selection:text-white" style={{ fontFamily: '"Inter", sans-serif' }}>
@@ -108,7 +133,7 @@ function Work() {
                   rel="noopener noreferrer"
                   className="inline-block border-b-2 border-[#c9886b] pb-2 text-xs font-black uppercase tracking-[0.4em] hover:text-[#c9886b] transition-all"
                 >
-                  Launch Project →
+                  Take a peek at this Project →
                 </a>
               </div>
             </div>
@@ -119,7 +144,7 @@ function Work() {
                 <img 
                   src={proj.img} 
                   alt={proj.title} 
-                  className="w-full aspect-[4/3] object-cover opacity-90 group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000"
+                  className="w-full  object-cover opacity-90 group-hover:scale-105 group-hover:opacity-100 transition-all duration-1000"
                 />
               </a>
             </div>

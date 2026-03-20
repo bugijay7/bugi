@@ -1,21 +1,48 @@
 import React from 'react';
 import { FaArrowRight } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 function Cta() {
   return (
-    <div className="flex flex-col justify-around items-center md:min-h-[40vh] w-full px-6 sm:px-10 py-10 bg-[#263627] text-white text-center ">
-      <h2 className="text-xl md:text-4xl font-bold md-0.5 md:mb-1">
-        Let’s Build Something Great Together
-      </h2>
-      <p className="text-xs s
-      md:text-lg text-gray-300 max-w-2xl mb-0.5 md:mb-1 py-2">
-        Ready to turn your ideas into reality? Whether it's a portfolio, business website, or creative concept—I'm here to help you bring it to life.
-      </p>
-      <a href="/start" 
-        className="flex items-center gap-3 bg-red-500 hover:bg-red-600 text-white text-xs md:text-sm font-semibold py-3 px-6 rounded-full transition-all duration-300 mt-2">
-        Start a Project <FaArrowRight />
-      </a>
-    </div>
+    <section className="px-6 py-24 bg-[#0d2b35] text-white overflow-hidden">
+      <div className="max-w-7xl mx-auto border border-white/10 p-8 md:p-20 relative">
+        
+        {/* Background Decorative Element - Architectural Line */}
+        <div className="absolute top-0 right-10 w-px h-full bg-gradient-to-b from-[#c9886b] to-transparent hidden md:block" />
+
+        <div className="max-w-3xl relative z-10">
+          <span className="text-[#c9886b] text-[10px] font-black uppercase tracking-[0.6em] mb-8 block">
+            Next Steps
+          </span>
+          
+          <h2 
+            className="text-5xl md:text-7xl font-black uppercase tracking-tighter leading-[0.9] mb-8" 
+            style={{ fontFamily: '"Playfair Display", serif' }}
+          >
+            Let’s Build <br /> 
+            Something <span className="text-[#c9886b] italic font-normal">Great</span> Together
+          </h2>
+
+          <p className="text-lg font-light text-white/70 max-w-xl leading-relaxed mb-12">
+            Ready to turn your ideas into reality? Whether it's a portfolio, 
+            business website, or creative concept—I'm here to help you bring it to life.
+          </p>
+
+          <Link 
+            to="/start" 
+            className="group inline-flex items-center gap-6 bg-white text-[#0d2b35] px-10 py-6 text-xs font-black uppercase tracking-[0.3em] transition-all hover:bg-[#c9886b] hover:text-white"
+          >
+            Start a Project 
+            <FaArrowRight className="transition-transform group-hover:translate-x-2" />
+          </Link>
+        </div>
+
+        {/* Subtle Brand Stamp */}
+        <div className="absolute bottom-8 right-8 text-[8px] uppercase tracking-widest opacity-20 hidden md:block">
+          Yohan Labs Studios &copy; 2024 <br /> Nairobi, Kenya
+        </div>
+      </div>
+    </section>
   );
 }
 

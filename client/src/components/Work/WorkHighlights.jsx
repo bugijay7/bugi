@@ -6,6 +6,8 @@ import kashio from '../../assets/kashio.jpg';
 import furniq from '../../assets/furniq.JPG';
 import afc from '../../assets/AFC.png';
 import zoe from '../../assets/zoe.png';
+import veloura from '../../assets/veloura.png';
+import nexafit from '../../assets/nexafit.png';
 
 function WorkHighlights() {
   return (
@@ -180,6 +182,54 @@ function WorkHighlights() {
           />
         </a>
       </section>
+
+      {/* Project 6 - Veloura (Spa) */}
+<section className="flex flex-wrap justify-between items-center gap-[60px] px-10 py-[60px] my-[60px] max-w-[1400px] mx-auto rounded-2xl bg-transparent">
+  <div className="flex-1 min-w-[280px]">
+    <p className="text-[3rem] md:text-[5rem] font-black text-white mb-5 leading-tight uppercase font">
+      Veloura <br /> Spa
+    </p>
+    <p className="text-[1rem] md:text-[1.2rem] text-gray-400 font-medium leading-[1.7] max-w-[520px] font">
+      A luxury spa website designed to highlight relaxation, wellness, and premium treatments — allowing clients to explore services, book appointments, and experience a calm digital atmosphere.
+    </p>
+  </div>
+  <a
+    href="https://veloura.vercel.app"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="w-full max-w-[550px] transition-transform duration-300 hover:scale-[1.02]"
+  >
+    <img
+      src={veloura}
+      alt="Veloura Spa"
+      className="w-full h-auto object-cover shadow-md hover:shadow-xl transition-shadow duration-300"
+    />
+  </a>
+</section>
+
+{/* Project 7 - NexaFit (Gym & Wellness) */}
+<section className="flex flex-wrap-reverse justify-between items-center gap-[60px] px-10 py-[60px] my-[60px] max-w-[1400px] mx-auto rounded-2xl bg-transparent">
+  <a
+    href="https://nexafit.vercel.app"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="w-full max-w-[550px] transition-transform duration-300 hover:scale-[1.02]"
+  >
+    <img
+      src={nexafit}
+      alt="NexaFit Gym"
+      className="w-full h-auto object-cover shadow-md hover:shadow-xl transition-shadow duration-300"
+    />
+  </a>
+  <div className="flex-1 min-w-[280px]">
+    <p className="text-[3rem] md:text-[5rem] font-black text-white mb-5 leading-tight uppercase font text-right">
+      NexaFit <br /> Wellness
+    </p>
+    <p className="text-[1rem] md:text-[1.2rem] text-gray-400 font-medium leading-[1.7] text-right font">
+      A modern fitness and wellness platform showcasing training programs, coaching, and lifestyle transformation — built to motivate users and simplify membership sign-ups.
+    </p>
+  </div>
+</section>
     </div>
   );
 }
