@@ -3,40 +3,37 @@ import { Link } from "react-router-dom";
 import heroImg from "../assets/hero11.jpg";
 import webImg from "../assets/web.jpeg";
 import customImg from "../assets/custom.jpeg";
-import ecommerceImg from "../assets/ecommerce.jpeg";
+import ecommerceImg from "../assets/ecommerce.jpeg"
 
 function Home() {
 
   useEffect(() => {
-    // Fonts
     const link = document.createElement('link');
     link.href = 'https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;700;900&display=swap';
     link.rel = 'stylesheet';
     document.head.appendChild(link);
 
-    // Title
-    document.title = "Yohan Labs | Web Design Nairobi Kenya | Custom Websites & SEO Services";
+    document.title = "Yohan Labs | Websites That Bring You Customers";
 
-    // Meta Description
     const meta = document.createElement('meta');
     meta.name = "description";
-    meta.content = "Yohan Labs is a Nairobi-based web design and development studio specializing in custom websites, ecommerce stores, SEO optimization, and modern digital solutions in Kenya.";
+    meta.content = "We build modern websites in Kenya that help businesses get customers, sell online, and grow with SEO-driven digital solutions.";
     document.head.appendChild(meta);
 
   }, []);
 
   const services = [
-    { number: "01", title: "Custom Website Development in Kenya", text: "We build professional, responsive websites for businesses, brands, and individuals in Nairobi and across Kenya, tailored to your goals." },
-    { number: "02", title: "E-commerce Website Development", text: "Launch powerful online stores with secure payments, product management, and optimized checkout experiences to grow your business online." },
-    { number: "03", title: "SEO & Google Ranking Optimization", text: "Rank higher on Google with fast-loading, mobile-friendly, and search-optimized websites designed to increase visibility and traffic." },
-    { number: "04", title: "Website Maintenance & Support", text: "Keep your website secure, updated, and performing at its best with ongoing support, backups, and technical maintenance." },
+    { number: "01", title: "Websites That Generate Leads", text: "We build high-converting websites designed to turn visitors into real customers for your business." },
+    { number: "02", title: "Ecommerce Stores That Sell", text: "Launch an online store with seamless payments and optimized checkout to increase your sales." },
+    { number: "03", title: "SEO That Brings You Clients", text: "Get found on Google and attract the right audience actively searching for your services." },
+    { number: "04", title: "Done-For-You Maintenance", text: "We handle updates, security, and performance so your website runs smoothly at all times." },
   ];
 
   const packages = [
-    { title: 'Portfolio Websites', features: ['Custom portfolio design', 'Project showcase', 'CV download', 'Contact integration', 'Mobile responsive'], link: '/ClientForms/PortfolioForms', btnText: 'Build My Website' },
-    { title: 'Ecommerce Stores', features: ['Online store setup', 'Secure payments', 'Product management', 'Analytics integration', 'Customer management'], link: '/ClientForms/StoreForms', btnText: 'Start Selling Online' },
-    { title: 'Business Websites', features: ['Professional branding', 'Lead generation forms', 'SEO-ready blog', 'Clear navigation', 'Live chat integration'], link: '/ClientForms/BrandForms', btnText: 'Grow My Business' },
-    { title: 'NGO & Organization Websites', features: ['Donation systems', 'Event management', 'Story/blog pages', 'Mission showcase', 'Email marketing tools'], link: '/ClientForms/CauseForms', btnText: 'Launch Platform' },
+    { title: 'Portfolio Websites', features: ['Perfect for personal brands', 'Project showcase', 'CV download', 'Contact integration', 'Mobile responsive'], link: '/ClientForms/PortfolioForms', btnText: 'Build My Website' },
+    { title: 'Ecommerce Stores', features: ['Perfect for selling products online', 'Secure payments', 'Product management', 'Analytics integration', 'Customer management'], link: '/ClientForms/StoreForms', btnText: 'Start Selling Online' },
+    { title: 'Business Websites', features: ['Perfect for small businesses', 'Lead generation forms', 'SEO-ready blog', 'Clear navigation', 'Mobile optimized'], link: '/ClientForms/BrandForms', btnText: 'Grow My Business' },
+    { title: 'NGO & Organization Websites', features: ['Perfect for NGOs & churches', 'Donation systems', 'Event management', 'Story/blog pages', 'Email tools'], link: '/ClientForms/CauseForms', btnText: 'Launch Platform' },
   ];
 
   return (
@@ -51,35 +48,35 @@ function Home() {
 
         <div className="flex flex-col items-end text-right gap-4 w-11/12 md:w-10/12 mx-auto pb-20 relative z-10">
           
-          <h1 className="text-6xl md:text-[10rem] font-black text-white leading-none tracking-tighter" style={{ fontFamily: '"Playfair Display", serif' }}>
-            YOHAN<br/>LABS
+          <h1 className="text-6xl md:text-[6rem] font-black text-white leading-none tracking-tighter" style={{ fontFamily: '"Playfair Display", serif' }}>
+            WE BUILD WEBSITES<br/>THAT BRING YOU CLIENTS
           </h1>
 
           <p className="text-sm md:text-xl text-white/80 font-light leading-relaxed max-w-xl border-r-2 border-[#ffe4c4] pr-6 uppercase tracking-widest">
-            Web design, development, and SEO services in Nairobi, Kenya. We build fast, modern, and scalable websites that grow your business online.
+            Nairobi-based web design studio helping businesses grow online with fast, modern, and SEO-optimized websites.
           </p>
 
           <div className="flex gap-0 mt-8">
-            <Link to="/pricings">
+            <Link to="/start">
               <button className="px-12 py-6 text-xs font-bold bg-[#ffe4c4] text-black hover:bg-white transition-all tracking-[0.4em] uppercase">
-                Get Started
+                Get Your Website
               </button>
             </Link>
-            <Link to="/services">
+            <a href="https://wa.me/254700000000">
               <button className="px-12 py-6 text-xs font-bold border border-[#ffe4c4] text-[#ffe4c4] backdrop-blur-md hover:bg-[#ffe4c4] hover:text-black transition-all tracking-[0.4em] uppercase">
-                Services
+                WhatsApp Us
               </button>
-            </Link>
+            </a>
           </div>
         </div>
       </section>
 
       {/* INTRO */}
-      <section className="py-40 px-6 border-b border-black/10">
+      <section className="py-40 px-6 ">
         <div className="max-w-7xl mx-auto">
 
           <h2 className="text-3xl md:text-6xl text-white leading-[1.1] max-w-5xl tracking-tight mb-20" style={{ fontFamily: '"Playfair Display", serif' }}>
-            A Nairobi-based web design studio delivering <span className="italic text-[#1c1205]">high-performance</span> websites, SEO, and digital solutions.
+            We create <span className="italic text-[#1c1205]">high-performance</span> websites that help businesses in Kenya attract customers, build trust, and grow online.
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-black/10 border border-black/10">
@@ -87,7 +84,7 @@ function Home() {
               <div key={i} className="group relative overflow-hidden bg-white">
                 <img 
                   src={img} 
-                  alt="Web design and development projects by Yohan Labs Kenya" 
+                  alt="Web design projects" 
                   className="w-full h-[600px] object-cover group-hover:grayscale-0 group-hover:scale-105 transition-all duration-1000" 
                 />
               </div>
@@ -97,7 +94,7 @@ function Home() {
       </section>
 
       {/* SERVICES */}
-      <section className="py-32 border-b border-black/10">
+      <section className="py-32 ">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-black/10 border border-black/10">
           {services.map((service, index) => (
             <div key={index} className="bg-[#d9b17f] p-12 flex flex-col gap-8 group hover:bg-black transition-all duration-500">
@@ -115,12 +112,36 @@ function Home() {
         </div>
       </section>
 
+      {/* TRUST  */}
+      <section className="py-40 px-6 bg-white border-b border-black/10">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+          <div>
+            <h2 className="text-5xl md:text-7xl font-black text-black tracking-tighter uppercase leading-none mb-10" style={{ fontFamily: '"Playfair Display", serif' }}>
+              Why Businesses <br/><span className="italic text-gray-400">Choose Us</span>
+            </h2>
+            <div className="w-20 h-1 bg-black mb-10"></div>
+          </div>
+          
+          <div className="flex flex-col gap-8">
+            <p className="text-xl md:text-2xl font-light leading-relaxed text-black/80">
+              We focus on <span className="font-bold text-black">results</span> — not just design. Every website we build is crafted to help you attract customers and grow your business.
+            </p>
+            <p className="text-sm uppercase tracking-[0.2em] font-bold text-gray-500 border-l-4 border-[#d9b17f] pl-6">
+              Fast delivery, clean design, and performance-driven development tailored for the Kenyan market.
+            </p>
+            <p className="text-3xl font-black tracking-tighter" style={{ fontFamily: '"Playfair Display", serif' }}>
+              Simple. Effective. Built to grow.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* PRICING */}
       <section className="py-40 px-6">
         <div className="max-w-7xl mx-auto">
 
           <h2 className="text-5xl md:text-9xl font-black text-[#263627] tracking-tighter uppercase leading-none" style={{ fontFamily: '"Playfair Display", serif' }}>
-            Web Design Pricing Kenya
+            Choose Your Website
           </h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-px bg-black/10 border border-black/10 mt-16">
@@ -153,11 +174,11 @@ function Home() {
       <section className="bg-[#263627] py-40 px-6 text-center">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-5xl md:text-8xl font-black text-white mb-16 tracking-tighter leading-none" style={{ fontFamily: '"Playfair Display", serif' }}>
-            Web Design & Development in Kenya <br/> <span className="italic text-[#d9b17f]">Start your project today</span>
+            Ready to Get More Customers Online?<br/> <span className="italic text-[#d9b17f]">Let’s build your website today</span>
           </h2>
-          <a href="/start" className="inline-block bg-red-600 hover:bg-white hover:text-red-600 text-white font-black py-8 px-20 transition-all tracking-[0.5em] uppercase text-xs">
+          <Link to="/start" className="inline-block bg-red-600 hover:bg-white hover:text-red-600 text-white font-black py-8 px-20 transition-all tracking-[0.5em] uppercase text-xs">
             Start a Project
-          </a>
+          </Link>
         </div>
       </section>
 

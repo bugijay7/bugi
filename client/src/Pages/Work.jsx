@@ -32,7 +32,7 @@ function Work() {
   {
     title: "Kimani wa Mbicha",
     desc: "A professional photography portfolio website showcasing stunning visuals, client work, and booking services for events, portraits, and creative shoots.",
-    img: mwangi, // make sure you import this image
+    img: mwangi, 
     link: "https://mwangi-ruby.vercel.app", 
     category: "CREATIVE / PHOTOGRAPHY"
   },

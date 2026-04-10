@@ -69,7 +69,7 @@ function Navbar() {
   return (
     <>
     <nav
-      className={`fixed top-0 w-full z-[9999] transition-all duration-500 border-b ${
+      className={`fixed top-0 w-full z-[9999] transition-all duration-500  ${
         scrolled
           ? "bg-white/90 backdrop-blur-md py-4 border-black/10 shadow-xl"
           : "bg-transparent py-8 border-white/10"
