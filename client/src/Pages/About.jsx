@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import kibugi from '../assets/maina.jpeg';
-import maina from '../assets/kibugi.jpg';
+import maina from '../assets/shape.jpeg';
 
 function About() {
   useEffect(() => {
@@ -34,7 +34,7 @@ function About() {
       <section className="pt-32 pb-20 px-6 border-b border-[#0d2b35]/10">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
           <p className="text-4xl md:text-7xl font-black leading-none tracking-tighter uppercase italic text-[#0d2b35]" style={{ fontFamily: '"Playfair Display", serif' }}>
-            PASSIONATE <br /> CREATIVE <br /> <span className="text-[#c9886b]">DEVELOPER</span>
+            PASSIONATE <br /> CREATIVE <br /> <span className="text-[#c9886b]">DEVELOPMENT</span>
           </p>
 
           <div className="relative group">
@@ -62,7 +62,7 @@ function About() {
             <p className="text-lg font-light text-[#f3e9e2]/70 leading-relaxed">
               I'm a full-stack developer with experience creating scalable products and user-focused web applications. I bridge the gap between design and engineering.
             </p>
-            <img src={maina} alt="Kibugi" className="w-full h-64 object-cover border border-[#c9886b]/30" />
+            <img src={maina} alt="Kibugi" className="w-full h-94 object-cover border border-[#c9886b]/30" />
           </div>
         </div>
       </section>
