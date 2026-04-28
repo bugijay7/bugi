@@ -48,11 +48,11 @@ function Home() {
 
         <div className="flex flex-col items-end text-right gap-4 w-11/12 md:w-10/12 mx-auto pb-20 relative z-10">
           
-          <h1 className="text-6xl md:text-[6rem] font-black text-white leading-none tracking-tighter" style={{ fontFamily: '"Playfair Display", serif' }}>
+          <h1 className="text-[2rem] sm:text-[6rem] font-black text-white leading-none tracking-tighter" style={{ fontFamily: '"Playfair Display", serif' }}>
             WE BUILD WEBSITES<br/>THAT BRING YOU CLIENTS
           </h1>
 
-          <p className="text-sm md:text-xl text-white/80 font-light leading-relaxed max-w-xl border-r-2 border-[#ffe4c4] pr-6 uppercase tracking-widest">
+          <p className="text-xs md:text-2xl text-white/80 font-light leading-relaxed max-w-xl border-r-2 border-[#ffe4c4] pr-6 uppercase tracking-widest">
             Nairobi-based web design studio helping businesses grow online with fast, modern, and SEO-optimized websites.
           </p>
 
@@ -62,9 +62,9 @@ function Home() {
                 Get Your Website
               </button>
             </Link>
-            <a href="https://wa.me/254700000000">
+            <a href="https://wa.me/254702443418">
               <button className="px-12 py-6 text-xs font-bold border border-[#ffe4c4] text-[#ffe4c4] backdrop-blur-md hover:bg-[#ffe4c4] hover:text-black transition-all tracking-[0.4em] uppercase">
-                WhatsApp Us
+                Connect On Whatsapp
               </button>
             </a>
           </div>
