@@ -58,12 +58,12 @@ function Home() {
 
           <div className="flex gap-0 mt-8">
             <Link to="/start">
-              <button className="px-12 py-6 text-xs font-bold bg-[#ffe4c4] text-black hover:bg-white transition-all tracking-[0.4em] uppercase">
+              <button className="px-12 py-6 text-xs sm:text-2x font-bold bg-[#ffe4c4] text-black hover:bg-white transition-all tracking-[0.4em] uppercase">
                 Get Your Website
               </button>
             </Link>
             <a href="https://wa.me/254702443418">
-              <button className="px-12 py-6 text-xs font-bold border border-[#ffe4c4] text-[#ffe4c4] backdrop-blur-md hover:bg-[#ffe4c4] hover:text-black transition-all tracking-[0.4em] uppercase">
+              <button className="px-12 py-6 text-xs sm:text-2x font-bold border border-[#ffe4c4] text-[#ffe4c4] backdrop-blur-md hover:bg-[#ffe4c4] hover:text-black transition-all tracking-[0.4em] uppercase">
                 Connect On Whatsapp
               </button>
             </a>
